@@ -1,0 +1,287 @@
+﻿/* ==========================================================
+   RACLAB â€” SITE-WIDE ANIMATED BACKGROUND SYSTEM
+   Included via index.css @import â†’ applies to ALL pages
+   Each page section has its own subtle variant.
+   ========================================================== */
+
+/* â”€â”€ Shared keyframes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@keyframes bgGridShift {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 80px 80px, 80px 80px; }
+}
+
+@keyframes bgGridShiftFast {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 50px 50px, 50px 50px; }
+}
+
+@keyframes bgOrb {
+  0%,100% { transform: translate(-50%,-50%) scale(1);   opacity: 0.55; }
+  50%      { transform: translate(-50%,-50%) scale(1.18); opacity: 0.35; }
+}
+
+@keyframes bgFloatUp {
+  0%   { transform: translateY(0) scale(1);   opacity: 0; }
+  15%  { opacity: 0.3; }
+  85%  { opacity: 0.12; }
+  100% { transform: translateY(-80vh) scale(0.2); opacity: 0; }
+}
+
+@keyframes bgPulse {
+  0%,100% { opacity: 0.04; }
+  50%      { opacity: 0.08; }
+}
+
+/* â”€â”€ 1. GLOBAL BODY GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Very subtle always-on grid across every page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,77,77,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.035) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: bgGridShift 24s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Make sure content sits above the body grid */
+body > *:not(style):not(script) {
+  position: relative;
+  z-index: 1;
+}
+
+/* â”€â”€ Reduce motion support â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+/* ==========================================================
+   2. PAGE-SPECIFIC HERO SECTION BACKGROUNDS
+   Each major hero/header gets a unique variant:
+     â€“ Different grid density or angle
+     â€“ Different radial orb placement
+     â€“ Different particle colour tint (all red family)
+   ========================================================== */
+
+/* â”€â”€ HOME (index.html) â€“ HEADER WITH VIDEO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Video already provides depth; add only a vignette + orb */
+.header {
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Vignette */
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(180,14,8,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Content inside header must be above the after-overlay */
+.header > * { position: relative; z-index: 2; }
+
+/* â”€â”€ WHAT WE DO section (home) â”€â”€ subtle tighter grid â”€â”€â”€â”€â”€ */
+.what-we-do {
+  position: relative;
+  overflow: hidden;
+}
+.what-we-do::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,77,77,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: bgGridShiftFast 18s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.what-we-do > * { position: relative; z-index: 1; }
+
+/* â”€â”€ TEAM PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   teamPage and aboutUs already have dark bg; add a diagonal
+   grid and a radial orb from top-right
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.teamPage {
+  position: relative;
+  overflow: hidden;
+}
+.teamPage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,77,77,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: bgGridShift 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top-right glow orb */
+.teamPage::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,77,77,0.09) 0%, transparent 70%);
+  animation: bgOrb 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.teamPage > * { position: relative; z-index: 1; }
+
+/* â”€â”€ ABOUT US section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.aboutUs {
+  position: relative;
+  overflow: hidden;
+}
+.aboutUs::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(255,77,77,0.07) 0%, transparent 60%);
+  animation: bgPulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.aboutUs > * { position: relative; z-index: 1; }
+
+/* â”€â”€ BLOG PAGE hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Blog uses wider grid + diagonal lines for a "data feed" feel */
+.blog-hero,
+.blog-header,
+.blogPage,
+.blog-container {
+  position: relative;
+  overflow: hidden;
+}
+.blog-hero::before,
+.blogPage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,77,77,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.04) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(255,77,77,0.022) 1px, transparent 1px);
+  background-size: 70px 70px, 70px 70px, 100px 100px;
+  animation: bgGridShift 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.blog-hero > *,
+.blogPage > * { position: relative; z-index: 1; }
+
+/* â”€â”€ VEHICLES PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Tighter grid â€” mechanical / engineering feel */
+.vehiclesPage,
+.vehicles-container {
+  position: relative;
+  overflow: hidden;
+}
+.vehiclesPage::before,
+.vehicles-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,77,77,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: bgGridShiftFast 14s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bottom-left engineering orb */
+.vehiclesPage::after,
+.vehicles-container::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(255,77,77,0.08) 0%, transparent 70%);
+  animation: bgOrb 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.vehiclesPage > *,
+.vehicles-container > * { position: relative; z-index: 1; }
+
+/* â”€â”€ VEHICLE DETAIL & BLOG DETAIL pages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Minimal â€” just a soft orb at top center */
+.vehicle-detail-page,
+.blog-detail-page,
+.detail-section {
+  position: relative;
+  overflow: hidden;
+}
+.vehicle-detail-page::before,
+.blog-detail-page::before,
+.detail-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(255,77,77,0.07) 0%, transparent 70%);
+  animation: bgPulse 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.vehicle-detail-page > *,
+.blog-detail-page > *,
+.detail-section > * { position: relative; z-index: 1; }
+
+/* â”€â”€ SIDEBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.sidebar .area {
+  position: relative;
+  overflow: hidden;
+}
+
+/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,77,77,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,77,77,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+footer > * { position: relative; z-index: 1; }
+
+/* â”€â”€ CONTACT â€” already has its own grid; keep it in sync â”€â”€ */
+/* contact.css has .contact-hero::before; the global body::before
+   underneath adds extra depth without duplication */
+
+/* â”€â”€ OVERLAY: ensure all cards / content pop over grid â”€â”€â”€â”€ */
+.card,
+.formGroup,
+.teamCard,
+.primary-objective-card,
+.blog-card,
+.vehicle-card,
+.contact-form-wrap,
+.contact-info-panel,
+.c-card,
+.tl-card {
+  isolation: isolate; /* creates new stacking context */
+}
+
+

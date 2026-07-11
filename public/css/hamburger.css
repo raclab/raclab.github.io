@@ -1,0 +1,104 @@
+/* ==================================================
+   HAMBURGER MENU — mobile responsive topbar
+   ================================================== */
+
+/* ── HAMBURGER BUTTON ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text-main);
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease, width 0.25s ease;
+    transform-origin: center;
+}
+
+/* Active (X) state */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE NAV OVERLAY ── */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 13, 18, 0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-soft);
+    z-index: 999;
+    padding: 24px 32px 32px;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-nav a {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-soft);
+    transition: color 0.25s, padding-left 0.25s;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav a:hover {
+    color: var(--accent);
+    padding-left: 8px;
+}
+
+/* ── RESPONSIVE BREAKPOINT ── */
+@media (max-width: 768px) {
+
+    .topbar .center,
+    .topbar .right {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+}

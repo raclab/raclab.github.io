@@ -1,0 +1,416 @@
+:root {
+    --primary-red: var(--accent, #ff2a2a);
+    --primary-glow: color-mix(in srgb, var(--accent) 60%, transparent);
+    --bg-deep: #050505;
+    --surface-dark: rgba(0, 0, 0, 0.8);
+    --surface-border: rgba(255, 42, 42, 0.1);
+    --text-main: #f0f0f5;
+    --text-muted: #8a8a95;
+    --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.header-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 150px;
+    background: var(--primary-red);
+    filter: blur(100px);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 0 30px var(--primary-glow);
+}
+
+.subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+}
+
+.highlight {
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 100px;
+    background: transparent;
+}
+
+/* SVG Ortak Katman */
+.energy-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- 1. YILLAR ARASI SARMAL PARTÄ°KÃœL Ã‡Ä°ZGÄ°LER (KARIÅIK VE RASTGELE AKIÅ) --- */
+.vertical-spiral {
+    fill: none;
+    stroke: color-mix(in srgb, var(--primary-red) 60%, transparent);
+    /* SaydamlÄ±k */
+    stroke-width: 7;
+    /* BÃ¼yÃ¼k partikÃ¼ller */
+    stroke-linecap: round;
+    /* Kusursuz yuvarlaklÄ±k */
+
+    /* Ä°ÅTE SIR BURADA: DÃ¼zensiz boÅŸluklar. 
+       Bazen arka arkaya 2 partikÃ¼l Ã§Ä±kar, bazen uzun sÃ¼re hiÃ§ Ã§Ä±kmaz. */
+    stroke-dasharray: 0 20 0 50 0 25 0 40 0 15 0 70;
+
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--primary-red) 90%, transparent));
+    animation: flowRandom1 3.5s linear infinite;
+}
+
+/* Ä°kinci sarmal (Ters yÃ¶ne ve tamamen farklÄ± bir rastgelelikle akar) */
+.vertical-spiral-2 {
+    stroke: color-mix(in srgb, var(--primary-red) 30%, transparent);
+    /* Arka plandakiler daha saydam */
+    stroke-width: 4;
+    /* Biraz daha kÃ¼Ã§Ã¼kler */
+
+    /* FarklÄ± bir dÃ¼zensiz boÅŸluk dizilimi */
+    stroke-dasharray: 0 60 0 25 0 130 0 40 0 90;
+
+    animation: flowRandom2 4.5s linear infinite;
+    animation-direction: reverse;
+}
+
+/* AnimasyonlarÄ±n atlamadan (pÃ¼rÃ¼zsÃ¼z) dÃ¶nmesi iÃ§in dasharray toplamÄ± kadar kaydÄ±rÄ±yoruz */
+@keyframes flowRandom1 {
+
+    /* Toplam: 30+110+45+80+20+150 = 435 */
+    from {
+        stroke-dashoffset: 435;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes flowRandom2 {
+
+    /* Toplam: 60+25+130+40+90 = 345 */
+    from {
+        stroke-dashoffset: 345;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Merkezi zayÄ±f kÄ±lavuz izi */
+.vertical-core {
+    fill: none;
+    stroke: color-mix(in srgb, var(--primary-red) 10%, transparent);
+    stroke-width: 1;
+    /* KÄ±lavuz izini bile dÃ¼zensiz yaptÄ±k ki yapay durmasÄ±n */
+    stroke-dasharray: 2 20 2 50 2 15;
+}
+
+/* --- 2. KARTLARA GÄ°DEN BAÄLANTI Ã‡Ä°ZGÄ°LERÄ° --- */
+.branch-line {
+    fill: none;
+    stroke: color-mix(in srgb, var(--primary-red) 20%, transparent);
+    stroke-width: 1.5;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    transition: stroke-dashoffset 0.8s var(--transition-smooth), stroke 0.3s, filter 0.3s, stroke-width 0.3s;
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--primary-red) 10%, transparent));
+}
+
+.branch-line.drawn {
+    stroke-dashoffset: 0;
+}
+
+.branch-line.glow {
+    stroke: var(--primary-red);
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.branch-data-flow {
+    fill: none;
+    stroke: var(--primary-red);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 15 1500;
+    animation: flowData 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.8s, stroke-width 0.3s, filter 0.3s;
+}
+
+.branch-line.drawn+.branch-data-flow {
+    opacity: 0.3;
+}
+
+.branch-data-flow.glow {
+    opacity: 1 !important;
+    stroke-width: 3.5;
+    filter: drop-shadow(0 0 10px #ff0000);
+}
+
+@keyframes flowData {
+    0% {
+        stroke-dashoffset: 1500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* --- BÃ–LÃœMLER & YILLAR --- */
+.timeline-section {
+    position: relative;
+    margin-bottom: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    padding-bottom: 40px;
+}
+
+.node-trigger {
+    width: 70px;
+    height: 70px;
+    background: var(--bg-deep);
+    border: 1px solid var(--surface-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s var(--transition-smooth);
+    position: relative;
+    cursor: default;
+}
+
+.node-core {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.node-ring {
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    border: 1px dashed var(--primary-red);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s, transform 10s linear;
+    animation: spinSlow 10s linear infinite;
+}
+
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.node-trigger span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+/* HOVER: YÄ±l DÃ¼ÄŸÃ¼mÃ¼ EtkileÅŸimi */
+.timeline-section:hover .node-trigger {
+    transform: scale(1.1);
+    border-color: var(--primary-red);
+    box-shadow: 0 0 25px var(--primary-glow), inset 0 0 10px var(--primary-glow);
+}
+
+.timeline-section:hover .node-trigger .node-core,
+.timeline-section:hover .node-trigger .node-ring {
+    opacity: 1;
+}
+
+.timeline-section:hover .node-trigger span {
+    color: var(--primary-red);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* --- KART TASARIMI VE ANÄ°MASYONU --- */
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 80px;
+    perspective: 1000px;
+}
+
+.timeline-section .card {
+    background: var(--surface-dark);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    padding: 30px 25px;
+    width: 30%;
+    min-width: 280px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px) rotateX(-10deg);
+    transition: opacity 0.5s var(--transition-smooth),
+        transform 0.5s var(--transition-smooth),
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.timeline-section .card:nth-child(1) {
+    transition-delay: 0.0s;
+}
+
+.timeline-section .card:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.timeline-section .card:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.timeline-section.node-active .card {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) rotateX(0);
+}
+
+.timeline-section .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary-red);
+    box-shadow: 0 0 10px var(--primary-red);
+    transition: width 0.6s var(--transition-smooth) 0.3s;
+}
+
+.timeline-section.node-active .card-accent {
+    width: 100%;
+}
+
+.timeline-section .card:hover {
+    transform: scale(1.02) !important;
+    border-color: rgba(255, 42, 42, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 42, 42, 0.1);
+}
+
+.timeline-section .card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.timeline-section .card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.timeline-section .card img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--surface-border);
+}
+
+.timeline-section .card .img-placeholder {
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 42, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: 0.3s;
+}
+
+.timeline-section .card:hover .img-placeholder {
+    border-color: var(--primary-red);
+    color: var(--text-main);
+    background: rgba(255, 42, 42, 0.05);
+}
+
+@media (max-width: 900px) {
+    .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .timeline-section .card {
+        width: 95%;
+        min-width: unset;
+        transform: translateY(20px);
+    }
+
+    .timeline-section {
+        margin-bottom: 100px;
+    }
+}

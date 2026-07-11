@@ -1,0 +1,139 @@
+/* ==========================
+   TOPBAR – DARK TECH
+========================== */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 72px;
+  background: rgba(10, 13, 18, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+  z-index: 1000;
+}
+
+/* WRAPPER */
+.topbar .wrapper {
+  max-width: 1400px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+/* LEFT (LOGO) */
+.topbar .left {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+
+.topbar .left img {
+  height: 42px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.topbar .left img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px var(--accent-soft));
+}
+
+/* CENTER (NAV LINKS) */
+.topbar .center {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.topbar .center a {
+  color: var(--text-main);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+/* underline effect */
+.topbar .center a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transition: width 0.35s ease;
+}
+
+.topbar .center a:hover {
+  color: white;
+}
+
+.topbar .center a:hover::after {
+  width: 100%;
+}
+
+/* RIGHT (SEARCH) */
+.topbar .right {
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* SEARCH ENGINE */
+.topbar .right .searchEngine {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  transition: width 0.4s ease;
+}
+
+.topbar .right .searchEngine.active {
+  width: 200px;
+}
+
+.topbar .right .searchEngine input {
+  width: 100%;
+  height: 38px;
+  padding: 0 40px 0 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  color: var(--text-main);
+  outline: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.topbar .right .searchEngine.active input {
+  opacity: 1;
+}
+
+/* SEARCH ICON */
+.topbar .right .searchEngine i {
+  position: absolute;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.topbar .right .searchEngine i:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--accent-soft);
+}

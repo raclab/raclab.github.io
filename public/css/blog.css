@@ -1,0 +1,248 @@
+/* Version: 2026-05-03_1410 */
+/* =========================================================
+   BLOG SECTION – MODERN DARK TECH / 3D KARUSEL
+   Renk değişkenlerinin bu bileşende tanımlı olduğunu varsayıyoruz.
+========================================================= */
+
+.blogContainer {
+  max-width: 1400px;
+  margin: 150px auto 100px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 50px rgba(255, 77, 77, 0.05);
+}
+
+.blogHeader {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 6px;
+  margin-bottom: 70px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent), #ffffff, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px var(--accent-soft);
+}
+
+/* ─── DESKTOP: 3D Carousel container ─────────────────────── */
+.blogCardDisplay {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  perspective: 1400px;
+}
+
+/* CARD */
+.blogCard {
+  width: 320px;
+  height: 580px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255, 77, 77, 0.1), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-soft);
+  color: var(--text-main);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.5;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.blogCard:hover {
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 60px var(--accent);
+  border-color: var(--accent);
+}
+
+/* ─── Navigation Buttons (desktop) ─────────────────────────── */
+.navButtons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.navBtn {
+  background: linear-gradient(135deg, var(--accent), #e03b3b);
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 20px rgba(255, 77, 77, 0.4);
+  transition: all 0.3s ease;
+}
+
+.navBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 77, 77, 0.6);
+}
+
+/* =========================================================
+   MOBILE BLOG SLIDER  (≤768px)
+========================================================= */
+@media (max-width: 768px) {
+  .blogContainer {
+    margin: 80px auto 0;
+    padding-bottom: 100px; /* Alt bar ile çakışma önleme */
+    overflow: hidden;
+  }
+
+  .blogHeader {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    padding: 0 16px;
+  }
+
+  /* Slider wrapper: fixed height, clipping */
+  .blogCardDisplay {
+    height: 540px;
+    perspective: none;
+    overflow: visible;
+    position: relative;
+  }
+
+  /* ── Tüm kartlar gizli ── */
+  .blogCard {
+    width: 78%;
+    height: auto;
+    min-height: 460px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transform-style: flat;
+  }
+
+  /* Aktif kart: tam ortada, tam görünür */
+  .blogCard[data-mobile-pos="active"] {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+  }
+
+  /* Önceki kart: solda, küçük, soluk */
+  .blogCard[data-mobile-pos="prev"] {
+    transform: translateX(-110%) scale(0.82);
+    opacity: 0.35;
+    z-index: 5;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Sonraki kart: sağda, küçük, soluk */
+  .blogCard[data-mobile-pos="next"] {
+    transform: translateX(10%) scale(0.82);
+    opacity: 0.35;
+    z-index: 5;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Gizli kartlar tamamen saklı */
+  .blogCard[data-mobile-pos="hidden"] {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Read More butonu mobilde her zaman görünür */
+  .readMore {
+    display: flex !important;
+    margin-top: 12px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+
+  .blogName {
+    font-size: 1.1rem;
+    min-height: unset;
+  }
+
+  .blogText {
+    font-size: 0.88rem;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ─── Mobile Navigation Controls ─────────────────────────── */
+.blog-mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .blog-mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 16px;
+    padding: 0 16px;
+    position: relative;
+    z-index: 20;
+  }
+
+  .blog-mobile-btn {
+    background: rgba(255, 77, 77, 0.15);
+    border: 1px solid var(--accent);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .blog-mobile-btn:hover,
+  .blog-mobile-btn:active {
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+  }
+
+  .blog-mobile-dots {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 160px;
+  }
+
+  .blog-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transition: background 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .blog-dot.active {
+    background: var(--accent);
+    transform: scale(1.35);
+    box-shadow: 0 0 8px var(--accent);
+  }
+}

@@ -1,0 +1,100 @@
+/* ==========================
+   SIDEBAR – DARK TECH
+========================== */
+
+.sidebar {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  background: var(--bg-secondary);
+}
+
+.sidebar .area {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(25px) brightness(1.1);
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-soft);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sidebar .area:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent);
+}
+
+/* TITLE */
+.sidebar h3 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: var(--text-main);
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.sidebar h3::after {
+  content: '';
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(to right,
+      transparent,
+      var(--accent),
+      transparent);
+  display: block;
+  margin: 12px auto 0;
+}
+
+/* SPONSOR LOGO */
+.sponsor-list {
+  display: flex;
+  /* Logolar yan yana */
+  justify-content: center;
+  /* Ortalar */
+  align-items: center;
+  /* Dikey ortalar */
+  gap: 20px;
+  /* Aralarındaki boşluk */
+  flex-wrap: wrap;
+  /* Ekran daralınca alt satıra geçer */
+}
+
+.sponsor {
+  display: block;
+  /* Hover ve filtre efektleri çalışır */
+  max-width: 180px;
+  /* Küçük logolar için uygun boyut */
+  filter: grayscale(100%) brightness(0.9);
+  opacity: 0.85;
+  transition: all 0.35s ease;
+  margin: 0;
+  /* Flex gap ile aralık verildi */
+}
+
+.sponsor:hover {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* ==========================
+   FOOTER – DARK TECH
+========================== */
+
+footer {
+  padding: 28px 0;
+  text-align: center;
+  background: linear-gradient(to right,
+      #070a10,
+      #0b0f18,
+      #070a10);
+  color: var(--text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 1.2px;
+  border-top: 1px solid var(--border-soft);
+}

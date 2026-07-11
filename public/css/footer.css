@@ -1,0 +1,123 @@
+/* ==================================================
+   FOOTER — site geneli
+   ================================================== */
+
+footer {
+    background: #0a0d12;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 56px 40px 28px;
+    margin-top: auto;
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── BRAND ── */
+.footer-brand img {
+    height: 44px;
+    width: auto;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: #9ca3af;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+/* ── NAV COLUMNS ── */
+.footer-col h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b50e08;
+    margin-bottom: 18px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col ul a {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    transition: color 0.25s;
+}
+
+.footer-col ul a:hover {
+    color: #e5e7eb;
+}
+
+/* ── SOCIAL ICONS ── */
+.footer-social {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    transition: border-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.footer-social a:hover {
+    border-color: #b50e08;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(181, 14, 8, 0.3);
+}
+
+/* ── BOTTOM BAR ── */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #6b7280;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}

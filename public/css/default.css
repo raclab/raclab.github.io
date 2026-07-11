@@ -1,0 +1,93 @@
+/* ==========================
+   DARK TECH THEME - DEFAULT
+========================== */
+
+:root{
+  font-size: 16px;
+
+  /* COLOR SYSTEM — Base: #030303 */
+  --bg-main:      #030303;
+  --bg-secondary: #0a0a0a;
+  --bg-card:      #080808;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --accent: #b50e08;
+  --accent-soft: rgba(225, 6, 0, 0.25);
+
+  --border-soft: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.04);
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* DIVISION THEMES */
+.theme-uav {
+  --accent: #ff2d2d;
+  --accent-soft: rgba(255, 45, 45, 0.25);
+}
+
+.theme-uw {
+  --accent: #00bfff;
+  --accent-soft: rgba(0, 191, 255, 0.25);
+}
+
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SCROLLBAR (HIDDEN / CLEAN) */
+html::-webkit-scrollbar{
+  width: 0px;
+}
+
+/* SMOOTH SCROLL */
+html{
+  scroll-behavior: smooth;
+}
+
+/* BODY */
+body{
+  min-height: 100vh;
+  background-color: #030303;
+  color: var(--text-main);
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* MEDIA */
+img, video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* LINKS */
+a,
+a:active,
+a:link,
+a::before,
+a::after{
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover{
+  color: var(--accent);
+}
+
+/* LISTS */
+ul{
+  list-style: none;
+}
+
+/* SELECTION */
+::selection{
+  background: var(--accent);
+  color: white;
+}
