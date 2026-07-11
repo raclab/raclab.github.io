@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awards & Achievements — RACLAB</title>
+  <meta name="description" content="RACLAB's complete list of 32+ competition awards from TEKNOFEST, AUVSI SUAS, OpenZeka, TÜBİTAK, and ODTÜ Robot Days." />
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pub-year-section { margin-bottom: 48px; }
+    .pub-year-heading {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--blue);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--border-active);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pub-year-heading::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 3px;
+    }
+    .pub-type-journal  { border-left: 4px solid #e63329; }
+    .pub-type-conf     { border-left: 4px solid #f59e0b; }
+    .pub-type-book     { border-left: 4px solid #a855f7; }
+    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
+    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
+    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
+    .pub-card-text em { color: var(--blue); font-style: italic; }
+    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
+    .pub-card-text a:hover { color: #ff6b6b; }
+    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
+    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
+    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
+    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html" class="active">Achievements</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
+    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <span>Achievements</span></div>
+    <p class="section-label">Awards &amp; Honours</p>
+    <h1>Competition Achievements</h1>
+    <p>32+ awards from national and international competitions since 2016 — including championships, runner-ups, and special recognition.</p>
+  </div>
+</div>
+
+<section style="padding:60px 0;">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="teknofest">TEKNOFEST</button>
+      <button class="filter-btn" data-filter="tubitak">TÜBİTAK UAV</button>
+      <button class="filter-btn" data-filter="international">International</button>
+      <button class="filter-btn" data-filter="odtu">ODTÜ Robot Days</button>
+    </div>
+
+    <div class="awards-list" style="gap:12px;">
+
+      <!-- 2025 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2025</h3>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal gold">🏆</div>
+        <div class="award-body"><strong>TEKNOFEST'25 — Underwater Systems Championship</strong><span>RACLAB NOVA · Champion + "Best Team Spirit" Award</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNOFEST'25 — Robotaxi Binek Runner-Up</strong><span>RACLAB SİGUN · 2nd Place + "Best Original Software" Award</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>TEKNOFEST'25 — TÜBİTAK UAV Free Category 3rd Place</strong><span>RACLAB TULPARS · 3rd Place + Advisor 3rd Place Award</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>TEKNOFEST'25 — Digital Technologies in Industry Honorable Mention 3rd</strong><span>RACLAB FAAL</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🌊</div>
+        <div class="award-body"><strong>TEKNOFEST'25 — Unmanned Surface Vehicle 7th Place</strong><span>RACLAB EZEL</span></div>
+      </div>
+
+      <!-- 2024 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2024</h3>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNOFEST'24 — Robotaxi Hazır Araç Performance Runner-Up</strong><span>RACLAB SİGUN · 2nd Place Performance Award</span></div>
+      </div>
+
+      <!-- 2023 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2023</h3>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>TEKNOFEST'23 — UAV Rotary Wing Performance Award</strong><span>RACLAB İHA</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>TEKNOFEST'23 — UAV Fixed Wing Performance Award</strong><span>RACLAB MERKÜT İHA</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>TEKNOFEST'23 — Robotaxi Performance 3rd Place</strong><span>RACLAB SİGUN</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal gold">🎨</div>
+        <div class="award-body"><strong>TEKNOFEST'23 — Agricultural UGV "Best Original Design" Award</strong><span>RACLAB ARES</span></div>
+      </div>
+
+      <!-- 2022 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2022</h3>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal gold">💻</div>
+        <div class="award-body"><strong>TEKNOFEST'22 — Robotaxi "Best Original Software" &amp; Performance 1st</strong><span>RACLAB SİGUN</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal gold">🤝</div>
+        <div class="award-body"><strong>TEKNOFEST'22 — Swarm UAV "Best Team Spirit" Award</strong><span>RACLAB Swarm Team</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNOFEST'22 — TÜBİTAK 2242 "Defence/Space/Aero" 2nd Place</strong><span>"Underwater Vehicle Control Board" — RACLAB</span></div>
+      </div>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>18. ODTÜ Robot Days — Autonomous UAV-Image Processing 3rd Place</strong><span>RACLAB Aybars</span></div>
+      </div>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>18. ODTÜ Robot Days — Innovation Category Honorable Mention</strong><span>RACLAB Aspar</span></div>
+      </div>
+
+      <!-- 2021 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2021</h3>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNOFEST'21 — Smart Transportation Runner-Up</strong><span>RACLAB Intelligent Transportation Team</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal gold">💻</div>
+        <div class="award-body"><strong>TEKNOFEST'21 — Robotaxi "Best Original Software" Award</strong><span>RACLAB SİGUN</span></div>
+      </div>
+
+      <!-- 2020 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2020</h3>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal gold">🏆</div>
+        <div class="award-body"><strong>17. ODTÜ Robot Days — Autonomous UAV-Image Processing Champion</strong><span>RACLAB Tugberk</span></div>
+      </div>
+      <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>TEKNOFEST'20 — Smart Transportation 3rd Place</strong><span>RACLAB Intelligent Transportation Team</span></div>
+      </div>
+
+      <!-- 2019 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2019</h3>
+      <div class="award-item" data-cat="tubitak">
+        <div class="award-medal gold">🏆</div>
+        <div class="award-body"><strong>TÜBİTAK International UAV Competition — Rotary Wing Champion</strong><span>RACLAB Aybars · TEKNOFEST'19 National Champion</span></div>
+      </div>
+      <div class="award-item" data-cat="international">
+        <div class="award-medal silver">🌍</div>
+        <div class="award-body"><strong>AUVSI SUAS 2019 — 11th Place / 67 Teams (Maryland, USA)</strong><span>17th Student Unmanned Air Systems Competition</span></div>
+      </div>
+      <div class="award-item" data-cat="international">
+        <div class="award-medal gold">🏆</div>
+        <div class="award-body"><strong>OpenZeka MARC 2019 — University Category Champion</strong><span>Highest score in mini autonomous car competition</span></div>
+      </div>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>16. ODTÜ Robot Days — Innovation Category Runner-Up</strong><span>"Autonomous Cleaning Robot" — RACLAB</span></div>
+      </div>
+
+      <!-- 2018 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2018</h3>
+      <div class="award-item" data-cat="tubitak">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNOFEST'18 — TÜBİTAK UAV Rotary Wing Runner-Up</strong><span>RACLAB S-Quad</span></div>
+      </div>
+      <div class="award-item" data-cat="tubitak">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>TEKNOFEST'18 — TÜBİTAK UAV Rotary Wing 3rd Place</strong><span>RACLAB S-Air</span></div>
+      </div>
+      <div class="award-item" data-cat="international">
+        <div class="award-medal silver">🌍</div>
+        <div class="award-body"><strong>AUVSI SUAS 2018 — 20th Place / 70 Teams (Maryland, USA)</strong><span>16th Student Unmanned Air Systems Competition — First participation</span></div>
+      </div>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>15. ODTÜ Robot Days — Innovation Category Runner-Up</strong><span>"Active Security Robot"</span></div>
+      </div>
+
+      <!-- 2017 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2017</h3>
+      <div class="award-item" data-cat="tubitak">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TÜBİTAK International UAV Competition — Rotary Wing Runner-Up</strong><span>RACLAB S-Air</span></div>
+      </div>
+
+      <!-- 2016 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2016</h3>
+      <div class="award-item" data-cat="odtu">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>13. ODTÜ Robot Days — Free Category 3rd Place &amp; Jury Special Award</strong><span>"Mine-Searching Robot with Solar Tracking" — B. Özşen</span></div>
+      </div>
+      <div class="award-item" data-cat="international">
+        <div class="award-medal silver">🥉</div>
+        <div class="award-body"><strong>Yıldız Savaşları 2016 — Free Category 3rd Place</strong><span>"Shopping Assistant Robot" — M. F. Arslan &amp; M. M. Kelek</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script src="../js/script.js" defer></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.award-item').forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>

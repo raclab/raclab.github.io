@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industry Partners & Sponsors — RACLAB</title>
+  <meta name="description" content="RACLAB's industry collaborators and sponsors: Elfatek, MOSAŞ, MPG, Otobot, Agrovisio, Önallar, and more."/>
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="sponsors.html" class="active">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
+    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Sponsors</span></div>
+      <p class="section-label">Industry Collaboration</p>
+      <h1>Partners &amp; Sponsors</h1>
+      <p>RACLAB drives technology transfer through joint R&amp;D projects with Turkish industry leaders and international organizations, funded via TÜBİTAK, KOSGEB, and EU programmes.</p>
+  </div>
+</div>
+
+<section style="padding:60px 0;">
+  <div class="container">
+    <div class="stats-bar" style="margin-bottom:56px;">
+      <div class="stat-cell"><div class="num" data-count="11">0</div><div class="lbl">Industry Partners</div></div>
+      <div class="stat-cell"><div class="num" data-count="6">0</div><div class="lbl">TÜBİTAK Projects</div></div>
+      <div class="stat-cell"><div class="num" data-count="4">0</div><div class="lbl">KOSGEB Projects</div></div>
+      <div class="stat-cell"><div class="num" data-count="1">0</div><div class="lbl">EU Project</div></div>
+    </div>
+
+    <div class="sponsors-grid" style="grid-template-columns:repeat(2,1fr);">
+
+      <!-- Elfatek -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area blue" style="width:64px;height:64px;font-size:20px;">ELF</div>
+        <div>
+          <h3>Elfatek Electronics</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag">TÜBİTAK 1501</span><span class="tag purple">KOSGEB</span>
+          </div>
+          <p>RACLAB and Elfatek jointly developed the Robot Electronic Control Unit (REKÜ) — a modular, indigenous hardware platform for autonomous mobile robots. Three joint projects spanning 2020–2025 covering design, field testing, productization, and cleaning robot integration.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">Projects: TÜBİTAK 1501 (2020–2022) · KOSGEB Ür-Ge (2024–2025) · IoT-AMR KOSGEB</p>
+        </div>
+      </div>
+
+      <!-- MOSAŞ -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area green" style="width:64px;height:64px;font-size:20px;">MOS</div>
+        <div>
+          <h3>MOSAŞ Group</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag">TÜBİTAK 1501</span><span class="tag">TÜBİTAK 1507</span><span class="tag emerald">TÜBİTAK 1832</span><span class="tag purple">KOSGEB</span>
+          </div>
+          <p>The most extensive industry collaboration in RACLAB's history. Five joint projects covering adaptive traffic signal control, V2I communication modules, digital twin intersection systems, traffic analytics software, and a Dünya Bankası-supported green transport project.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">Projects: K-TASK 1511 · V2I 1507 · Digital Twin 1501 · Traffic Analytics KOSGEB · Green 1832 · Innomotive 1511</p>
+        </div>
+      </div>
+
+      <!-- Otobot -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area teal" style="width:64px;height:64px;font-size:20px;">OTO</div>
+        <div>
+          <h3>Otobot</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag purple">KOSGEB Ar-Ge</span><span class="tag">TÜBİTAK 1507</span>
+          </div>
+          <p>Three active projects with Otobot focusing on IoT-based autonomous mobile robot fleet management, agricultural UAV spraying systems, and an indigenous UAV flight control ecosystem (UKE).</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">AMR Fleet (2024) · Agricultural UAV Sprayer 1507 · UAV Flight Control UKE 1507 (2025–active)</p>
+        </div>
+      </div>
+
+      <!-- MPG -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area purple" style="width:64px;height:64px;font-size:18px;font-weight:700;">MPG</div>
+        <div>
+          <h3>MPG Machinery Production Group</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag amber">In-house R&amp;D</span>
+          </div>
+          <p>Development of a fully autonomous outdoor shuttle for patrol and service missions. RACLAB led sensor fusion, localization, route planning, and obstacle avoidance research — field-validated over 4 years (2021–2025).</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">Autonomous Outdoor Shuttle · 2021–2025</p>
+        </div>
+      </div>
+
+      <!-- Agrovisio -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area orange" style="width:64px;height:64px;font-size:20px;">AGR</div>
+        <div>
+          <h3>Agrovisio</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag emerald">EU · ERA-NET</span>
+          </div>
+          <p>International ERA-NET Cofund ICT-AGRI-FOOD project coordinated by Prof. Dr. Akif DURDU. Uses satellite data, remote sensing, and GIS to build a sustainable sugarbeet production incentive and monitoring system.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">ERA-NET Cofund ICT-AGRI-FOOD · 2022–Active</p>
+        </div>
+      </div>
+
+      <!-- Önallar -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo-area red" style="width:64px;height:64px;font-size:20px;">ÖNL</div>
+        <div>
+          <h3>Önallar Agriculture</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag">TÜBİTAK 1501</span>
+          </div>
+          <p>Design, development, and prototype manufacturing of a smart-mapping autonomous orchard spraying machine. Integrates sensor fusion, autonomous route planning, and variable-rate spraying for precision agriculture.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">TÜBİTAK 1501 · Started Oct 2025 · Active</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Funding bodies -->
+    <div style="margin-top:56px;padding:32px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;">
+      <p class="section-label" style="margin-bottom:20px;">Funding &amp; Support Organizations</p>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🇹🇷</div>
+          <div style="font-weight:600;font-size:14px;">TÜBİTAK</div>
+          <div style="font-size:11px;color:var(--text-muted);">Scientific Research Council of Turkey</div>
+        </div>
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🏭</div>
+          <div style="font-weight:600;font-size:14px;">KOSGEB</div>
+          <div style="font-size:11px;color:var(--text-muted);">SME Development Organization</div>
+        </div>
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🇪🇺</div>
+          <div style="font-weight:600;font-size:14px;">ERA-NET / EU</div>
+          <div style="font-size:11px;color:var(--text-muted);">European Research Framework</div>
+        </div>
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🌍</div>
+          <div style="font-weight:600;font-size:14px;">World Bank</div>
+          <div style="font-size:11px;color:var(--text-muted);">Green Transport (via TÜBİTAK 1832)</div>
+        </div>
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">✈️</div>
+          <div style="font-weight:600;font-size:14px;">TUSAŞ LIFT-UP</div>
+          <div style="font-size:11px;color:var(--text-muted);">Aviation Industry Student Support</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;padding:40px;background:linear-gradient(135deg,var(--blue-dim),var(--purple-dim));border:1px solid var(--border-active);border-radius:20px;">
+      <h3 style="font-family:var(--font-head);font-size:24px;font-weight:700;margin-bottom:12px;">Interested in Collaboration?</h3>
+      <p style="color:var(--text-secondary);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto;">We welcome industry partnerships for joint R&amp;D projects, student internships, and technology transfer. Let's build something great together.</p>
+      <a href="../index.html#contact" class="btn-primary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script src="../js/script.js" defer></script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>

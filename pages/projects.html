@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — RACLAB</title>
+  <meta name="description" content="RACLAB projects: RACLAB SİGUN autonomous car, NOVA underwater vehicle, İHA drone teams, industry R&D collaborations."/>
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pub-year-section { margin-bottom: 48px; }
+    .pub-year-heading {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--blue);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--border-active);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pub-year-heading::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 3px;
+    }
+    .pub-type-journal  { border-left: 4px solid #e63329; }
+    .pub-type-conf     { border-left: 4px solid #f59e0b; }
+    .pub-type-book     { border-left: 4px solid #a855f7; }
+    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
+    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
+    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
+    .pub-card-text em { color: var(--blue); font-style: italic; }
+    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
+    .pub-card-text a:hover { color: #ff6b6b; }
+    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
+    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
+    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
+    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
+    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <span>Projects</span></div>
+    <p class="section-label">R&amp;D Projects</p>
+    <h1>Projects</h1>
+    <p>Competition teams, industry R&amp;D collaborations, and TÜBİTAK/KOSGEB funded research — all under one roof.</p>
+  </div>
+</div>
+
+<section style="padding:60px 0;">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="competition">Competition Teams</button>
+      <button class="filter-btn" data-filter="industry">Industry R&amp;D</button>
+      <button class="filter-btn" data-filter="tubitak">TÜBİTAK</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;" id="proj-grid">
+
+      <article class="project-card" data-cat="competition" id="sigun" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-1" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🚗<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag amber">Active</span><span class="tag">Competition</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2021–Present</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB SİGUN — Autonomous Robotaxi</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">AI-powered autonomous driving platform competing in TEKNOFEST Robotaxi championships. The team develops lane detection, traffic sign/light recognition, and full vehicle autonomy using camera, LiDAR, IMU, and deep learning algorithms under ROS.</p>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> Best Original Software × 3 (2021, 2022, 2025) · Runner-Up × 2 (2022 Performance 1st, 2025) · Multiple finalists</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">ROS</span><span class="tag purple">Deep Learning</span><span class="tag">LiDAR</span><span class="tag">Lane Detection</span></div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="competition" id="nova" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-2" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🌊<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag emerald">Champion 2025</span><span class="tag">Competition</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB NOVA — Autonomous Underwater Vehicle</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Custom AUV platform with computer vision-based mission execution. Qualified from ~300 teams in TEKNOFEST 2021, continuously improving to claim the 2025 championship. TÜBİTAK 2242 2nd place for the underwater control board (2022).</p>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> TEKNOFEST 2025 Champion · Best Team Spirit · TÜBİTAK 2242 2nd Place</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">IMU</span><span class="tag">DVL</span><span class="tag emerald">Computer Vision</span><span class="tag">Mission Planning</span></div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="competition" id="iha" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-3" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🚁<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag">Champion 2019</span><span class="tag">Competition</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2017–Present</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB İHA — TÜBİTAK UAV Competition Teams</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Multi-year UAV development for TÜBİTAK International UAV competitions. Autonomous GPS-waypoint navigation, real-time aerial image processing, object detection/classification/localization. Also competed at AUVSI SUAS (USA) 2018 and 2019.</p>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> National Champion 2019 · Runner-Up 2017, 2018 · Performance Awards 2023, 2025 · AUVSI 11th/67 (2019)</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Autonomous Flight</span><span class="tag purple">Image Processing</span><span class="tag">GPS Nav</span></div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="industry tubitak" id="shuttle" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-4" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🏭<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag purple">Industry</span><span class="tag amber">Completed</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2021–2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">Autonomous Outdoor Shuttle — MPG</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Full autonomous shuttle system for outdoor patrol/service missions. Sensor-fusion-based localization (IMU, LiDAR, camera), adaptive route planning, real-time obstacle detection/avoidance. Field-validated in real-world scenarios over 4 years.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Sensor Fusion</span><span class="tag">Path Planning</span><span class="tag emerald">Obstacle Avoidance</span></div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="industry tubitak" id="ktask" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-5" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🚦<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag purple">TÜBİTAK 1511</span><span class="tag amber">Completed</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2018–2020</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">K-TASK: Coordinated Adaptive Traffic Signal System</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Coordinated, fully adaptive traffic signal control system for urban intersections. Developed with Innomotive under TÜBİTAK 1511 Priority Areas R&amp;D Programme. Applies multi-junction coordination and adaptive control algorithms.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Adaptive Control</span><span class="tag">Multi-Junction</span><span class="tag purple">IoT</span></div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="industry tubitak" id="agri" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div class="project-card-img grad-6" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
+          🌿<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
+        </div>
+        <div class="project-card-body" style="padding:24px;">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag emerald">Active · EU Funded</span><span class="tag">ERA-NET</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2022–Present</span></div>
+          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">Satellite-Controlled Sugarbeet Production Monitoring</h3>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">ERA-NET Cofund ICT-AGRI-FOOD international project coordinated by Prof. Dr. Akif DURDU with Agrovisio. Uses satellite data, remote sensing (GIS), and decision support systems for sustainable sugarbeet cultivation incentives.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Remote Sensing</span><span class="tag emerald">GIS</span><span class="tag">Satellite Data</span></div>
+        </div>
+      </article>
+
+    </div>
+
+        <!-- TÜBİTAK Student Projects -->
+    <div style="margin-top:64px;padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;">
+      <p class="section-label" style="margin-bottom:16px;">Student Research</p>
+      <h2 style="font-family:var(--font-head);font-size:28px;font-weight:700;margin-bottom:12px;">49 TÜBİTAK Undergraduate Research Projects (2209-A/B)</h2>
+      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">Since 2014, RACLAB students have completed 49 TÜBİTAK 2209-A/B funded undergraduate research projects covering robot arms, drones, autonomous vehicles, control systems, underwater vehicles, and embedded systems.</p>
+      <ul style="list-style-type: none; padding-left: 0; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Vision-Based, 3-Axis Moving Robotic Arm"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Hasan KÖMÜR</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2014</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Payload-Carrying Quadcopter"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Ahmet Sezer KARADENİZ</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of an Unmanned Tracked Mobile Robot with Electronic Balance Platform and Reconnaissance Capability"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Batuhan Fevzi ÖZŞEN</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Multi-Purpose Mapping Robot"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Doğan UĞURLU</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Soccer-Capable Mobile Robots"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Muhammed Fatih ASLAN</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Robotic Arm that Mimics Human Motion"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet ORAKÇI</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Forklift Robot"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet Eren UZBAY</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Mobile Robot Capable of Mapping and Localization in 2D Environments"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Yunus Emre TUSUN</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Traffic Signal Control with Wireless Sensor Networks"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Ender KURNAZ</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Robotic Arm that Mimics Human Movement Using Image Processing"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Talha TOKLU</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of an Autonomous Task Robot"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Nevzat BOL</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Robot Arm Control Based on Image Processing"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Mahmutoğlu</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Surface Vehicle"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">M. Harun DEMİR</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Image Processing-Based Vehicle Classification and Tracking for Smart Cities"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">A. Furkan BÜYÜKKELEK</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Cargo Transport Robot"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Erol ÖZTÜRK</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Infrared Non-Contact Temperature Measurement"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Hilal UYMAZ</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Endüstriyel Elektrik Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"STM-Based Flight Control Board"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Gökhan Öztürk</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"STM-Based Control Board for Underwater Vehicles"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Büşra Özdeş & Ercan Ataner</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Drone Controlled by Body Movements"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">İrfan Samur & Yasin Türkmenoğlu</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"UAV Localization Without GPS"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Şevval Çelik</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">TUSAŞ LIFT-UP Project</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"UAV Localization Without GPS"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Şevval Çelik & Mert Dağadası</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with TUSAŞ Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Cleaning Robot"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Cansel BOYNUKARA, Fırat BOZKAYA & Metehan ASLANBAŞ</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board and Battery Management System for AGV Robots"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Enes Koçak & Ahmet Bilal Karakuş</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Optimal Intersection Targeting"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Kevser Düzyol, Gamze Öztürk & Mahmut KaraASLAN</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Vision-Based Smart Traffic Control System"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Kevser Düzyol, Mahmut KaraASLAN</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"DC Motor Driver Design"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Ağaç</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Flight Control Board"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Ömer Furkan Gülbaş, Bilal Habeş Akçam & Hüseyin İpekçi</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Helical Antenna Design for Rotary-Wing UAVs"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Sümeyye Çubuk, Musa Şen & Zühal Hançer</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Energy-Efficient Surface Vehicle Design"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Özcan Koşar</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Obstacle Avoidance and Path Planning for UAVs"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">İrfan Samur, Dilara Kurt</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Embedded MATLAB-Based PID-Controlled Underwater Vehicle Control Board"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Burak Dinç</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Airless Tires in Unmanned Ground Vehicles"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Metehan ASLANbaş</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Multi-Purpose Autonomous Ground Vehicle"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">İsmail Eren Ayhan & Ramazan Erdoğmuş</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"MOSFET Driver Board for Industrial Applications"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Ağaç & Ahmet Bilal Karakuş</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Deep Learning-Based GPS Estimation for UAVs"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Doğukan Güven & Murat Ceren</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Underwater Vehicle Control Board with PC Communication Interface"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Halil Açıkgöz & Muhammet Halis Tekin</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Rocket Avionics System"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet Reha Koçak, Ömer Akdoğan & Emir Tatlısu</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board for Autonomous Ground Vehicles"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Emirhan Ayık & Ahmet Kağan Kaya</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MPG Machinery Production Group Inc. Co.</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Graph-Based Collision Avoidance Algorithm for Swarm Agents"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mesut Tunçer</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"F.I.R.A.T: Functional, Intelligent, Autonomous Cleaning Robot and Management Interface"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Yasin Akmaz, Okan Kazancı & Fatih Acar</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Mobile Robot Control Board"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Enes Sırmacı & Taha Yusuf Sarı</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Flight Control Board"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Abdullah Paşa</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Training Artificial Intelligence for Autonomous Vehicles Using Eclipse SUMO and Unity 3D Integration"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Ahmet Şahin</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Industrial Personnel Tracking and Door System"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mevlüt Öner</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Mecanum-Wheeled Supply Vehicle"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Mahmut Sami Güvenç</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Waiter Robot with User Interface and AI-Based Order Delivery"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Burak Özsoy & Bahtiyar Erener Kurt</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Investigation of the Aeroacoustic Effects of Owl Wing Structure and Gurney Flap Aerodynamics"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Abdulkadir Altıntaş & Barış Silav</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"FOC-Based Domestic Motor Driver Software and Hardware"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Gökhan Remzi Örken & Abdulkadir Ceylan</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
+    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board with Embedded Computing Unit for Underwater Vehicles"</strong>
+    <span style="font-size: 13px; color: var(--text-secondary);">Feyza Baltürk</span><br>
+    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2025</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
+  </li>
+</ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script src="../js/script.js" defer></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('#proj-grid article').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.cat.includes(filter)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>

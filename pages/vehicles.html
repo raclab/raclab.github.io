@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="RACLAB Vehicle Fleet – Explore our UAV and underwater vehicle platforms built for competitive and autonomous missions.">
+  <link rel="icon" type="image/png" sizes="512x512" href="../favicon.png">
+  <!-- Open Graph / Google Search -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rac-lab.com/pages/vehicles.html">
+  <meta property="og:title" content="Vehicles | RACLAB">
+  <meta property="og:description" content="RACLAB Vehicle Fleet – Explore our UAV and underwater vehicle platforms built for competitive and autonomous missions.">
+  <meta property="og:image" content="https://www.rac-lab.com/public/img/background/raclab.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:site_name" content="RACLAB">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vehicles | RACLAB">
+  <meta name="twitter:description" content="RACLAB Vehicle Fleet – Explore our UAV and underwater vehicle platforms built for competitive and autonomous missions.">
+  <meta name="twitter:image" content="https://www.rac-lab.com/public/img/background/raclab.png">
+  <title>Vehicles | RACLAB</title>
+  <link rel="stylesheet" href="../public/css/index.css">
+  <link rel="stylesheet" href="../public/css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- model-viewer CDN -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
+<link rel="canonical" href="https://www.rac-lab.com/pages/vehicles.html">
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN (Only Once Per Session) -->
+  <div id="loader" class="loader-overlay" style="display: none;">
+      <div class="loader-content">
+          <div class="loader-glow"></div>
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="loader-logo">
+          <div class="loader-bar-bg">
+              <div id="loader-bar" class="loader-bar-fill"></div>
+          </div>
+          <div class="loader-stats">
+              <span data-i18n="loader_system">LOADING SYSTEMS</span>
+              <span id="loader-percent">0%</span>
+          </div>
+      </div>
+  </div>
+
+  <div class="topbar">
+    <div class="wrapper target">
+      <div class="left"><span><a href="../index.html"><img src="../public/img/user/raclab.png" alt="user"></a></span>
+      </div>
+            <div class="center">
+        <a href="../index.html" data-i18n="nav_home">HOME</a>
+        <a href="./vehicles.html" data-i18n="nav_vehicles">VEHICLES</a>
+        <a href="./team.html" data-i18n="nav_team">TEAM</a>
+        <a href="./blog.html" data-i18n="nav_blog">BLOG</a>
+        <a href="./sponsors.html">SPONSORS</a>
+        <a href="./contact.html" data-i18n="nav_contact">CONTACT</a>
+      </div>
+      <div class="right">
+        <div class="searchEngine" id="searchEngine">
+          <input type="text" placeholder="Search projects...">
+          <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+        </div>
+      <button class="lang-toggle-btn" aria-label="Toggle Language" style="background:transparent; border:1px solid var(--accent); color:var(--text-main); padding:4px 10px; border-radius:6px; cursor:pointer; font-family:Orbitron,sans-serif; font-size:0.8rem; margin-left:15px; transition:0.3s;">TR</button>
+       </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+    <a href="../index.html" data-i18n="nav_home">HOME</a>
+    <a href="./vehicles.html" data-i18n="nav_vehicles">VEHICLES</a>
+    <a href="./team.html" data-i18n="nav_team">TEAM</a>
+    <a href="./blog.html" data-i18n="nav_blog">BLOG</a>
+    <a href="./sponsors.html">SPONSORS</a>
+    <a href="./contact.html" data-i18n="nav_contact">CONTACT</a>
+  </nav>
+
+  <header class="header target">
+    <video autoplay muted loop class="background-video">
+      <source src="../public/img/background/vehicles.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h1 data-i18n="vehicles_title">Our Vehicles</h1>
+    <h3 data-i18n="vehicles_subtitle">Innovating Autonomous Systems</h3>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       CATEGORY SELECTOR
+  ══════════════════════════════════════════ -->
+  <div id="category-selector">
+    <p class="cat-title" data-i18n="cat_select_platform">// SELECT PLATFORM</p>
+    <h2 class="cat-headline" data-i18n="cat_select_question">Which vehicles do you want to <span>explore?</span></h2>
+
+    <div class="cat-cards">
+
+      <!-- UAV Card -->
+      <div class="cat-card" id="btn-uav" role="button" tabindex="0" aria-label="Show UAV vehicles">
+        <span class="cat-badge" data-i18n="badge_uav">İHA</span>
+        <i class="fa-solid fa-helicopter cat-card-icon"></i>
+        <span class="cat-card-label" data-i18n="cat_uav_label">UAV Vehicles</span>
+        <span class="cat-card-sub" data-i18n="cat_uav_sub">Şahi · Tulpars · ALP · AKIN · Phoenix · Stancona</span>
+      </div>
+
+      <!-- Underwater Card -->
+      <div class="cat-card" id="btn-underwater" role="button" tabindex="0" aria-label="Show underwater vehicles">
+        <span class="cat-badge" data-i18n="badge_uw">SU ALTI</span>
+        <i class="fa-solid fa-water cat-card-icon"></i>
+        <span class="cat-card-label" data-i18n="cat_uw_label">Underwater Vehicles</span>
+        <span class="cat-card-sub" data-i18n="cat_uw_sub">War Tortle · Blastoise · Nova V3 · Barakuda</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       UAV SECTION
+  ══════════════════════════════════════════ -->
+  <div id="section-uav" class="vehicle-section theme-uav">
+
+    <div class="section-label-banner">
+      <span class="slabel"><i class="fa-solid fa-helicopter"></i> &nbsp;<span data-i18n="banner_uav">İHA / UAV VEHICLES</span></span>
+      <div class="sdivider"></div>
+    </div>
+
+    <div class="about">
+
+      <div class="wrapper target" id="vehicle-tulpars">
+        <div class="text">
+          <h1 data-vehicle="tulpars" data-i18n="veh_name_tulpars">Tulpars Hexacopter UAV</h1>
+          <p data-i18n="veh_tulpars_desc">Our mission drone designed for high maneuverability.</p>
+          <a href="vehicles-details.html?model=tulpars" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas1"></div>
+      </div>
+
+      <div class="wrapper target" id="vehicle-alp">
+        <div class="text">
+          <h1 data-vehicle="donerkanat2024" data-i18n="veh_name_alp">ALP Quadcopter UAV</h1>
+          <p data-i18n="veh_alp_desc">2024 rotary-wing UAV platform.</p>
+          <a href="vehicles-details.html?model=donerkanat2024" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas2"></div>
+      </div>
+
+      <div class="wrapper target" id="vehicle-akin">
+        <div class="text">
+          <h1 data-vehicle="sabitkanat2024" data-i18n="veh_name_akin">AKIN Fixed-wing UAV</h1>
+          <p data-i18n="veh_akin_desc">2024 fixed-wing UAV platform.</p>
+          <a href="vehicles-details.html?model=sabitkanat2024" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas3"></div>
+      </div>
+
+      <div class="wrapper target" id="vehicle-phoenix">
+        <div class="text">
+          <h1 data-vehicle="phoenix2025" data-i18n="veh_name_phoenix">Phoenix 2025</h1>
+          <p data-i18n="veh_phoenix_desc">2025 advanced hybrid platform.</p>
+          <a href="vehicles-details.html?model=phoenix2025" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas4"></div>
+      </div>
+
+      <div class="wrapper target" id="vehicle-stancona">
+        <div class="text">
+          <h1 data-vehicle="stancona" data-i18n="veh_name_stancona">Stancona</h1>
+          <p data-i18n="veh_stancona_desc">Stancona UAV platform.</p>
+          <a href="vehicles-details.html?model=stancona" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas-stancona"></div>
+      </div>
+      <!-- Şahi — SUAS 2026 Competition Vehicle -->
+      <div class="wrapper target" id="vehicle-shahi" style="position:relative;">
+        <div style="position:absolute;top:16px;right:16px;z-index:10;
+          background:linear-gradient(135deg,#ff4d4d,#ff7043);color:#fff;
+          font-family:'Orbitron',sans-serif;font-size:0.58rem;letter-spacing:1.5px;
+          padding:5px 14px;border-radius:20px;white-space:nowrap;
+          box-shadow:0 0 18px rgba(255,77,77,0.5);">
+          &#9830; SUAS 2026
+        </div>
+        <div class="text">
+          <h1 data-vehicle="shahi" data-i18n="veh_name_shahi">Şahi — SUAS 2026</h1>
+          <p data-i18n="veh_shahi_desc">Our primary competition UAV for SUAS 2026, designed for fully autonomous aerial missions including waypoint navigation, object detection, and precision payload delivery.</p>
+          <a href="vehicles-details.html?model=shahi" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas-shahi"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       UNDERWATER SECTION
+  ══════════════════════════════════════════ -->
+  <div id="section-underwater" class="vehicle-section">
+
+    <div class="section-label-banner">
+      <span class="slabel"><i class="fa-solid fa-water"></i> &nbsp;<span data-i18n="banner_uw">SU ALTI ARAÇLARI</span></span>
+      <div class="sdivider"></div>
+    </div>
+
+    <div class="about">
+
+      <!-- War Tortle -->
+      <div class="wrapper target" id="vehicle-warTortle">
+        <div class="text">
+          <h1 data-vehicle="warTortle" data-i18n="veh_name_warTortle">War Tortle</h1>
+          <p data-i18n="veh_warTortle_desc">2025 NOVA champion vehicle.</p>
+          <a href="vehicles-details.html?model=warTortle" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas5"></div>
+      </div>
+
+      <!-- Blastoise -->
+      <div class="wrapper target" id="vehicle-blastoise" style="position:relative;">
+        <div style="position:absolute;top:16px;right:16px;z-index:10;
+          background:linear-gradient(135deg,#ff4d4d,#ff7043);color:#fff;
+          font-family:'Orbitron',sans-serif;font-size:0.58rem;letter-spacing:1.5px;
+          padding:5px 14px;border-radius:20px;white-space:nowrap;
+          box-shadow:0 0 18px rgba(255,77,77,0.5);">
+          &#9830; RoboSub 2026
+        </div>
+        <div class="text">
+          <h1 data-vehicle="blastoise" data-i18n="veh_name_blastoise">Blastoise 2024</h1>
+          <p data-i18n="veh_blastoise_desc">2026 yılında tasarlanan Blastoise aracı.</p>
+          <a href="vehicles-details.html?model=blastoise" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas6"></div>
+      </div>
+
+      <!-- Squirtle -->
+      <div class="wrapper target" id="vehicle-nova-guncel">
+        <div class="text">
+          <h1 data-vehicle="squirtle" data-i18n="veh_name_novaguncel">Squirtle</h1>
+          <p data-i18n="veh_novaguncel_desc">Nova'nın mini versiyonu..</p>
+          <a href="vehicles-details.html?model=squirtle" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas7"></div>
+      </div>
+
+      <!-- Barakuda -->
+      <div class="wrapper target" id="vehicle-barakuda">
+        <div class="text">
+          <h1 data-vehicle="barakuda" data-i18n="veh_name_barakuda">Barakuda</h1>
+          <p data-i18n="veh_barakuda_desc">Kompakt boyutlu Barakuda aracı.</p>
+          <a href="vehicles-details.html?model=barakuda" class="details-btn">
+            <span data-i18n="veh_detail_learn_more">Learn More</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="photo" id="canvas8"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../public/img/user/raclab.png" alt="RACLAB">
+        <p data-i18n="footer_desc">Building the next generation of autonomous systems through engineering excellence and innovation.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/raclab_uav/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/raclab" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@raclabuav" target="_blank" rel="noopener noreferrer"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_nav">Navigate</h4>
+        <ul>
+          <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+          <li><a href="./vehicles.html">Vehicles</a></li>
+          <li><a href="./team.html" data-i18n="nav_team">Team</a></li>
+          <li>
+            <a href="./sponsors.html">SPONSORS</a></li>
+          <li><a href="./sponsors.html">Sponsors</a></li>
+          <li><a href="./contact.html" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_comp">Competitions</h4>
+        <ul>
+          <li><a href="./blog-detail.html?id=Teknofest2025">TEKNOFEST 2025</a></li>
+          <li><a href="./blog-detail.html?id=Teknofest2024">TEKNOFEST 2024</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+         <span data-i18n="footer_copy">© 2026 RACLAB Team. All rights reserved.</span>
+         <span data-i18n="footer_passion">Built with passion for autonomous flight.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+  <script src="../public/js/blog-data.js"></script>
+  <script type="module" src="../public/js/vehicles-init.js"></script>
+  <script src="../public/js/i18n.js"></script>
+  <script src="../public/js/search.js"></script>
+  <script src="../public/js/scroll.js"></script>
+  <script src="../public/js/hamburger.js"></script>
+
+<!-- Category selector logic -->
+<script>
+  (function () {
+    const selector = document.getElementById('category-selector');
+    const secUAV   = document.getElementById('section-uav');
+    const secUW    = document.getElementById('section-underwater');
+
+    // Track which categories have already been loaded to avoid re-loading
+    const loaded = { uav: false, underwater: false };
+
+    function showCategory(cat) {
+      // Hide selector immediately
+      selector.style.display = 'none';
+      secUAV.classList.remove('active');
+      secUW.classList.remove('active');
+      sessionStorage.setItem('veh_cat', cat);
+
+      // Show the loader then load models for this category (only once)
+      const init = window.vehiclesInit;
+      if (init && !loaded[cat]) {
+        loaded[cat] = true;
+        init.showLoader();
+        if (cat === 'uav') {
+          init.loadUAVModels();
+        } else {
+          init.loadUnderwaterModels();
+        }
+      } else if (!init) {
+        setTimeout(() => showCategory(cat), 50);
+        return;
+      }
+
+      // Reveal the section (loader will overlay it while models load)
+      if (cat === 'uav') {
+        secUAV.classList.add('active');
+      } else {
+        secUW.classList.add('active');
+      }
+      
+      // Kaydırma pozisyonunu sıfırlayarak en üstteki (ilk) aracın görünmesini sağla
+      window.scrollTo(0, 0);
+    }
+
+    function showSelector() {
+      secUAV.classList.remove('active');
+      secUW.classList.remove('active');
+      selector.style.display = 'flex';
+      sessionStorage.removeItem('veh_cat');
+      window.scrollTo(0, 0);
+    }
+
+    // Buttons
+    document.getElementById('btn-uav').addEventListener('click', () => showCategory('uav'));
+    document.getElementById('btn-uav').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showCategory('uav'); });
+    document.getElementById('btn-underwater').addEventListener('click', () => showCategory('underwater'));
+    document.getElementById('btn-underwater').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showCategory('underwater'); });
+
+    // Kategori hafızası iptal edildi: Detaydan geri dönünce daima seçme ekranı (UAV/Sualtı) açılır.
+    // const saved = sessionStorage.getItem('veh_cat');
+    // if (saved === 'uav' || saved === 'underwater') { ... }
+  })();
+</script>
+</body>
+
+</html>
+
+
+
+

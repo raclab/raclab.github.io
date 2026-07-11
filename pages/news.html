@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News — RACLAB | Konya Technical University</title>
+  <meta name="description" content="Latest news, competition results, research milestones and announcements from RACLAB at Konya Technical University."/>
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pub-year-section { margin-bottom: 48px; }
+    .pub-year-heading {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--blue);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--border-active);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pub-year-heading::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 3px;
+    }
+    .pub-type-journal  { border-left: 4px solid #e63329; }
+    .pub-type-conf     { border-left: 4px solid #f59e0b; }
+    .pub-type-book     { border-left: 4px solid #a855f7; }
+    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
+    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
+    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
+    .pub-card-text em { color: var(--blue); font-style: italic; }
+    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
+    .pub-card-text a:hover { color: #ff6b6b; }
+    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
+    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
+    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
+    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html" class="active">News</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span>News</span></div>
+      <p class="section-label">Latest Updates</p>
+      <h1>News from <span style="color:#ff8a85;">RACLAB</span></h1>
+      <p>Competition results, research milestones, awards, and announcements from our teams at Konya Technical University.</p>
+  </div>
+</div>
+
+<section style="padding:60px 0;">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="competition">Competitions</button>
+      <button class="filter-btn" data-filter="publication">Publications</button>
+      <button class="filter-btn" data-filter="industry">Industry</button>
+      <button class="filter-btn" data-filter="event">Events</button>
+    </div>
+
+    
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" id="news-grid">
+
+      <article class="news-card" data-cat="competition" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img grad-n1" style="height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🏆<div class="overlay"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag emerald">Competition</span><span class="news-card-date">TEKNOFEST 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">RACLAB NOVA Wins TEKNOFEST 2025 Underwater Systems Championship</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Our autonomous underwater vehicle team RACLAB NOVA claimed the championship title and Best Team Spirit award at TEKNOFEST 2025.</p>
+          <a href="https://www.instagram.com/raclab_nova" target="_blank" style="display:inline-block; margin-top:8px; font-size:12px; color:var(--blue); text-decoration:underline;">Instagram Post</a>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="competition" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img grad-n2" style="height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🚗<div class="overlay"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag">Competition</span><span class="news-card-date">TEKNOFEST 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">SİGUN Team: Runner-Up &amp; 3rd "Best Original Software" at Robotaxi 2025</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">RACLAB SİGUN continues its dominance in the TEKNOFEST Robotaxi championship, winning runner-up position and claiming the Best Original Software award for the third time.</p>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="competition" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img" style="height:200px;background:linear-gradient(135deg,#060b18,#1a0d3a);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🚁<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.9) 0%,transparent 60%);"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag">Competition</span><span class="news-card-date">TEKNOFEST 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">RACLAB TULPARS: 3rd Place in International UAV Competition</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Our team RACLAB TULPARS achieved "Third Place" in Türkiye in the Free Category and received the “Advisor Third Place” award in collaboration with TÜBİTAK!</p>
+          <a href="https://www.instagram.com/rac_lab" target="_blank" style="display:inline-block; margin-top:8px; font-size:12px; color:var(--blue); text-decoration:underline;">Instagram Post</a>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="competition" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img" style="height:200px;background:linear-gradient(135deg,#060b18,#0a2818);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          ⚙️<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.9) 0%,transparent 60%);"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag">Competition</span><span class="news-card-date">TEKNOFEST 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">RACLAB FAAL: 3rd Place in Digital Technologies in Industry</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">RACLAB FAAL achieved Third Place in Türkiye in the Advanced Category at the TEKNOFEST 2025 Digital Technologies in Industry Competition!</p>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="competition" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img" style="height:200px;background:linear-gradient(135deg,#060b18,#1a3a10);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🚤<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.9) 0%,transparent 60%);"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag">Competition</span><span class="news-card-date">TEKNOFEST 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">RACLAB EZEL: 7th Place in Unmanned Surface Vehicle</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Our team RACLAB EZEL placed seventh in the performance ranking at the events held in TEKNOFEST Mavi Vatan, Istanbul.</p>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="event" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img" style="height:200px;background:linear-gradient(135deg,#1a0d3a,#060b18);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🏅<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.9) 0%,transparent 60%);"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag purple">Award</span><span class="news-card-date">Sept 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">UDHAM Honorable Mention – Most Creative Award</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Our members Halil İbrahim Köse and Harun Günay received an Honorable Mention at the “Accessible and Connected Türkiye 2053” R&D Competition.</p>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="publication" id="ieee-paper" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img grad-n3" style="height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          📄<div class="overlay"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag purple">Publication</span><span class="news-card-date">IEEE TIV 2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">New Paper in IEEE Transactions on Intelligent Vehicles (WOS Q1)</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">RACLAB researchers Salim Azak, Fırat Bozkaya, Abdullah Yusefi, and Prof. DURDU publish a unified monocular vision-based driving model for autonomous vehicles.</p>
+        </div>
+      </article>
+
+      <article class="news-card" data-cat="industry" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;">
+        <div class="news-card-img" style="height:200px;background:linear-gradient(135deg,#060b18,#1a0d3a);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;">
+          🏭<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.9) 0%,transparent 60%);"></div>
+        </div>
+        <div class="news-card-body" style="padding:20px;">
+          <div class="news-card-meta"><span class="tag amber">Industry</span><span class="news-card-date">2025</span></div>
+          <h3 style="font-family:var(--font-head);font-size:17px;font-weight:600;margin:10px 0 8px;line-height:1.4;">New TÜBİTAK 1501 Project: Autonomous Orchard Sprayer with Önallar Agriculture</h3>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">RACLAB begins a new industry collaboration with Önallar Agriculture for smart-mapping autonomous spraying machine, funded by TÜBİTAK 1501.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+  // Back to top
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+  });
+
+  // Filter logic
+  document.getElementById('pub-filter').addEventListener('click', function(e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const f = e.target.dataset.filter;
+    document.querySelectorAll('.pub-year-section').forEach(sec => {
+      if (f === 'all' || f === 'journal' || f === 'conference' || f === 'book') {
+        const cards = sec.querySelectorAll('.pub-card');
+        let visible = 0;
+        cards.forEach(c => {
+          const show = f === 'all' || c.dataset.type === f;
+          c.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        sec.style.display = visible > 0 ? '' : 'none';
+      } else {
+        sec.style.display = (sec.dataset.year === f) ? '' : 'none';
+        if (sec.dataset.year === f) sec.querySelectorAll('.pub-card').forEach(c => c.style.display = '');
+      }
+    });
+  });
+
+  // Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => { e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } }); }, { threshold: 0.05 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>

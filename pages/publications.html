@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — RACLAB | Prof. Dr. Akif DURDU</title>
+  <meta name="description" content="Complete list of publications by RACLAB — journal articles, conference papers, and book chapters by Prof. Dr. Akif DURDU and team, Konya Technical University." />
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pub-year-section { margin-bottom: 48px; }
+    .pub-year-heading {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--blue);
+      padding: 12px 0;
+      border-bottom: 2px solid var(--border-active);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pub-year-heading::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 3px;
+    }
+    .pub-type-journal  { border-left: 4px solid #e63329; }
+    .pub-type-conf     { border-left: 4px solid #f59e0b; }
+    .pub-type-book     { border-left: 4px solid #a855f7; }
+    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
+    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
+    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
+    .pub-card-text em { color: var(--blue); font-style: italic; }
+    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
+    .pub-card-text a:hover { color: #ff6b6b; }
+    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
+    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
+    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
+    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html" class="active">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
+    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Publications</span></div>
+      <p class="section-label">Research Output</p>
+      <h1 class="section-title">Publications</h1>
+      <p class="section-subtitle">Journal articles, conference papers, and book chapters by Prof. Dr. Akif DURDU and RACLAB researchers. Source: <a href="https://akifdurdu.github.io/publications/" target="_blank" rel="noopener" style="color:var(--blue);">akifdurdu.github.io</a></p>
+  </div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<section style="padding:80px 0;">
+  <div class="container">
+
+    <!-- Stats -->
+    <div class="stat-pills reveal">
+      <div class="stat-pill"><strong>80+</strong>Total Publications</div>
+      <div class="stat-pill"><strong>42+</strong>Journal Articles</div>
+      <div class="stat-pill"><strong>30+</strong>Conference Papers</div>
+      <div class="stat-pill"><strong>6+</strong>Book Chapters</div>
+      <div class="stat-pill"><strong>2014–2026</strong>Active Period</div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend-bar reveal">
+      <div class="legend-item"><div class="legend-dot" style="background:#e63329;"></div> Journal Article</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Conference Paper</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a855f7;"></div> Book Chapter</div>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-row reveal" id="pub-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="journal">Journal</button>
+      <button class="filter-btn" data-filter="conference">Conference</button>
+      <button class="filter-btn" data-filter="book">Book Chapter</button>
+      <button class="filter-btn" data-filter="2026">2026</button>
+      <button class="filter-btn" data-filter="2025">2025</button>
+      <button class="filter-btn" data-filter="2024">2024</button>
+      <button class="filter-btn" data-filter="2023">2023</button>
+      <button class="filter-btn" data-filter="2022">2022</button>
+      <button class="filter-btn" data-filter="older">2021 &amp; Earlier</button>
+    </div>
+
+    <div id="pub-list">
+
+      <!-- ===== 2026 ===== -->
+      <div class="pub-year-section" data-year="2026">
+        <div class="pub-year-heading">2026</div>
+
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2026">
+          <p class="pub-card-text">Serkan BUDAK, Cemil SUNGUR, <strong>Akif DURDU</strong>, "Disturbance-tolerant quadrotor control using a hybrid LQR and super-twisting sliding mode approach", <em>Scientific Reports</em>, Feb. 2026, doi:<a href="https://doi.org/10.1038/s41598-026-38820-0" target="_blank" rel="noopener">10.1038/s41598-026-38820-0</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Quadrotor Control</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2026">
+          <p class="pub-card-text">Serkan BUDAK, Cemil SUNGUR, <strong>Akif DURDU</strong>, "Quadrotor control using hybrid approaches: LQR-PID and LQR-FOPID methods", <em>International Journal of Automation and Control</em>, Vol. 20, No. 5, Jan. 2026, doi:<a href="https://doi.org/10.1504/IJAAC.2026.10073110" target="_blank" rel="noopener">10.1504/IJAAC.2026.10073110</a></p>
+          <div class="pub-badge-row"><span class="tag">E-SCI</span><span class="tag">LQR</span><span class="tag">UAV Control</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2026">
+          <p class="pub-card-text">Zülal Hilal YILDIZ BUDAK, Seyit Alperen ÇELTEK, <strong>Akif DURDU</strong>, "A novel approach to maximum weighted traffic flow method for effective signal control", <em>Turkish Journal of Electrical Engineering and Computer Sciences</em>, Vol. 34, No. 1, pp. 119–136, Jan. 2026, doi:<a href="https://doi.org/10.55730/1300-0632.4166" target="_blank" rel="noopener">10.55730/1300-0632.4166</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Traffic Control</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2026">
+          <p class="pub-card-text">Serkan BUDAK, Cemil SUNGUR, <strong>Akif DURDU</strong>, "Deep reinforcement learning-based control of a 1-DOF helicopter: a comparative analysis of classical and modern methods", <em>Physica Scripta</em>, Vol. 101, No. 2, 026002, Jan. 2026, doi:<a href="https://doi.org/10.1088/1402-4896/ae2c22" target="_blank" rel="noopener">10.1088/1402-4896/ae2c22</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Deep RL</span><span class="tag">Helicopter Control</span></div>
+        </div>
+      </div>
+
+      <!-- ===== 2025 ===== -->
+      <div class="pub-year-section" data-year="2025">
+        <div class="pub-year-heading">2025</div>
+
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2025">
+          <p class="pub-card-text">Muhammet Fatih ASLAN, Kadir SABANCI, <strong>Akif DURDU</strong>, Rehana Kaousar, "Advancing Remote Sensing With Few-Shot Learning: A Comprehensive Review of Methods, Challenges, and Future Directions", <em>Transactions in GIS</em>, Vol. 29, No. 8: e70176, doi:<a href="https://doi.org/10.1111/tgis.70176" target="_blank" rel="noopener">10.1111/tgis.70176</a></p>
+          <div class="pub-badge-row"><span class="tag">S-SCI</span><span class="tag">Remote Sensing</span><span class="tag">Few-Shot Learning</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2025">
+          <p class="pub-card-text">Salim AZAK, Fırat BOZKAYA, Şükrücan TIGLIOGLU, Abdullah YUSEFI, <strong>Akif DURDU</strong>, "A Unified Monocular Vision-Based Driving Model for Autonomous Vehicles with Multi-Task Capabilities", <em>IEEE Transactions on Intelligent Vehicles</em>, Vol. 10, No. 9, Sep. 2025, doi:<a href="https://doi.org/10.1109/TIV.2024.3483114" target="_blank" rel="noopener">10.1109/TIV.2024.3483114</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Autonomous Driving</span><span class="tag">Computer Vision</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2025">
+          <p class="pub-card-text">Fuat YALCINLI, Bayram AKDEMIR, <strong>Akif DURDU</strong>, Ali Evren, Kübra Özcan Akkaş, "Signaling improvement model and efficiency analysis of the model", <em>Traitement du Signal</em>, Vol. 42, No. 2, pp. 689–704, 2025, doi:<a href="https://doi.org/10.18280/ts.420208" target="_blank" rel="noopener">10.18280/ts.420208</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Smart Traffic</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Abdullah YUSEFI, Ibrahim TOY, <strong>Akif DURDU</strong>, "RobustPointNet++: Enhancing PointNet++ with Noise-Filtering and Learned Augmentation for Sparse LiDAR Data", <em>14th International Symposium on Advanced Topics in Electrical Engineering (ATEE 2025)</em>, Oct. 9–11, Bucharest, Romania, doi:<a href="https://doi.org/10.1109/ATEE66006.2025.11299989" target="_blank" rel="noopener">10.1109/ATEE66006.2025.11299989</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">LiDAR</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Ibrahim TOY, Abdullah YUSEFI, <strong>Akif DURDU</strong>, "Autonomous Human Tracking Using Vision-LiDAR Fusion with Model Predictive Control-Based Trajectory Following", <em>ATEE 2025</em>, Oct. 9–11, Bucharest, Romania, doi:<a href="https://doi.org/10.1109/ATEE66006.2025.11299927" target="_blank" rel="noopener">10.1109/ATEE66006.2025.11299927</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">MPC</span><span class="tag">Human Tracking</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Yiğit Bora CAGIRAN, Cihat Talat Akpınar, <strong>Akif DURDU</strong>, "Self-Recovery Algorithm for Autonomous Mobile Robots in Industrial Environments", <em>ATEE 2025</em>, Oct. 9–11, Bucharest, Romania, doi:<a href="https://doi.org/10.1109/ATEE66006.2025.11299880" target="_blank" rel="noopener">10.1109/ATEE66006.2025.11299880</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">Mobile Robots</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Sinan ILGEN, <strong>Akif DURDU</strong>, "Reinforcement Learning Based Traffic Signal Control: A Performance Comparison Under Different Traffic Scenarios", <em>ATEE 2025</em>, Oct. 9–11, Bucharest, Romania, doi:<a href="https://doi.org/10.1109/ATEE66006.2025.11299972" target="_blank" rel="noopener">10.1109/ATEE66006.2025.11299972</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">RL</span><span class="tag">Traffic</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Mamady Cheick Souare, Ibrahim TOY, Abdullah YUSEFI, <strong>Akif DURDU</strong>, "Real-Time Safety Helmets and Vests Detection in Industrial Environments Using YOLO", <em>9th ISAS 2025</em>, Jun. 27–28, Gaziantep, doi:<a href="https://doi.org/10.1109/ISAS66241.2025.11101892" target="_blank" rel="noopener">10.1109/ISAS66241.2025.11101892</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">YOLO</span><span class="tag">Safety Detection</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Ibrahim TOY, Abdullah YUSEFI, <strong>Akif DURDU</strong>, "Model Predictive Control for Reliable and Efficient Path Tracking in Autonomous Vehicles", <em>ISAS 2025</em>, Jun. 27–28, Gaziantep, doi:<a href="https://doi.org/10.1109/ISAS66241.2025.11101883" target="_blank" rel="noopener">10.1109/ISAS66241.2025.11101883</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">MPC</span><span class="tag">Path Tracking</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Özcan KOSAR, Cihat Talat AKPINAR, <strong>Akif DURDU</strong>, "Comparative Performance Analysis of ROS 2 Local Controllers on an Autonomous Mobile Robot", <em>ISAS 2025</em>, Jun. 27–28, Gaziantep, doi:<a href="https://doi.org/10.1109/ISAS66241.2025.11101804" target="_blank" rel="noopener">10.1109/ISAS66241.2025.11101804</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">ROS 2</span><span class="tag">AMR</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Cihat Talat AKPINAR, Özcan KOSAR, <strong>Akif DURDU</strong>, "Enhancing the Performance of Machine Learning Classification Models", <em>24th INFOTEH-JAHORINA 2025</em>, Mar. 19–21, Bosnia &amp; Herzegovina, doi:<a href="https://doi.org/10.1109/INFOTEH64129.2025.10959301" target="_blank" rel="noopener">10.1109/INFOTEH64129.2025.10959301</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">Machine Learning</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2025">
+          <p class="pub-card-text">Cihat Talat AKPINAR, Özcan KOSAR, <strong>Akif DURDU</strong>, "Virtual Reality Solutions for Troubleshooting Autonomous Industrial Mobile Robots", <em>INFOTEH-JAHORINA 2025</em>, Mar. 19–21, Bosnia &amp; Herzegovina, doi:<a href="https://doi.org/10.1109/INFOTEH64129.2025.10959180" target="_blank" rel="noopener">10.1109/INFOTEH64129.2025.10959180</a></p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">VR</span><span class="tag">Industrial Robots</span></div>
+        </div>
+        <div class="pub-card pub-type-book" data-type="book" data-year="2025">
+          <p class="pub-card-text">Mustafa Talip Koyuncu, Burak Demir, Muhammet Fatih ASLAN, <strong>Akif DURDU</strong>, "Chapter 10: Multi-Frequency and Multi-Protocol RFID Card Reader Device: Hardware and Application Design.", In: <em>Current Approaches in Applied Statistics I</em>. Özgür Yayınları, doi:<a href="https://doi.org/10.58830/ozgur.pub862.c3493" target="_blank" rel="noopener">10.58830/ozgur.pub862.c3493</a></p>
+          <div class="pub-badge-row"><span class="tag amber">Book Chapter</span><span class="tag">RFID</span></div>
+        </div>
+        <div class="pub-card pub-type-book" data-type="book" data-year="2025">
+          <p class="pub-card-text">Eyüp Sayın, Murat Topuz, Muhammet Fatih ASLAN, <strong>Akif DURDU</strong>, "Chapter 7: Standardization in Elevator Systems: Call and Display Panel Design Compatible with CANopen Communication Protocol", In: <em>Current Approaches in Applied Statistics II</em>. Özgür Yayınları, doi:<a href="https://doi.org/10.58830/ozgur.pub865.c3505" target="_blank" rel="noopener">10.58830/ozgur.pub865.c3505</a></p>
+          <div class="pub-badge-row"><span class="tag amber">Book Chapter</span><span class="tag">CANopen</span></div>
+        </div>
+      </div>
+
+      <!-- ===== 2024 ===== -->
+      <div class="pub-year-section" data-year="2024">
+        <div class="pub-year-heading">2024</div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Salim Azak, Fırat Bozkaya, <strong>Akif DURDU</strong>, "Enhancing Generalization in Autonomous Driving: A Comparative Study of Data Augmentation Techniques", <em>25th National Conference on Automatic Control (TOK 2024)</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">Autonomous Driving</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Gökberk Ay, <strong>Akif DURDU</strong>, Barış Samim NESİMİOĞLU, "Performance Comparison of Machine Learning Classification Algorithms in Hyperspectral Images Based on Variable Training Set Sizes", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">Hyperspectral</span><span class="tag">ML</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Dilara Acar, <strong>Akif DURDU</strong>, "Optimization of Offshore Solar Energy Panels with Fuzzy Logic", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">Fuzzy Logic</span><span class="tag">Energy</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Serkan BUDAK, Cemil SUNGUR, <strong>Akif DURDU</strong>, "Determination of LQR Weight Matrices for Quadrotor Control Using Simulink Response Optimization", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">LQR</span><span class="tag">Quadrotor</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Berfin Yapıcı, Hatice Nur Erdem, Büşra Önal, Kağan Koçyiğit, Musa Furkan Ulus, Mukaddes Altunkaynak, Neziha Burhan, Yasemin Kurt, <strong>Akif DURDU</strong>, "Ensuring Border Security by Tracking Moving Objects with Unmanned Aerial Vehicles", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">UAV</span><span class="tag">Border Security</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Yasemin Sümeyye Cücük, <strong>Akif DURDU</strong>, "Design Configuration Selections and Performance Analysis in Fixed Wing Unmanned Aerial Vehicles", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">Fixed Wing UAV</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Şerife Nur Çiftci, <strong>Akif DURDU</strong>, Seyit Alperen ÇELTEK, Fuat YALCINLI, "Simulation Modeling and Prioritization of Emergency Response Vehicles in Signaling Systems Using V2X Technology", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">V2X</span><span class="tag">Traffic</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="2024">
+          <p class="pub-card-text">Sezai Ünver, Burak Seyit Kara, Seyit Alperen ÇELTEK, <strong>Akif DURDU</strong>, "Adaptive Traffic Signal Control and Application", <em>TOK 2024</em>, Sep. 12–14, Konya, Türkiye.</p>
+          <div class="pub-badge-row"><span class="tag emerald">TOK 2024</span><span class="tag">Adaptive Traffic</span></div>
+        </div>
+      </div>
+
+      <!-- ===== 2023 ===== -->
+      <div class="pub-year-section" data-year="2023">
+        <div class="pub-year-heading">2023</div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2023">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, et al., "Model-free Sliding Mode Control for Quadrotor UAVs", <em>Electronics</em>, MDPI, 2023.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Sliding Mode</span><span class="tag">UAV</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2023">
+          <p class="pub-card-text">Muhammet Fatih ASLAN, Kadir SABANCI, <strong>Akif DURDU</strong>, "Plant Leaf Classification Based on DenseNet Architecture", <em>Neural Computing and Applications</em>, 2023.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Deep Learning</span><span class="tag">Classification</span></div>
+        </div>
+      </div>
+
+      <!-- ===== 2022 ===== -->
+      <div class="pub-year-section" data-year="2022">
+        <div class="pub-year-heading">2022</div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2022">
+          <p class="pub-card-text">Muhammet Fatih ASLAN, Kadir SABANCI, <strong>Akif DURDU</strong>, Mehmet Fatih Unlersen, "Continuous and Discontinuous Identity Change Detection Based on a Moving Camera: A Survey", <em>IEEE Access</em>, Vol. 10, pp. 72213–72245, 2022, doi:<a href="https://doi.org/10.1109/ACCESS.2022.3188612" target="_blank" rel="noopener">10.1109/ACCESS.2022.3188612</a></p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Computer Vision</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2022">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Musa Furkan Ulus, "Hexarotor Agile Flight Maneuvering: Trajectory and Attitude Control", <em>International Journal of Intelligent Unmanned Systems</em>, Vol. 10, No. 3, 2022.</p>
+          <div class="pub-badge-row"><span class="tag">Scopus</span><span class="tag">Hexarotor</span><span class="tag">UAV</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="2022">
+          <p class="pub-card-text">Seyit Alperen ÇELTEK, <strong>Akif DURDU</strong>, "Fuzzy-PID-Based Lateral and Longitudinal Autopilot Design for UAV", <em>Journal of Intelligent &amp; Robotic Systems</em>, 2022.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Fuzzy PID</span><span class="tag">Autopilot</span></div>
+        </div>
+      </div>
+
+      <!-- ===== 2021 & EARLIER ===== -->
+      <div class="pub-year-section" data-year="older">
+        <div class="pub-year-heading">2021 &amp; Earlier</div>
+
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Muhammet Fatih ASLAN, Kadir SABANCI, "Moving Object Detection and Tracking with Deep Learning and Kalman Filter", <em>IEEE Access</em>, 2021.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Deep Learning</span><span class="tag">Kalman Filter</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="older">
+          <p class="pub-card-text">Muhammet Fatih ASLAN, Kadir SABANCI, <strong>Akif DURDU</strong>, "A New Deep Learning Based Fruit Sorting Algorithm: CNNs", <em>Measurement</em>, Elsevier, 2020.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">CNN</span><span class="tag">Classification</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Erkan ZERGEROGLU, "A Robust Controller for Nonlinear Affine Systems: Application to Autonomous Robots", <em>Robotica</em>, Cambridge University Press, 2019.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Robust Control</span><span class="tag">Nonlinear Systems</span></div>
+        </div>
+        <div class="pub-card pub-type-journal" data-type="journal" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Erkan ZERGEROGLU, "Adaptive Control of Wheeled Mobile Robots with Ground Contact", <em>Transactions of the Institute of Measurement and Control</em>, 2018.</p>
+          <div class="pub-badge-row"><span class="tag">SCI-E</span><span class="tag">Adaptive Control</span><span class="tag">Mobile Robots</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, "Attitude Control of a Quadrotor UAV Using Backstepping Based Nonlinear Controller", <em>International Symposium on Innovations in Intelligent Systems and Applications (INISTA 2017)</em>, 2017, IEEE.</p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">Backstepping</span><span class="tag">UAV</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Barış Samim NESİMİOĞLU, "Linear Quadratic Regulator Based Nonlinear Controller Design for Quadrotors", <em>International Conference on Control, Automation and Systems (ICCAS)</em>, 2016.</p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">LQR</span><span class="tag">Quadrotor</span></div>
+        </div>
+        <div class="pub-card pub-type-conf" data-type="conference" data-year="older">
+          <p class="pub-card-text"><strong>Akif DURDU</strong>, Barış Samim NESİMİOĞLU, "Comparison of Several Nonlinear Control Methods for UAVs", <em>IEEE 15th International Conference on Cognitive Informatics &amp; Cognitive Computing (ICCI*CC)</em>, 2016.</p>
+          <div class="pub-badge-row"><span class="tag emerald">IEEE Xplore</span><span class="tag">Nonlinear Control</span></div>
+        </div>
+
+        <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);">
+          <p style="font-size:13px;color:var(--text-muted);">For the complete publication list including all earlier works, visit <a href="https://akifdurdu.github.io/publications/" target="_blank" rel="noopener" style="color:var(--blue);">akifdurdu.github.io/publications/</a> or check <a href="https://scholar.google.com/citations?user=4wHq7iwAAAAJ" target="_blank" rel="noopener" style="color:var(--blue);">Google Scholar</a>.</p>
+        </div>
+      </div>
+
+    </div><!-- end #pub-list -->
+
+    <!-- External links -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:48px;" class="reveal">
+      <a href="https://scholar.google.com/citations?user=4wHq7iwAAAAJ" target="_blank" rel="noopener" class="btn-primary">Google Scholar →</a>
+      <a href="https://orcid.org/0000-0002-5611-2322" target="_blank" rel="noopener" class="btn-outline">ORCID</a>
+      <a href="https://www.researchgate.net/profile/Akif-Durdu" target="_blank" rel="noopener" class="btn-outline">ResearchGate</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=55364612200" target="_blank" rel="noopener" class="btn-outline">Scopus</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+  // Back to top
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+  });
+
+  // Filter logic
+  document.getElementById('pub-filter').addEventListener('click', function(e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const f = e.target.dataset.filter;
+    document.querySelectorAll('.pub-year-section').forEach(sec => {
+      if (f === 'all' || f === 'journal' || f === 'conference' || f === 'book') {
+        const cards = sec.querySelectorAll('.pub-card');
+        let visible = 0;
+        cards.forEach(c => {
+          const show = f === 'all' || c.dataset.type === f;
+          c.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        sec.style.display = visible > 0 ? '' : 'none';
+      } else {
+        sec.style.display = (sec.dataset.year === f) ? '' : 'none';
+        if (sec.dataset.year === f) sec.querySelectorAll('.pub-card').forEach(c => c.style.display = '');
+      }
+    });
+  });
+
+  // Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => { e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } }); }, { threshold: 0.05 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>

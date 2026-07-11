@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — RACLAB | Konya Technical University</title>
+  <meta name="description" content="Meet the RACLAB team — researchers, PhD students, and competition teams (NOVA, SİGUN, TULPARS, FAAL, ROVER, İVME) at Konya Technical University." />
+  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR (Unified) -->
+<nav id="navbar" class="scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
+    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="team.html">Team</a>
+  <a href="publications.html">Publications</a>
+  <a href="news.html">News</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="../index.html#contact">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Team</span></div>
+      <p class="section-label">Our People</p>
+      <h1 class="section-title">RACLAB <span style="color:var(--blue)">Team</span></h1>
+      <p class="section-subtitle">Researchers, engineers, and students working across aerial, underwater, and ground robotics — competing nationally and internationally under the RACLAB banner.</p>
+  </div>
+</div>
+
+
+<div class="glow-divider"></div>
+
+<!-- ============ PRINCIPAL INVESTIGATOR ============ -->
+<section style="padding:80px 0 40px;">
+  <div class="container">
+    <p class="section-label reveal">Leadership</p>
+    <h2 class="section-title reveal">Principal Investigator</h2>
+
+    <div style="max-width:380px;margin:40px auto 0;" class="reveal">
+      <article class="team-full-card" style="text-align:center;">
+        <div class="team-full-avatar" style="height:200px;padding:0;overflow:hidden;border-radius:var(--radius-md) var(--radius-md) 0 0;">
+          <img src="../public/img/team/akifDurdu.jpeg" alt="Prof. Dr. Akif DURDU" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+        </div>
+        <div class="team-full-body" style="padding:24px;">
+          <h3 style="font-size:20px;margin-bottom:6px;">Prof. Dr. Akif DURDU</h3>
+          <p class="role" style="color:var(--blue);font-weight:600;margin-bottom:4px;">Lab Director & Principal Investigator</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">Electrical &amp; Electronics Engineering</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Konya Technical University · Founded RACLAB 2014</p>
+          <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+            <a href="https://akifdurdu.github.io" target="_blank" rel="noopener" class="btn-outline" style="padding:8px 14px;font-size:12px;">🌐 Website</a>
+            <a href="https://scholar.google.com/citations?user=4wHq7iwAAAAJ" target="_blank" rel="noopener" class="btn-outline" style="padding:8px 14px;font-size:12px;">Scholar</a>
+            <a href="mailto:adurdu@ktun.edu.tr" class="btn-outline" style="padding:8px 14px;font-size:12px;">✉ Email</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ============ GRADUATE RESEARCHERS ============ -->
+<section style="padding:80px 0;background:var(--bg-secondary);">
+  <div class="container">
+    <p class="section-label reveal">Academic Staff</p>
+    <h2 class="section-title reveal">Graduate Researchers & PhD Students</h2>
+    <p class="section-subtitle reveal" style="margin-bottom:48px;">Active researchers conducting advanced work in autonomous systems, control theory, and AI.</p>
+
+    <div class="team-full-grid reveal">
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Dr. Salim AZAK</h3>
+          <p class="role">Research Assistant</p>
+          <p class="dept">Autonomous Driving · Computer Vision</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Dr. Serkan BUDAK</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Quadrotor Control · LQR · Sliding Mode</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Abdullah YUSEFI</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">LiDAR · Point Cloud · Autonomous Vehicles</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Ibrahim TOY</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">MPC · Path Tracking · UGV</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Cihat Talat AKPINAR</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Autonomous Mobile Robots · VR Diagnostics</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Zülal Hilal YILDIZ</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Traffic Signal Optimization</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Muhammet Fatih ASLAN</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Remote Sensing · Few-Shot Learning</p>
+        </div>
+      </article>
+      <article class="team-full-card">
+        <div class="team-full-avatar" style="font-size:42px;background:linear-gradient(135deg,#1a0a0a,#3a0a0a);">🎓</div>
+        <div class="team-full-body">
+          <h3>Özcan KOSAR</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">AMR · ROS 2 · Classification</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ============ COMPETITION TEAMS ============ -->
+<section style="padding:80px 0;">
+  <div class="container">
+    <p class="section-label reveal">Competition Teams</p>
+    <h2 class="section-title reveal">RACLAB Sub-Teams</h2>
+    <p class="section-subtitle reveal" style="margin-bottom:56px;">RACLAB fields multiple specialized teams in national and international robotics competitions each year.</p>
+
+    <!-- ===== RACLAB NOVA ===== -->
+    <div class="team-section reveal" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#b91c1c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🌊</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB NOVA</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Unmanned Underwater Systems · TEKNOFEST · RoboSub · <span style="color:#f59e0b;font-weight:700;">🏆 TEKNOFEST 2025 Champion + Best Team Spirit</span></p>
+        </div>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(230,51,41,0.3);">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/hatice_kubra_ilhan.jpeg" alt="Hatice Kübra İlhan" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Hatice Kübra İlhan</h3>
+            <p class="role" style="color:var(--blue);">Team Captain</p>
+            <p class="dept">Electronics Engineer</p>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <a href="https://www.linkedin.com/in/hatice-kübra-ilhan-729758251" target="_blank" rel="noopener" class="team-card-link">in</a>
+              <a href="mailto:htc.kbr.ilhan06@gmail.com" class="team-card-link">✉</a>
+            </div>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/abdurrahman_ince.jpeg" alt="Abdurrahman İnce" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Abdurrahman İnce</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/beyza_nur_yagci.jpeg" alt="Beyza Nur Yağcı" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Beyza Nur Yağcı</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/feyza_inal.jpeg" alt="Feyza İnal" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Feyza İnal</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/mevlut_burak_dagli.jpeg" alt="Mevlüt Burak Dağlı" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Mevlüt Burak Dağlı</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/mustafa_bedir_saritosun.jpeg" alt="Mustafa Bedir Sarıtosun" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Mustafa Bedir Sarıtosun</h3>
+            <p class="role">Member</p>
+            <p class="dept">Mechanical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/abdulsamet_han.jpeg" alt="Abdulsamet Han" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Abdulsamet Han</h3>
+            <p class="role">Member</p>
+            <p class="dept">Mechanical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/ahmet_selim_ilhan.jpeg" alt="Ahmet Selim İlhan" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Ahmet Selim İlhan</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍💻</div>
+          <div class="team-full-body">
+            <h3>Feyza Baltürk</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍🔬</div>
+          <div class="team-full-body">
+            <h3>Gizem Ülker</h3>
+            <p class="role">Member</p>
+            <p class="dept">Mechanical Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB SİGUN ===== -->
+    <div class="team-section reveal" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#b91c1c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🚗</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB SİGUN</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Robotaxi Autonomous Vehicle · TEKNOFEST · <span style="color:#f59e0b;font-weight:700;">🥈 TEKNOFEST 2025 2nd Place + Most Original Software</span></p>
+        </div>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(230,51,41,0.3);">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Burak Özsoy</h3>
+            <p class="role" style="color:var(--blue);">Team Captain</p>
+            <p class="dept">Autonomous Systems</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Bahtiyar Erener Kurt</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Hasan Altuğ</h3>
+            <p class="role">Member</p>
+            <p class="dept">Software Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Osman Melih Kocaoğlu</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Recep Mahmut Gündüz</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electrical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍💻</div>
+          <div class="team-full-body">
+            <h3>Şevval Eymen Nergiz</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍🔬</div>
+          <div class="team-full-body">
+            <h3>Fatmanur Çınar</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Enes Kurt</h3>
+            <p class="role">Member</p>
+            <p class="dept">Software Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB TULPARS (UAV — Free Category) ===== -->
+    <div class="team-section reveal" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#b91c1c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🚁</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB TULPARS</h3>
+          <p style="font-size:13px;color:var(--text-muted);">UAV — Free Category · TEKNOFEST · <span style="color:#cd7c2a;font-weight:700;">🥉 TEKNOFEST 2025 3rd Place (Free Category) + Advisor 3rd Place</span></p>
+        </div>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(230,51,41,0.3);">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍✈️</div>
+          <div class="team-full-body">
+            <h3>Sudenaz Erdoğan</h3>
+            <p class="role" style="color:var(--blue);">Team Captain</p>
+            <p class="dept">Aerospace Engineering</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/Eren.jpg" alt="Eren Berk Saç" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Eren Berk Saç</h3>
+            <p class="role">Member</p>
+            <p class="dept">Mechanical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍🔬</div>
+          <div class="team-full-body">
+            <h3>Asude Nur Demir</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Hüseyin Yiğit Bağcı</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Yusuf Sifil</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB FAAL ===== -->
+    <div class="team-section reveal" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#b91c1c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⚙️</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB FAAL</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Digital Technologies in Industry · TEKNOFEST · <span style="color:#cd7c2a;font-weight:700;">🥉 TEKNOFEST 2025 3rd Place (Advanced Category)</span></p>
+        </div>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(230,51,41,0.3);">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Mahmut Sami Güvenç</h3>
+            <p class="role" style="color:var(--blue);">Team Captain</p>
+            <p class="dept">Software Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Mirza Şahan Özdemir</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍💻</div>
+          <div class="team-full-body">
+            <h3>Elif Su İbiş</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍🔬</div>
+          <div class="team-full-body">
+            <h3>Seher Tiryaki</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electrical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍🔬</div>
+          <div class="team-full-body">
+            <h3>Meryem Derin</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍🔬</div>
+          <div class="team-full-body">
+            <h3>Furkan Yeşildağ</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👨‍💻</div>
+          <div class="team-full-body">
+            <h3>Enes İşcan</h3>
+            <p class="role">Member</p>
+            <p class="dept">Software Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#2a0a0a);">👩‍💻</div>
+          <div class="team-full-body">
+            <h3>Ayşegül Börekçi</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB UAV (SUAS / Döner Kanat) ===== -->
+    <div class="team-section reveal" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#b91c1c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">✈️</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB UAV</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Fixed-Wing & Rotary UAV · SUAS 2026 · TEKNOFEST Döner Kanat</p>
+        </div>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(230,51,41,0.3);">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/Eren.jpg" alt="Eren Berk Saç" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Eren Berk Saç</h3>
+            <p class="role" style="color:var(--blue);">Team Captain</p>
+            <p class="dept">Mechanical Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/aliEmre.jpeg" alt="Ali Emre Okur" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Ali Emre Okur</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/furkan.jpeg" alt="Furkan Korkmazdağ" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Furkan Korkmazdağ</h3>
+            <p class="role">Member</p>
+            <p class="dept">Electronics Engineer</p>
+          </div>
+        </article>
+        <article class="team-full-card">
+          <div class="team-full-avatar" style="padding:0;overflow:hidden;height:140px;">
+            <img src="../public/img/team/kagan.jpeg" alt="Kağan Koçyiğit" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="team-full-body">
+            <h3>Kağan Koçyiğit</h3>
+            <p class="role">Member</p>
+            <p class="dept">Computer Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB ROVER (Kapsül – Rover) ===== -->
+    <div class="team-section reveal" id="rover" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#7c3aed);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🤖</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB ROVER</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Kapsül Rover Team · Autonomous Planetary Rover
+            <a href="https://www.instagram.com/raclab.rover/" target="_blank" rel="noopener" style="color:var(--blue);margin-left:8px;font-size:12px;">📷 @raclab.rover</a>
+          </p>
+        </div>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px 24px;margin-bottom:24px;">
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          RACLAB ROVER (Kapsül) is RACLAB's autonomous planetary rover team, competing in rover competitions with advanced navigation and manipulation capabilities. Follow their journey on
+          <a href="https://www.instagram.com/raclab.rover/" target="_blank" rel="noopener" style="color:var(--blue);">Instagram @raclab.rover</a>.
+        </p>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(124,58,237,0.3);">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#1a0a2a);">🚀</div>
+          <div class="team-full-body">
+            <h3>RACLAB ROVER Team</h3>
+            <p class="role" style="color:#7c3aed;">Kapsül Rover</p>
+            <p class="dept">Autonomous Planetary Rover</p>
+            <a href="https://www.instagram.com/raclab.rover/" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:12px;color:var(--blue);text-decoration:underline;">📷 @raclab.rover</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== RACLAB İVME ===== -->
+    <div class="team-section reveal" id="ivme" style="margin-bottom:64px;">
+      <div class="team-section-header" style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--blue);">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--blue),#059669);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⚡</div>
+        <div>
+          <h3 style="font-family:var(--font-head);font-size:22px;font-weight:700;margin-bottom:2px;">RACLAB İVME</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Kapsül İVME Team · Autonomous Systems
+            <a href="https://www.instagram.com/raclabivme/" target="_blank" rel="noopener" style="color:var(--blue);margin-left:8px;font-size:12px;">📷 @raclabivme</a>
+          </p>
+        </div>
+      </div>
+      <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px 24px;margin-bottom:24px;">
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          RACLAB İVME (Kapsül) is one of RACLAB's newest teams working on autonomous systems and robotics projects.
+          Follow their developments on
+          <a href="https://www.instagram.com/raclabivme/" target="_blank" rel="noopener" style="color:var(--blue);">Instagram @raclabivme</a>.
+        </p>
+      </div>
+      <div class="team-full-grid">
+        <article class="team-full-card" style="border-color:rgba(5,150,105,0.3);">
+          <div class="team-full-avatar" style="font-size:36px;background:linear-gradient(135deg,#1a0a0a,#0a1a0a);">⚡</div>
+          <div class="team-full-body">
+            <h3>RACLAB İVME Team</h3>
+            <p class="role" style="color:#059669;">Kapsül İVME</p>
+            <p class="dept">Autonomous Systems</p>
+            <a href="https://www.instagram.com/raclabivme/" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:12px;color:var(--blue);text-decoration:underline;">📷 @raclabivme</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../index.html#research">Research</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="../index.html#research">UAV Systems</a></li>
+          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
+          <li><a href="../index.html#research">Underwater Robots</a></li>
+          <li><a href="../index.html#research">Smart Transport</a></li>
+          <li><a href="../index.html#research">Sensor Fusion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="glow-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+  // Back to top
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+<style>
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+</style>
+<script>
+(function(){
+  var btn = document.getElementById('nav-search-btn');
+  var ov  = document.getElementById('search-overlay');
+  var inp = document.getElementById('search-input');
+  var res = document.getElementById('search-results');
+  if(btn && ov){
+    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
+    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  }
+})();
+</script>
+</body>
+</html>
