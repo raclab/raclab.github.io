@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RACLAB — Robotics, Automation & Control Laboratory | Konya Technical University</title>
+  <meta name="description" content="RACLAB is a robotics, automation, and control research laboratory at Konya Technical University, Turkey. Founded in 2014 by Prof. Dr. Akif DURDU, specializing in UAVs, autonomous ground vehicles, underwater systems, and smart transportation." />
+  <meta name="keywords" content="RACLAB, robotics, automation, control, UAV, drone, autonomous vehicle, KTU, Konya Technical University" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RACLAB — Robotics, Automation & Control Laboratory" />
+  <meta property="og:description" content="Pioneering autonomous systems research at Konya Technical University since 2014." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.raclab.org" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="public/img/user/raclab.png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="RACLAB Home">
+      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+        <img src="public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
+      </div>
+    </a>
+
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      <li><a href="#about"        id="nav-about">About</a></li>
+      <li><a href="#research"     id="nav-research">Research</a></li>
+      <li><a href="#projects"     id="nav-projects">Projects</a></li>
+      <li><a href="#achievements" id="nav-achievements">Achievements</a></li>
+      <li><a href="#team"         id="nav-team">Team</a></li>
+      <li><a href="#publications" id="nav-publications">Publications</a></li>
+      <li><a href="#news"         id="nav-news">News</a></li>
+      <li><a href="#sponsors"     id="nav-sponsors">Sponsors</a></li>
+      <li><a href="#contact"      id="nav-contact">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-cta" style="display:flex;align-items:center;gap:8px;">
+      <button id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'">🔍</button>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Search Overlay -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:3000;align-items:flex-start;justify-content:center;padding-top:100px;">
+  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:28px 28px 24px;width:min(640px,92vw);position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+    <button onclick="closeSearch()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);line-height:1;">✕</button>
+    <label for="search-input" style="font-family:var(--font-head);font-size:16px;font-weight:600;display:block;margin-bottom:12px;">Search RACLAB</label>
+    <div style="position:relative;">
+      <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;">🔍</span>
+      <input id="search-input" type="search" placeholder="Search publications, projects, teams, news…" autocomplete="off"
+        style="width:100%;padding:13px 16px 13px 42px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);box-sizing:border-box;" />
+    </div>
+    <div id="search-results" style="margin-top:14px;max-height:320px;overflow-y:auto;"></div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Press <kbd style="border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:11px;">Esc</kbd> to close</p>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#projects">Projects</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#team">Team</a>
+  <a href="#publications">Publications</a>
+  <a href="#news">News</a>
+  <a href="#sponsors">Sponsors</a>
+  <a href="#contact">Contact Us</a>
+</div>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section id="hero" aria-label="Hero section">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Video Background -->
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline poster="images/hero_banner.png" id="hero-video">
+      <source src="https://drive.google.com/uc?id=1iJAu7PtFgpFuFa-GzrH_SPAFJtbc6xcP&export=download" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span aria-hidden="true"></span>
+        Konya Technical University · Since 2014
+      </div>
+
+      <h1 class="hero-title">
+        Pioneering<br>
+        <span class="grad">Autonomous</span><br>
+        <span class="accent">Systems</span> Research
+      </h1>
+
+      <p class="hero-desc">
+        RACLAB is an interdisciplinary R&amp;D laboratory at Konya Technical University, pushing the boundaries of robotics, automation, and intelligent control through cutting-edge research in UAVs, autonomous ground &amp; underwater vehicles, and smart transportation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#research" class="btn-primary" id="btn-hero-research">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Explore Research
+        </a>
+        <a href="#about" class="btn-outline" id="btn-hero-about">Learn About Us</a>
+      </div>
+
+      <div class="hero-stats" aria-label="Key statistics">
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="49" data-suffix="+">0+</span>
+          <span class="hero-stat-label">TÜBİTAK Projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="42" data-suffix="+">0+</span>
+          <span class="hero-stat-label">SCI-E Publications</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="32" data-suffix="+">0+</span>
+          <span class="hero-stat-label">Competition Awards</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="10" data-suffix="+">0+</span>
+          <span class="hero-stat-label">Industry Partners</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ================================================================
+     ABOUT
+     ================================================================ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <!-- RACLAB logo with full acronym from Drive -->
+        <div style="background:#f8f8f8;border:1px solid rgba(0,0,0,0.08);border-radius:var(--radius-lg);padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+          <img
+            src="https://lh3.googleusercontent.com/d/1zyRDy9kn1fP4eJcKHS-43LqxtVsnapUb"
+            alt="RACLAB — Robotics Automation Control Laboratory"
+            style="max-width:100%;height:auto;filter:drop-shadow(0 4px 16px rgba(230,51,41,0.18));"
+            onerror="this.src='public/img/user/raclab.png'"
+          />
+          <div style="margin-top:20px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:#ffffff;background:var(--blue);padding:3px 10px;border-radius:99px;letter-spacing:1px;">R</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:600;color:var(--text-muted);">Robotics</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:#ffffff;background:var(--blue);padding:3px 10px;border-radius:99px;letter-spacing:1px;">A</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:600;color:var(--text-muted);">Automation</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:#ffffff;background:var(--blue);padding:3px 10px;border-radius:99px;letter-spacing:1px;">C</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:600;color:var(--text-muted);">Control</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:700;color:#ffffff;background:var(--blue);padding:3px 10px;border-radius:99px;letter-spacing:1px;">LAB</span>
+            <span style="font-family:var(--font-head);font-size:11px;font-weight:600;color:var(--text-muted);">oratory</span>
+          </div>
+        </div>
+        <div class="about-image-badge" style="bottom:-16px;right:-8px;">
+          <span class="num">2014</span>
+          <span class="lbl">Founded</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p class="section-label">About RACLAB</p>
+        <h2 class="section-title" id="about-title">Robotics, Automation &amp; Control<br><span style="color:var(--blue)">Laboratory</span></h2>
+        <p class="section-subtitle">
+          Founded in 2014 under the leadership of <strong>Prof. Dr. Akif DURDU</strong>, RACLAB is a project-based R&amp;D laboratory at Konya Technical University where undergraduate and graduate students work alongside academics on real-world engineering challenges.
+        </p>
+        <p class="section-subtitle" style="margin-top:12px;">
+          Our philosophy: students learn not only technical skills but also teamwork, communication, and product-development thinking through real problem scenarios.
+        </p>
+
+        <div class="about-pillars" style="margin-top:28px;">
+          <div class="about-pillar reveal reveal-delay-1">
+            <div class="about-pillar-icon">🚁</div>
+            <div class="about-pillar-text">
+              <strong>UAV Systems</strong>
+              <span>Fixed &amp; rotary wing drones</span>
+            </div>
+          </div>
+          <div class="about-pillar reveal reveal-delay-2">
+            <div class="about-pillar-icon">🚗</div>
+            <div class="about-pillar-text">
+              <strong>Autonomous Vehicles</strong>
+              <span>Ground &amp; underwater robots</span>
+            </div>
+          </div>
+          <div class="about-pillar reveal reveal-delay-3">
+            <div class="about-pillar-icon">🧠</div>
+            <div class="about-pillar-text">
+              <strong>AI &amp; Deep Learning</strong>
+              <span>Perception &amp; decision-making</span>
+            </div>
+          </div>
+          <div class="about-pillar reveal reveal-delay-4">
+            <div class="about-pillar-icon">🏭</div>
+            <div class="about-pillar-text">
+              <strong>Industry Collaboration</strong>
+              <span>TÜBİTAK, KOSGEB, EU projects</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="pages/about.html" class="btn-primary" id="btn-about-more">Full Story</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar" role="region" aria-label="Laboratory statistics">
+      <div class="stat-cell reveal">
+        <div class="num" data-count="49" data-suffix="+">0+</div>
+        <div class="lbl">Student Research Projects</div>
+      </div>
+      <div class="stat-cell reveal reveal-delay-1">
+        <div class="num" data-count="42" data-suffix="+">0+</div>
+        <div class="lbl">SCI-E Indexed Papers</div>
+      </div>
+      <div class="stat-cell reveal reveal-delay-2">
+        <div class="num" data-count="32" data-suffix="+">0+</div>
+        <div class="lbl">Awards &amp; Championships</div>
+      </div>
+      <div class="stat-cell reveal reveal-delay-3">
+        <div class="num" data-count="11" data-suffix="+">0+</div>
+        <div class="lbl">Industry R&amp;D Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     RESEARCH
+     ================================================================ -->
+<section id="research" aria-labelledby="research-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Research Areas</p>
+      <h2 class="section-title" id="research-title">What We Work On</h2>
+      <p class="section-subtitle">
+        RACLAB conducts advanced R&amp;D across six core domains, integrating perception, planning, control, and communication into deployable autonomous systems.
+      </p>
+    </div>
+
+    <div class="research-grid">
+      <!-- UAV -->
+      <article class="research-card reveal" id="card-uav">
+        <div class="research-card-img">
+          <img src="images/uav_research.png" alt="Autonomous UAV drone with sensors" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Unmanned Aerial Vehicles (UAV)</h3>
+          <p>Design and development of fixed-wing &amp; rotary-wing UAV platforms. Autonomous flight, GPS-denied navigation, real-time image processing, swarm coordination, and indigenous flight control software.</p>
+          <div class="research-tags">
+            <span class="tag">SLAM</span>
+            <span class="tag">Vision</span>
+            <span class="tag">Swarm</span>
+            <span class="tag purple">Deep Learning</span>
+          </div>
+          <a href="pages/research.html#uav" class="btn-ghost" id="link-uav">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- UGV -->
+      <article class="research-card reveal reveal-delay-1" id="card-ugv">
+        <div class="research-card-img">
+          <img src="images/ugv_research.png" alt="Autonomous ground vehicle in urban environment" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Autonomous Ground Vehicles (UGV)</h3>
+          <p>Sensor-fusion-based localization, lane detection, obstacle avoidance, path planning and autonomous control for self-driving car platforms and industrial AGVs.</p>
+          <div class="research-tags">
+            <span class="tag">LiDAR</span>
+            <span class="tag">ROS</span>
+            <span class="tag">SLAM</span>
+            <span class="tag purple">AI Control</span>
+          </div>
+          <a href="pages/research.html#ugv" class="btn-ghost" id="link-ugv">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- AUV -->
+      <article class="research-card reveal reveal-delay-2" id="card-auv">
+        <div class="research-card-img">
+          <img src="images/auv_research.png" alt="Autonomous Underwater Vehicle" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Autonomous Underwater Vehicles (AUV)</h3>
+          <p>GNSS-independent navigation using IMU–DVL–camera–depth sensor fusion, obstacle detection/avoidance, and autonomous mission planning for underwater environments.</p>
+          <div class="research-tags">
+            <span class="tag">DVL</span>
+            <span class="tag">IMU Fusion</span>
+            <span class="tag emerald">Sonar</span>
+          </div>
+          <a href="pages/research.html#auv" class="btn-ghost" id="link-auv">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Smart Traffic -->
+      <article class="research-card reveal" id="card-traffic">
+        <div class="research-card-img">
+          <img src="images/smart_transport.png" alt="Smart Transportation Systems" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Smart Transportation Systems</h3>
+          <p>IoT-based adaptive traffic signal control, V2I communication modules, digital twin technology for intersections, and AI-driven macroscopic traffic analysis software.</p>
+          <div class="research-tags">
+            <span class="tag">IoT</span>
+            <span class="tag">V2I</span>
+            <span class="tag purple">Digital Twin</span>
+          </div>
+          <a href="pages/research.html#traffic" class="btn-ghost" id="link-traffic">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- HRI -->
+      <article class="research-card reveal reveal-delay-1" id="card-hri">
+        <div class="research-card-img">
+          <img src="images/hri_research.png" alt="Human-Robot Interaction" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Human-Robot Interaction</h3>
+          <p>Estimating and reshaping human intention in collaborative HRI scenarios using HMM and OOM methods. Gesture recognition, action understanding, and safe motion planning.</p>
+          <div class="research-tags">
+            <span class="tag">HMM</span>
+            <span class="tag">OOM</span>
+            <span class="tag emerald">Gesture</span>
+          </div>
+          <a href="pages/research.html#hri" class="btn-ghost" id="link-hri">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Sensor Fusion -->
+      <article class="research-card reveal reveal-delay-2" id="card-sensor">
+        <div class="research-card-img">
+          <img src="images/sensor_fusion.png" alt="Sensor Fusion and SLAM" loading="lazy" />
+          <div class="research-card-img-overlay"></div>
+        </div>
+        <div class="research-card-body">
+          <h3>Sensor Fusion &amp; SLAM</h3>
+          <p>Multi-sensor integration (IMU, LiDAR, camera, GPS) for robust state estimation, simultaneous localization and mapping, and multi-agent situational awareness.</p>
+          <div class="research-tags">
+            <span class="tag">LiDAR</span>
+            <span class="tag">IMU</span>
+            <span class="tag">EKF</span>
+            <span class="tag amber">Visual SLAM</span>
+          </div>
+          <a href="pages/research.html#sensor" class="btn-ghost" id="link-sensor">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="pages/research.html" class="btn-outline" id="btn-all-research">View All Research Areas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PROJECTS
+     ================================================================ -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Featured Projects</p>
+      <h2 class="section-title" id="projects-title">Our Active &amp; Recent Projects</h2>
+      <p class="section-subtitle">From national championships to EU-funded international research, our teams deliver real-world impact.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="project-card reveal" id="proj-sigun">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_sigun.png" alt="RACLAB SİGUN Robotaxi" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag amber">Active</span>
+            <span style="font-size:11px;color:var(--text-muted);">2021–Present</span>
+          </div>
+          <h3>RACLAB SİGUN — Autonomous Robotaxi</h3>
+          <p>AI-powered self-driving vehicle competing in TEKNOFEST Robotaxi championships. 2× "Best Original Software" award &amp; 2× Runner-Up (2022, 2025).</p>
+          <a href="pages/projects.html#sigun" class="btn-ghost" id="link-proj-sigun">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card reveal reveal-delay-1" id="proj-nova">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_nova.png" alt="RACLAB NOVA Underwater AUV" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag emerald">Champion</span>
+            <span style="font-size:11px;color:var(--text-muted);">2021–2025</span>
+          </div>
+          <h3>RACLAB NOVA — Underwater AUV</h3>
+          <p>Autonomous underwater vehicle with vision-based mission execution. TEKNOFEST 2025 Underwater Systems <strong>Champion</strong> &amp; Best Team Spirit award.</p>
+          <a href="pages/projects.html#nova" class="btn-ghost" id="link-proj-nova">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card reveal reveal-delay-2" id="proj-iha">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_tulpars.png" alt="RACLAB TULPARS UAV" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag">Champion</span>
+            <span style="font-size:11px;color:var(--text-muted);">2017–Present</span>
+          </div>
+          <h3>RACLAB İHA — Autonomous Drone</h3>
+          <p>Multi-year TÜBİTAK UAV competition entry. 2019 National Champion · 2017 Runner-Up · Multiple Performance Awards (2023, 2025).</p>
+          <a href="pages/projects.html#iha" class="btn-ghost" id="link-proj-iha">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card reveal" id="proj-shuttle">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_shuttle.png" alt="Autonomous Outdoor Shuttle" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag purple">Industry</span>
+            <span style="font-size:11px;color:var(--text-muted);">2021–2025</span>
+          </div>
+          <h3>Autonomous Outdoor Shuttle — MPG</h3>
+          <p>Sensor-fusion-based autonomous shuttle for outdoor patrol/service missions. Developed in collaboration with MPG Machinery Production Group.</p>
+          <a href="pages/projects.html#shuttle" class="btn-ghost" id="link-proj-shuttle">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-card reveal reveal-delay-1" id="proj-ktask">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_traffic.png" alt="K-TASK Smart Traffic" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag purple">TÜBİTAK 1511</span>
+            <span style="font-size:11px;color:var(--text-muted);">2018–2020</span>
+          </div>
+          <h3>K-TASK — Coordinated Adaptive Signal Control</h3>
+          <p>Fully adaptive, coordinated traffic signal control system for urban intersections. Developed with Innomotive under TÜBİTAK 1511 priority R&amp;D programme.</p>
+          <a href="pages/projects.html#ktask" class="btn-ghost" id="link-proj-ktask">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project-card reveal reveal-delay-2" id="proj-agri">
+        <div class="project-card-img" style="background:none;">
+          <img src="images/proj_agri.png" alt="Agricultural Autonomous Robot" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div class="overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-card-meta">
+            <span class="tag emerald">Active · EU Funded</span>
+            <span style="font-size:11px;color:var(--text-muted);">2022–Present</span>
+          </div>
+          <h3>Smart Sugarbeet Monitoring — ERA-NET</h3>
+          <p>Satellite-controlled incentive system for sustainable sugarbeet production. International ERA-NET Cofund ICT-AGRI-FOOD project with Agrovisio.</p>
+          <a href="pages/projects.html#agri" class="btn-ghost" id="link-proj-agri">
+            Project Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div class="projects-cta">
+      <a href="pages/projects.html" class="btn-outline" id="btn-all-projects">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ACHIEVEMENTS
+     ================================================================ -->
+<section id="achievements" aria-labelledby="achievements-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Achievements</p>
+      <h2 class="section-title" id="achievements-title">Competition Excellence</h2>
+      <p class="section-subtitle">Since 2016, RACLAB teams have competed nationally and internationally, winning championships and recognition across 15+ competition platforms.</p>
+    </div>
+
+    <div class="achievements-intro">
+      <div class="awards-list reveal">
+        <div class="award-item">
+          <div class="award-medal gold">🏆</div>
+          <div class="award-body">
+            <strong>TEKNOFEST 2025 — Underwater Systems Champion</strong>
+            <span>RACLAB NOVA · Best Team Spirit Award · Istanbul, 2025</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal gold">🥇</div>
+          <div class="award-body">
+            <strong>TÜBİTAK UAV Championship 2019</strong>
+            <span>RACLAB Aybars · Rotary Wing Category National Champion</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal gold">🥇</div>
+          <div class="award-body">
+            <strong>OpenZeka MARC 2019 — University Champion</strong>
+            <span>Mini Autonomous Car — highest score among all universities</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal silver">🥈</div>
+          <div class="award-body">
+            <strong>TEKNOFEST 2025 — Robotaxi Runner-Up</strong>
+            <span>RACLAB SİGUN · "Best Original Software" Award (3rd time)</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal silver">🌍</div>
+          <div class="award-body">
+            <strong>AUVSI SUAS 2019 — 11th Place / 67 Teams (USA)</strong>
+            <span>International UAV Systems Student Competition, Maryland</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal gold">🏆</div>
+          <div class="award-body">
+            <strong>ODTÜ Robot Days — Multiple Champions (2020)</strong>
+            <span>RACLAB Tugberk · Autonomous UAV-Image Processing category</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="competition-cards">
+          <div class="competition-card">
+            <div class="icon">🚁</div>
+            <div class="count" data-count="9" data-suffix="+">0+</div>
+            <div class="name">TEKNOFEST UAV Awards</div>
+          </div>
+          <div class="competition-card">
+            <div class="icon">🚗</div>
+            <div class="count" data-count="6" data-suffix="+">0+</div>
+            <div class="name">Robotaxi Awards</div>
+          </div>
+          <div class="competition-card">
+            <div class="icon">🌊</div>
+            <div class="count" data-count="3" data-suffix="+">0+</div>
+            <div class="name">Underwater Awards</div>
+          </div>
+          <div class="competition-card">
+            <div class="icon">🌍</div>
+            <div class="count" data-count="2" data-suffix="+">0+</div>
+            <div class="name">International Awards</div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; text-align:center;">
+          <a href="pages/achievements.html" class="btn-outline" id="btn-all-awards">Full Awards List →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TEAM
+     ================================================================ -->
+<section id="team" aria-labelledby="team-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Our Team</p>
+      <h2 class="section-title" id="team-title">The People Behind RACLAB</h2>
+      <p class="section-subtitle">A multidisciplinary team of researchers, graduate students, and undergraduate engineers from Computer, EE, Mechanical, and Industrial Engineering.</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- Director -->
+      <article class="team-card reveal" id="card-durdu">
+        <div class="team-card-avatar" style="background:linear-gradient(135deg,#0a1e3a,#0d3060);">
+          👨‍🔬
+        </div>
+        <div class="team-card-body">
+          <h3>Prof. Dr. Akif DURDU</h3>
+          <p class="role">Lab Director &amp; Principal Investigator</p>
+          <p class="dept">Electrical &amp; Electronics Engineering</p>
+          <div class="team-card-links">
+            <a href="https://scholar.google.com" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            </a>
+            <a href="https://github.com/RACLAB-Robotics-Control-Robotics-Lab" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:adurdu@ktun.edu.tr" aria-label="Email" title="Email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PhD Students -->
+      <article class="team-card reveal reveal-delay-1" id="card-budak">
+        <div class="team-card-avatar" style="background:linear-gradient(135deg,#1a0a3a,#2d1260);">
+          👨‍💻
+        </div>
+        <div class="team-card-body">
+          <h3>Serkan Budak</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Deep RL · Control Systems</p>
+          <div class="team-card-links">
+            <a href="#" aria-label="Profile" title="Profile">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card reveal reveal-delay-2" id="card-ilgen">
+        <div class="team-card-avatar" style="background:linear-gradient(135deg,#0a1e3a,#0a3a2a);">
+          👨‍🔬
+        </div>
+        <div class="team-card-body">
+          <h3>Sinan İlgen</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Control Theory · Manipulators</p>
+          <div class="team-card-links">
+            <a href="#" aria-label="Profile" title="Profile">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card reveal reveal-delay-3" id="card-ay">
+        <div class="team-card-avatar" style="background:linear-gradient(135deg,#1a3a0a,#2a5a10);">
+          👨‍💻
+        </div>
+        <div class="team-card-body">
+          <h3>Gökberk Ay</h3>
+          <p class="role">PhD Researcher</p>
+          <p class="dept">Autonomous Systems · Navigation</p>
+          <div class="team-card-links">
+            <a href="#" aria-label="Profile" title="Profile">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top:8px;">
+      <a href="pages/team.html" class="btn-outline" id="btn-full-team">Meet the Full Team →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PUBLICATIONS
+     ================================================================ -->
+<section id="publications" aria-labelledby="pub-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Publications</p>
+      <h2 class="section-title" id="pub-title">Research Output</h2>
+      <p class="section-subtitle">A comprehensive collection of journal articles, conference papers, book chapters, theses, and other academic outputs from RACLAB researchers.</p>
+    </div>
+
+    <!-- Publication type summary badges -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:36px;">
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:var(--blue);">42+</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">SCI-E Journal Articles</div>
+      </div>
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:#7c3aed;">60+</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Conference Papers</div>
+      </div>
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:#059669;">10+</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Book Chapters</div>
+      </div>
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:#d97706;">30+</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">MSc/PhD Theses</div>
+      </div>
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:#0891b2;">49+</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Student Projects</div>
+      </div>
+      <div style="padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);text-align:center;">
+        <div style="font-family:var(--font-head);font-size:28px;font-weight:700;color:#be123c;">11</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Industry Projects</div>
+      </div>
+    </div>
+
+    <!-- Last 4 publications (most recent) -->
+    <h3 style="font-family:var(--font-head);font-size:16px;font-weight:600;margin-bottom:16px;color:var(--text-primary);">Latest Publications</h3>
+    <div class="publications-list">
+      <div class="pub-card reveal" id="pub-1">
+        <div class="pub-num">1</div>
+        <div class="pub-content">
+          <h3>Deep Reinforcement Learning-Based Control of a 1-DOF Helicopter: A Comparative Analysis</h3>
+          <p class="authors">Serkan BUDAK, Cemil SUNGUR, Akif DURDU</p>
+          <p class="journal">Physica Scripta, Volume 101, Issue 2, Jan. 2026</p>
+          <div class="pub-meta">
+            <span class="pub-badge">SCI-E</span>
+            <span class="pub-badge" style="background:rgba(5,150,105,0.12);color:#059669;border-color:rgba(5,150,105,0.2);">Journal</span>
+            <span class="pub-year">2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card reveal reveal-delay-1" id="pub-2">
+        <div class="pub-num">2</div>
+        <div class="pub-content">
+          <h3>A Unified Monocular Vision-Based Driving Model for Autonomous Vehicles with Multi-Task Capabilities</h3>
+          <p class="authors">Salim Azak, Fırat Bozkaya, Şükrücan Tığlıoğlu, Abdullah Yusefi, Akif DURDU</p>
+          <p class="journal">IEEE Transactions on Intelligent Vehicles, Vol. 10, Issue 9, Sep. 2025</p>
+          <div class="pub-meta">
+            <span class="pub-badge">SCI-E · WOS Q1</span>
+            <span class="pub-badge" style="background:rgba(5,150,105,0.12);color:#059669;border-color:rgba(5,150,105,0.2);">Journal</span>
+            <span class="pub-year">2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card reveal reveal-delay-2" id="pub-3">
+        <div class="pub-num">3</div>
+        <div class="pub-content">
+          <h3>LiDAR-Camera Fusion Based 3D Object Detection with Tracking Using Extended Kalman Filter</h3>
+          <p class="authors">Şükrücan Tığlıoğlu, Fırat Bozkaya, Akif DURDU</p>
+          <p class="journal">TEKNOFEST 2025 / IEEE Conference, 2025</p>
+          <div class="pub-meta">
+            <span class="pub-badge" style="background:rgba(124,58,237,0.12);color:#7c3aed;border-color:rgba(124,58,237,0.2);">Conference</span>
+            <span class="pub-year">2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card reveal" id="pub-4">
+        <div class="pub-num">4</div>
+        <div class="pub-content">
+          <h3>Consensus-based Virtual Leader Tracking Swarm Algorithm with GDRRT*-PSO for Path-Planning of Multiple UAVs</h3>
+          <p class="authors">Berat YILDIZ, Muhammet Fatih Aslan, Akif DURDU, Ahmet Kayabaşı</p>
+          <p class="journal">Swarm and Evolutionary Computation, Vol. 88, Article 101612, 2024</p>
+          <div class="pub-meta">
+            <span class="pub-badge">SCI-E</span>
+            <span class="pub-badge" style="background:rgba(5,150,105,0.12);color:#059669;border-color:rgba(5,150,105,0.2);">Journal</span>
+            <span class="pub-year">2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="pages/publications.html" class="btn-primary" id="btn-all-pubs">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View All Publications
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     NEWS
+     ================================================================ -->
+<section id="news" aria-labelledby="news-title" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Latest News</p>
+      <h2 class="section-title" id="news-title">From the Lab</h2>
+      <p class="section-subtitle">Stay up to date with RACLAB's latest competitions, research milestones, and announcements.</p>
+    </div>
+
+    <!-- Main 3-column news grid with real photos -->
+    <div class="news-grid">
+      <!-- Featured news -->
+      <article class="news-card featured reveal" id="news-1">
+        <div class="news-card-img">
+          <img src="public/img/blog/sualti2025.jpeg" alt="RACLAB NOVA TEKNOFEST 2025 Champion" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta">
+            <span class="tag emerald">Competition</span>
+            <span class="news-card-date">TEKNOFEST 2025</span>
+          </div>
+          <h3>RACLAB NOVA Wins TEKNOFEST 2025 Underwater Systems Championship 🏆</h3>
+          <p>Our autonomous underwater vehicle team RACLAB NOVA claimed the championship title and Best Team Spirit award at TEKNOFEST 2025, competing against over 300 teams from across Turkey.</p>
+          <a href="pages/news.html#nova-champion" class="btn-ghost" id="link-news-1">
+            Read More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- News 2 -->
+      <article class="news-card reveal reveal-delay-1" id="news-2">
+        <div class="news-card-img">
+          <img src="public/img/blog/Teknofest2025.jpeg" alt="RACLAB TEKNOFEST 2025" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta">
+            <span class="tag">Award</span>
+            <span class="news-card-date">TEKNOFEST 2025</span>
+          </div>
+          <h3>SİGUN — 2nd Place &amp; Best Original Software 🥈</h3>
+          <p>RACLAB SİGUN secures its 3rd "Best Original Software" award and 2nd place at the national Robotaxi championship.</p>
+          <a href="pages/news.html#sigun-2025" class="btn-ghost" id="link-news-2">
+            Read More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- News 3 -->
+      <article class="news-card reveal reveal-delay-2" id="news-3">
+        <div class="news-card-img">
+          <img src="public/img/blog/tulpars2025.png" alt="RACLAB TULPARS UAV Free Category" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta">
+            <span class="tag amber">UAV</span>
+            <span class="news-card-date">TEKNOFEST 2025</span>
+          </div>
+          <h3>TULPARS — 3rd Place UAV Free Category 🥉</h3>
+          <p>RACLAB TULPARS achieves 3rd place in the TEKNOFEST 2025 UAV Free Flight Category, adding another podium finish to RACLAB's record.</p>
+          <a href="pages/news.html#tulpars-2025" class="btn-ghost" id="link-news-3">
+            Read More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Blog-style extra row (3 more news) -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;">
+      <article class="news-card reveal" id="news-4">
+        <div class="news-card-img" style="height:180px;">
+          <img src="public/img/blog/Teknofest2024.jpeg" alt="RACLAB TEKNOFEST 2024" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta"><span class="tag emerald">Competition</span><span class="news-card-date">TEKNOFEST 2024</span></div>
+          <h3>RACLAB Teams at TEKNOFEST 2024 — Multiple Podiums</h3>
+          <a href="pages/news.html#teknofest-2024" class="btn-ghost" id="link-news-4">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="news-card reveal reveal-delay-1" id="news-5">
+        <div class="news-card-img" style="height:180px;">
+          <img src="public/img/blog/FOTO1.jpeg" alt="RACLAB lab activities" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta"><span class="tag">Award</span><span class="news-card-date">Sep 2025</span></div>
+          <h3>UDHAM Scientific Excellence Award — RACLAB Students</h3>
+          <a href="pages/news.html#udham-award" class="btn-ghost" id="link-news-5">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="news-card reveal reveal-delay-2" id="news-6">
+        <div class="news-card-img" style="height:180px;">
+          <img src="public/img/blog/FOTO2.jpeg" alt="RACLAB IEEE publication" loading="lazy" />
+          <div class="overlay"></div>
+        </div>
+        <div class="news-card-body">
+          <div class="news-card-meta"><span class="tag purple">Publication</span><span class="news-card-date">2025</span></div>
+          <h3>New Paper in IEEE Transactions on Intelligent Vehicles (Q1)</h3>
+          <a href="pages/news.html#ieee-paper" class="btn-ghost" id="link-news-6">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="pages/news.html" class="btn-outline" id="btn-all-news">All News &amp; Updates →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SPONSORS / INDUSTRY PARTNERS
+     ================================================================ -->
+<section id="sponsors" aria-labelledby="sponsors-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Industry Partners &amp; Sponsors</p>
+      <h2 class="section-title" id="sponsors-title">Building Together</h2>
+      <p class="section-subtitle">RACLAB actively collaborates with Turkish industry and international partners through TÜBİTAK, KOSGEB, and EU-funded joint R&amp;D projects.</p>
+    </div>
+  </div>
+
+  <!-- ✦ Infinite scrolling logo strip ✦ -->
+  <div class="sponsors-track-wrap">
+    <div class="sponsors-track">
+      <!-- Set 1 -->
+      <div class="sp-logo-item"><img src="public/img/background/Atiker.png" alt="Atiker" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/kapsul.png" alt="Kapsul" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/KonyaBuyukSehirBelediyesi.jpeg" alt="Konya Büyükşehir" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/mpg.png" alt="MPG" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/ulastirmaBakanligi.jpeg" alt="Ulaştırma Bakanlığı" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/yesilay.jpeg" alt="Yeşilay" /></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">TÜBİTAK</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">KOSGEB</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">ERA-NET</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Elfatek</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">MOSAŞ</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Otobot</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Agrovisio</div></div>
+      <!-- Set 2 duplicate for seamless loop -->
+      <div class="sp-logo-item"><img src="public/img/background/Atiker.png" alt="Atiker" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/kapsul.png" alt="Kapsul" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/KonyaBuyukSehirBelediyesi.jpeg" alt="Konya Büyükşehir" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/mpg.png" alt="MPG" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/ulastirmaBakanligi.jpeg" alt="Ulaştırma Bakanlığı" /></div>
+      <div class="sp-logo-item"><img src="public/img/background/yesilay.jpeg" alt="Yeşilay" /></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">TÜBİTAK</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">KOSGEB</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">ERA-NET</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Elfatek</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">MOSAŞ</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Otobot</div></div>
+      <div class="sp-logo-item"><div class="sp-logo-text">Agrovisio</div></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sponsors-grid">
+      <div class="sponsor-card reveal" id="sponsor-elfatek">
+        <div class="sponsor-logo-area blue">E</div>
+        <h3>Elfatek Electronics</h3>
+        <p>Joint R&amp;D on autonomous mobile robots, Robot Electronic Control Unit (REKÜ) design, and industrial AGV systems.</p>
+        <span class="project-count">TÜBİTAK 1501 · KOSGEB · 3 joint projects</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-1" id="sponsor-mosas">
+        <div class="sponsor-logo-area green">M</div>
+        <h3>MOSAŞ Group</h3>
+        <p>Collaborative projects on adaptive traffic signal networks, V2I communication modules, digital twin intersections, and green transport analytics.</p>
+        <span class="project-count">TÜBİTAK 1501/1507/1832 · 5 joint projects</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-2" id="sponsor-otobot">
+        <div class="sponsor-logo-area teal">O</div>
+        <h3>Otobot</h3>
+        <p>IoT &amp; AI-based autonomous mobile robots, fleet management systems, and smart agricultural UAV spraying technologies.</p>
+        <span class="project-count">KOSGEB · TÜBİTAK 1507 · 3 joint projects</span>
+      </div>
+
+      <div class="sponsor-card reveal" id="sponsor-mpg">
+        <div class="sponsor-logo-area purple">MPG</div>
+        <h3>MPG Machinery Production</h3>
+        <p>Autonomous outdoor shuttle development: sensor fusion, route planning, and obstacle avoidance for real-world field deployments.</p>
+        <span class="project-count">In-house R&amp;D · 1 joint project</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-1" id="sponsor-agrovisio">
+        <div class="sponsor-logo-area orange">A</div>
+        <h3>Agrovisio</h3>
+        <p>International ERA-NET Cofund ICT-AGRI-FOOD project for satellite-controlled sustainable sugarbeet production in EU consortium.</p>
+        <span class="project-count">ERA-NET · EU Project · Since 2022</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-2" id="sponsor-onallar">
+        <div class="sponsor-logo-area red">Ö</div>
+        <h3>Önallar Agriculture</h3>
+        <p>Design and prototype manufacturing of an autonomous orchard spraying machine with smart mapping capabilities.</p>
+        <span class="project-count">TÜBİTAK 1501 · Active since 2025</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px;">
+      <a href="pages/sponsors.html" class="btn-outline" id="btn-all-sponsors">View All Partners →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTACT
+     ================================================================ -->
+<section id="contact" style="background:var(--bg-secondary);" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Contact Us</p>
+      <h2 class="section-title" id="contact-title">Get In Touch</h2>
+      <p class="section-subtitle">Interested in collaboration, student research, or industry partnership? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="contact-item reveal">
+          <div class="contact-icon">🏛️</div>
+          <div>
+            <h4>Address</h4>
+            <p>Konya Technical University<br>Faculty of Engineering &amp; Natural Sciences<br>Electrical &amp; Electronics Engineering Dept.<br>Konya, Turkey</p>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <h4>Website</h4>
+            <a href="https://www.raclab.org" target="_blank" rel="noopener">www.raclab.org</a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-3">
+          <h4 style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Follow Us</h4>
+          <div class="contact-social" style="flex-wrap:wrap;gap:8px;">
+            <a href="https://www.instagram.com/rac_lab/" target="_blank" rel="noopener" class="social-btn" id="link-instagram" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border-color:transparent;" aria-label="Instagram @rac_lab">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://x.com/raclab_ktun" target="_blank" rel="noopener" class="social-btn" id="link-x" aria-label="X (Twitter)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
+              X / Twitter
+            </a>
+            <a href="https://www.linkedin.com/company/raclab-ktun" target="_blank" rel="noopener" class="social-btn" id="link-linkedin" style="background:#0077b5;color:#fff;border-color:transparent;" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.youtube.com/@raclab" target="_blank" rel="noopener" class="social-btn" id="link-youtube" style="background:#ff0000;color:#fff;border-color:transparent;" aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+              YouTube
+            </a>
+            <a href="https://github.com/RACLAB-Robotics-Control-Robotics-Lab" target="_blank" rel="noopener" class="social-btn" id="link-github" aria-label="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap reveal reveal-delay-1">
+        <h3>Send a Message</h3>
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject">
+              <option value="">Select a topic…</option>
+              <option value="collab">Research Collaboration</option>
+              <option value="industry">Industry Partnership</option>
+              <option value="student">Student Research / Thesis</option>
+              <option value="media">Media Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us about your inquiry…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="btn-contact-submit">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" style="text-decoration:none;display:block;margin-bottom:12px;">
+          <img src="public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+        </a>
+        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="pages/publications.html">Publications</a></li>
+          <li><a href="pages/news.html">News</a></li>
+          <li><a href="pages/sponsors.html">Sponsors</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://github.com/RACLAB-Robotics-Control-Robotics-Lab" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>University</h4>
+        <ul>
+          <li><a href="https://www.ktun.edu.tr" target="_blank" rel="noopener">Konya Technical Univ.</a></li>
+          <li><a href="https://ee.ktun.edu.tr" target="_blank" rel="noopener">EE Department</a></li>
+          <li><a href="https://www.tubitak.gov.tr" target="_blank" rel="noopener">TÜBİTAK</a></li>
+          <li><a href="https://www.teknofest.org" target="_blank" rel="noopener">TEKNOFEST</a></li>
+          <li><a href="https://www.raclab.org" target="_blank" rel="noopener">www.raclab.org</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 RACLAB — Konya Technical University. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="pages/about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.raclab.org" target="_blank" rel="noopener">raclab.org</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Scripts -->
+<script src="js/script.js" defer></script>
+<style>
+/* === LOGO VISIBILITY FIX: always show logo on dark pill background === */
+.nav-logo-icon {
+  background: #1a0a0a !important;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+/* Light-background sections: keep navbar logo always visible */
+#navbar.scrolled .nav-logo-icon { background: #1a0a0a !important; }
+#navbar .nav-logo-icon img { display: block; }
+
+/* Search overlay display flex when active */
+#search-overlay.active { display: flex !important; }
+</style>
+<script>
+// ======= SEARCH FUNCTIONALITY =======
+const searchBtn  = document.getElementById('nav-search-btn');
+const overlay    = document.getElementById('search-overlay');
+const searchInput= document.getElementById('search-input');
+const resultsBox = document.getElementById('search-results');
+
+const searchIndex = [
+  { title:'About RACLAB', url:'#about', desc:'Founded in 2014, project-based R&D lab at Konya Technical University.' },
+  { title:'Research: UAV Systems', url:'#research', desc:'Fixed-wing & rotary-wing UAVs, autonomous flight, GPS-denied navigation.' },
+  { title:'Research: Autonomous UGV', url:'#research', desc:'Sensor-fusion localization, lane detection, SLAM, path planning.' },
+  { title:'Research: AUV Underwater', url:'#research', desc:'DVL-IMU-Camera fusion, obstacle avoidance, underwater mission planning.' },
+  { title:'Research: Smart Transportation', url:'#research', desc:'IoT adaptive traffic signals, V2I, digital twin intersections.' },
+  { title:'Research: Human-Robot Interaction', url:'#research', desc:'HMM, OOM methods, gesture recognition, collaborative robotics.' },
+  { title:'Research: Sensor Fusion & SLAM', url:'#research', desc:'LiDAR, IMU, EKF, visual SLAM multi-sensor integration.' },
+  { title:'Project: RACLAB SİGUN', url:'#projects', desc:'Autonomous robotaxi, TEKNOFEST champion, best original software.' },
+  { title:'Project: RACLAB NOVA', url:'#projects', desc:'Underwater AUV, TEKNOFEST 2025 underwater systems champion.' },
+  { title:'Project: RACLAB İHA / TULPARS', url:'#projects', desc:'Autonomous drone UAV, 2019 national champion.' },
+  { title:'Project: Autonomous Shuttle', url:'#projects', desc:'Outdoor autonomous shuttle with MPG Machinery.' },
+  { title:'Project: K-TASK Traffic Control', url:'#projects', desc:'Adaptive coordinated traffic signal control, TÜBİTAK 1511.' },
+  { title:'Project: Smart Sugarbeet', url:'#projects', desc:'ERA-NET Cofund EU project, satellite-controlled agriculture.' },
+  { title:'Achievements & Awards', url:'#achievements', desc:'32+ competition awards including TEKNOFEST, ODTÜ, AUVSI SUAS.' },
+  { title:'Team', url:'#team', desc:'Prof. Dr. Akif Durdu and multidisciplinary research team.' },
+  { title:'Publications', url:'#publications', desc:'42+ SCI-E papers, 60+ conference papers, book chapters, theses.' },
+  { title:'News', url:'#news', desc:'Latest news from RACLAB competitions, research milestones.' },
+  { title:'Sponsors & Partners', url:'#sponsors', desc:'Elfatek, MOSAŞ, Otobot, MPG, Agrovisio, Önallar and more.' },
+  { title:'Contact Us', url:'#contact', desc:'Reach RACLAB for collaboration, student research, or partnerships.' },
+  { title:'Prof. Dr. Akif DURDU', url:'pages/about.html', desc:'Lab director, PI, Electrical & Electronics Engineering, KTUN.' },
+];
+
+function openSearch() {
+  overlay.style.display = 'flex';
+  setTimeout(() => { if(searchInput) searchInput.focus(); }, 80);
+}
+function closeSearch() {
+  overlay.style.display = 'none';
+  if(searchInput) searchInput.value = '';
+  if(resultsBox) resultsBox.innerHTML = '';
+}
+
+if(searchBtn)  searchBtn.addEventListener('click', openSearch);
+if(overlay)    overlay.addEventListener('click', e => { if(e.target === overlay) closeSearch(); });
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeSearch();
+  if((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+});
+
+if(searchInput) {
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if(!q) { resultsBox.innerHTML=''; return; }
+    const hits = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q)
+    ).slice(0, 8);
+    if(!hits.length) {
+      resultsBox.innerHTML = '<p style="color:var(--text-muted);font-size:14px;padding:8px 0;">No results found for "'+q+'"</p>';
+      return;
+    }
+    resultsBox.innerHTML = hits.map(h => `
+      <a href="${h.url}" onclick="closeSearch()" style="display:block;padding:10px 12px;border-radius:8px;text-decoration:none;transition:background 0.15s;margin-bottom:4px;border:1px solid transparent;"
+         onmouseover="this.style.background='var(--blue-dim)';this.style.borderColor='var(--border-active)'"
+         onmouseout="this.style.background='transparent';this.style.borderColor='transparent'">
+        <div style="font-weight:600;font-size:14px;color:var(--text-primary);margin-bottom:2px;">${h.title}</div>
+        <div style="font-size:12px;color:var(--text-muted);">${h.desc}</div>
+      </a>
+    `).join('');
+  });
+}
+
+
+</script>
+</body>
+</html>
