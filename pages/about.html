@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../public/img/user/favicon_raclab.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — RACLAB | Robotics Automation Control Laboratory</title>
   <meta name="description" content="RACLAB (Robotics Automation Control Laboratory) is a project-based R&D laboratory at Konya Technical University, founded in 2014 by Prof. Dr. Akif DURDU." />
-  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/pages.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -196,55 +197,52 @@
 <body>
 
 <!-- NAVBAR (Unified) -->
-<nav id="navbar" class="scrolled">
-  <div class="container nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
-      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
-        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="../index.html#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="scrolled" id="navbar">
+<div class="container nav-inner">
+<a aria-label="RACLAB Home" class="nav-logo" href="../index.html">
+<div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+<img alt="RACLAB" src="../public/img/user/raclab.png" style="height:32px;width:auto;"/>
+</div>
+</a>
+<ul class="nav-links">
+<li><a class="active" href="about.html">About</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="achievements.html">Achievements</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="sponsors.html">Sponsors</a></li>
+<li><a href="../index.html#contact">Contact Us</a></li>
+</ul>
+<div class="nav-cta">
+<button aria-label="Search" class="nav-search-btn" id="nav-search-btn" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
-
 <!-- Search overlay -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
-  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
-    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
-    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
-    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
-    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
-  </div>
+<div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+<button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+<h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+<input id="search-input" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" type="text"/>
+<div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
 </div>
-
+</div>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="projects.html">Projects</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="team.html">Team</a>
-  <a href="publications.html">Publications</a>
-  <a href="news.html">News</a>
-  <a href="sponsors.html">Sponsors</a>
-  <a href="../index.html#contact">Contact Us</a>
+<a class="active" href="about.html">About</a>
+<a href="research.html">Research</a>
+<a href="projects.html">Projects</a>
+<a href="achievements.html">Achievements</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="news.html">News</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
-
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-bg"></div>
@@ -293,7 +291,7 @@
     </div>
     <div class="pi-card reveal">
       <div class="pi-avatar">
-        <img src="https://akifdurdu.github.io/assets/img/profile.jpg" alt="Prof. Dr. Akif DURDU" onerror="this.parentElement.innerHTML='👨‍🔬'" />
+        <img src="../public/img/team/akifDurdu.jpeg" alt="Prof. Dr. Akif DURDU" onerror="this.parentElement.innerHTML='👨‍🔬'" />
       </div>
       <div class="pi-info">
         <h3>Prof. Dr. Akif DURDU</h3>
@@ -536,6 +534,24 @@
   </div>
 </section>
 
+<!-- RACLAB Intro Video -->
+<section class="about-section">
+  <div class="container">
+    <p class="section-label" >Lab in Action</p>
+    <h2 class="section-title" >RACLAB <span style="color:var(--blue);">Introduction Video</span></h2>
+    <p class="section-subtitle">A short introduction to RACLAB — our laboratory, teams, research areas, and autonomous systems.
+    </p>
+    <div style="position:relative;width:100%;max-width:560px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.3);border:1px solid var(--border);">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CUKPgcvloSc/" data-instgrm-version="14"
+        style="background:var(--bg-primary);border:0;border-radius:16px;margin:0;max-width:560px;min-width:326px;padding:0;width:100%;"></blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">
+      <a href="https://www.instagram.com/tv/CUKPgcvloSc/" target="_blank" rel="noopener" style="color:var(--blue);">Watch on Instagram &rarr;</a>
+    </p>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════════════
      CTA
 ════════════════════════════════════════════════ -->
@@ -604,6 +620,10 @@
       </div>
     </div>
   </div>
+
+
+
+<div class="glow-divider"></div>
 </footer>
 
 <button id="back-to-top" aria-label="Back to top">↑</button>

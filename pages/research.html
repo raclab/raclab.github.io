@@ -1,108 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="utf-8"/>
+<link href="../public/img/user/favicon_raclab.png" rel="icon" type="image/png"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Research Areas — RACLAB</title>
-  <meta name="description" content="RACLAB research areas: UAVs, autonomous ground vehicles, underwater systems, smart transportation, human-robot interaction, and sensor fusion."/>
-  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/pages.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    .pub-year-section { margin-bottom: 48px; }
-    .pub-year-heading {
-      font-family: var(--font-head);
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--blue);
-      padding: 12px 0;
-      border-bottom: 2px solid var(--border-active);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .pub-year-heading::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 36px;
-      background: var(--blue);
-      border-radius: 3px;
-    }
-    .pub-type-journal  { border-left: 4px solid #e63329; }
-    .pub-type-conf     { border-left: 4px solid #f59e0b; }
-    .pub-type-book     { border-left: 4px solid #a855f7; }
-    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
-    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
-    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
-    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
-    .pub-card-text em { color: var(--blue); font-style: italic; }
-    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
-    .pub-card-text a:hover { color: #ff6b6b; }
-    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
-    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
-    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
-    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
-    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
-    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
-  </style>
+<meta content="Meet the RACLAB team — researchers, PhD students, and competition teams (NOVA, SİGUN, TULPARS, FAAL, ROVER, İVME) at Konya Technical University." name="description"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<link href="../css/pages.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 </head>
 <body>
 <!-- NAVBAR (Unified) -->
-<nav id="navbar" class="scrolled">
-  <div class="container nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
-      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
-        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html" class="active">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="../index.html#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="scrolled" id="navbar">
+<div class="container nav-inner">
+<a aria-label="RACLAB Home" class="nav-logo" href="../index.html">
+<div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+<img alt="RACLAB" src="../public/img/user/raclab.png" style="height:32px;width:auto;"/>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="research.html" class="active">Research</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="achievements.html">Achievements</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="sponsors.html">Sponsors</a></li>
+<li><a href="../index.html#contact">Contact Us</a></li>
+</ul>
+<div class="nav-cta">
+<button aria-label="Search" class="nav-search-btn" id="nav-search-btn" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
-
 <!-- Search overlay -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
-  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
-    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
-    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
-    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
-    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
-  </div>
+<div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+<button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+<h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+<input id="search-input" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" type="text"/>
+<div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+</div>
+</div>
+
 </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="projects.html">Projects</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="team.html">Team</a>
-  <a href="publications.html">Publications</a>
-  <a href="news.html">News</a>
-  <a href="sponsors.html">Sponsors</a>
-  <a href="../index.html#contact">Contact Us</a>
+<a href="about.html">About</a>
+<a href="research.html" class="active">Research</a>
+<a href="projects.html">Projects</a>
+<a href="achievements.html">Achievements</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="news.html">News</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -129,11 +87,11 @@
           <span class="tag">Rotary Wing</span><span class="tag">Fixed Wing</span><span class="tag">SLAM</span><span class="tag purple">Deep Learning</span><span class="tag">Path Planning</span><span class="tag emerald">Swarm</span>
         </div>
       </div>
-      <div style="background:linear-gradient(135deg,#0a1628,#0d2244);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">🚁</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/uav.webp" alt="RACLAB UAV Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
     </div>
 
     <div id="ugv" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--border);">
-      <div style="background:linear-gradient(135deg,#0a1628,#1a0d3a);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">🚗</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/ugv.webp" alt="RACLAB UGV Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
       <div>
         <p class="section-label">Research Area 02</p>
         <h2 style="font-family:var(--font-head);font-size:clamp(24px,3vw,36px);font-weight:700;margin-bottom:16px;">Autonomous Ground Vehicles (UGV)</h2>
@@ -155,11 +113,11 @@
           <span class="tag">DVL</span><span class="tag">IMU</span><span class="tag">Depth Sensor</span><span class="tag emerald">Computer Vision</span><span class="tag">Mission Planning</span>
         </div>
       </div>
-      <div style="background:linear-gradient(135deg,#061828,#092840);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">🌊</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/auv.webp" alt="RACLAB AUV Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
     </div>
 
     <div id="traffic" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--border);">
-      <div style="background:linear-gradient(135deg,#0f0a28,#1a0840);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">🚦</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/traffic.webp" alt="RACLAB TRAFFIC Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
       <div>
         <p class="section-label">Research Area 04</p>
         <h2 style="font-family:var(--font-head);font-size:clamp(24px,3vw,36px);font-weight:700;margin-bottom:16px;">Smart Transportation Systems</h2>
@@ -181,11 +139,11 @@
           <span class="tag">HMM</span><span class="tag">OOM</span><span class="tag emerald">Action Recognition</span><span class="tag">Safe Planning</span>
         </div>
       </div>
-      <div style="background:linear-gradient(135deg,#0a1808,#0f3820);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">🤝</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/hri.webp" alt="RACLAB HRI Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
     </div>
 
     <div id="sensor" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
-      <div style="background:linear-gradient(135deg,#281008,#3a1810);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border);">📡</div>
+      <div style="border-radius:16px;height:300px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);"><img src="../public/img/research/sensor.webp" alt="RACLAB SENSOR Research" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/></div>
       <div>
         <p class="section-label">Research Area 06</p>
         <h2 style="font-family:var(--font-head);font-size:clamp(24px,3vw,36px);font-weight:700;margin-bottom:16px;">Sensor Fusion &amp; SLAM</h2>

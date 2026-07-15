@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../public/img/user/favicon_raclab.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Industry Partners & Sponsors — RACLAB</title>
   <meta name="description" content="RACLAB's industry collaborators and sponsors: Elfatek, MOSAŞ, MPG, Otobot, Agrovisio, Önallar, and more."/>
-  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/pages.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,53 +14,55 @@
 </head>
 <body>
 <!-- NAVBAR (Unified) -->
-<nav id="navbar" class="scrolled">
-  <div class="container nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
-      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
-        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="sponsors.html" class="active">Sponsors</a></li>
-      <li><a href="../index.html#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="scrolled" id="navbar">
+<div class="container nav-inner">
+<a aria-label="RACLAB Home" class="nav-logo" href="../index.html">
+<div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+<img alt="RACLAB" src="../public/img/user/raclab.png" style="height:32px;width:auto;"/>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="achievements.html">Achievements</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="sponsors.html" class="active">Sponsors</a></li>
+<li><a href="../index.html#contact">Contact Us</a></li>
+</ul>
+<div class="nav-cta">
+<button aria-label="Search" class="nav-search-btn" id="nav-search-btn" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
 
 <!-- Search overlay -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
-  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
-    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
-    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
-    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
-    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
-  </div>
+<div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+<button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+<h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+<input id="search-input" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" type="text"/>
+<div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="projects.html">Projects</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="team.html">Team</a>
-  <a href="publications.html">Publications</a>
-  <a href="news.html">News</a>
-  <a href="sponsors.html">Sponsors</a>
-  <a href="../index.html#contact">Contact Us</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a href="projects.html">Projects</a>
+<a href="achievements.html">Achievements</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="news.html">News</a>
+<a href="sponsors.html" class="active">Sponsors</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -73,20 +76,147 @@
   </div>
 </div>
 
-<section style="padding:60px 0;">
+<section style="padding:0 0 60px 0;">
+  <!-- Marquee Bar -->
+  <div class="sponsors-track-wrap" style="margin-bottom:60px;">
+    <div class="sponsors-track">
+      <!-- Set 1 -->
+      <div class="sp-logo-item"><img src="../public/img/sponsors/Atiker.png" alt="Atiker" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/KonyaBuyukSehirBelediyesi.jpeg" alt="Konya Büyükşehir Belediyesi" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/agrovisio.png" alt="Agrovisio" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/butkon.png" alt="Butkon Lift" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/elfatek.png" alt="Elfatek" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/innomotive.png" alt="Innomotive" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/kapsul.png" alt="Kapsül" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/mosas.webp" alt="MOSAŞ" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/mpg.png" alt="MPG" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/onallar.png" alt="Önallar" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/otobot.png" alt="Otobot" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/ulastirmaBakanligi.jpeg" alt="Ulaştırma Bakanlığı" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/yesilay.jpeg" alt="Yeşilay" /></div>
+      <!-- Set 2 duplicate for seamless loop -->
+      <div class="sp-logo-item"><img src="../public/img/sponsors/Atiker.png" alt="Atiker" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/KonyaBuyukSehirBelediyesi.jpeg" alt="Konya Büyükşehir Belediyesi" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/agrovisio.png" alt="Agrovisio" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/butkon.png" alt="Butkon Lift" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/elfatek.png" alt="Elfatek" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/innomotive.png" alt="Innomotive" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/kapsul.png" alt="Kapsül" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/mosas.webp" alt="MOSAŞ" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/mpg.png" alt="MPG" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/onallar.png" alt="Önallar" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/otobot.png" alt="Otobot" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/ulastirmaBakanligi.jpeg" alt="Ulaştırma Bakanlığı" /></div>
+      <div class="sp-logo-item"><img src="../public/img/sponsors/yesilay.jpeg" alt="Yeşilay" /></div>
+    </div>
+  </div>
+
+<style>
+.stats-marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 16px 0;
+  margin-bottom: 60px;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+.stats-marquee-wrap::before, .stats-marquee-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.stats-marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-default), transparent);
+}
+.stats-marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-default), transparent);
+}
+.stats-marquee {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: scrollStats 25s linear infinite;
+  gap: 40px;
+  padding: 0 20px;
+}
+@keyframes scrollStats {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 20px)); }
+}
+.stats-marquee-cell {
+  text-align: center;
+  min-width: 140px;
+}
+.stats-marquee-cell .num {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+  text-shadow: 0 4px 12px rgba(0,242,254,0.3);
+}
+.stats-marquee-cell .lbl {
+  font-size: 13px;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.stats-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stats-separator img {
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+</style>
+
   <div class="container">
-    <div class="stats-bar" style="margin-bottom:56px;">
-      <div class="stat-cell"><div class="num" data-count="11">0</div><div class="lbl">Industry Partners</div></div>
-      <div class="stat-cell"><div class="num" data-count="6">0</div><div class="lbl">TÜBİTAK Projects</div></div>
-      <div class="stat-cell"><div class="num" data-count="4">0</div><div class="lbl">KOSGEB Projects</div></div>
-      <div class="stat-cell"><div class="num" data-count="1">0</div><div class="lbl">EU Project</div></div>
+    <div class="stats-marquee-wrap">
+      <div class="stats-marquee">
+        <!-- Set 1 -->
+        <div class="stats-marquee-cell"><div class="num">8</div><div class="lbl">Industry Partners</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">14</div><div class="lbl">TÜBİTAK Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">3</div><div class="lbl">KOSGEB Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">1</div><div class="lbl">EU Project</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">23</div><div class="lbl">Total Funded Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <!-- Set 2 duplicate for infinite loop -->
+        <div class="stats-marquee-cell"><div class="num">8</div><div class="lbl">Industry Partners</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">14</div><div class="lbl">TÜBİTAK Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">3</div><div class="lbl">KOSGEB Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">1</div><div class="lbl">EU Project</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+        <div class="stats-marquee-cell"><div class="num">23</div><div class="lbl">Total Funded Projects</div></div>
+        <div class="stats-separator"><img src="../public/img/background/raclab.png" alt="RACLAB" /></div>
+      </div>
     </div>
 
     <div class="sponsors-grid" style="grid-template-columns:repeat(2,1fr);">
 
       <!-- Elfatek -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area blue" style="width:64px;height:64px;font-size:20px;">ELF</div>
+        <img src="../public/img/sponsors/elfatek.png" alt="Elfatek" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area blue\' style=\'width:64px;height:64px;font-size:20px;\'>ELF</div>';">
         <div>
           <h3>Elfatek Electronics</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
@@ -99,20 +229,20 @@
 
       <!-- MOSAŞ -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area green" style="width:64px;height:64px;font-size:20px;">MOS</div>
+        <img src="../public/img/sponsors/mosas.webp" alt="MOSAŞ" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area green\' style=\'width:64px;height:64px;font-size:20px;\'>MOS</div>';">
         <div>
           <h3>MOSAŞ Group</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
-            <span class="tag">TÜBİTAK 1501</span><span class="tag">TÜBİTAK 1507</span><span class="tag emerald">TÜBİTAK 1832</span><span class="tag purple">KOSGEB</span>
+            <span class="tag">TÜBİTAK 1501</span><span class="tag">TÜBİTAK 1507</span><span class="tag">TÜBİTAK 1511</span><span class="tag emerald">TÜBİTAK 1832</span><span class="tag purple">KOSGEB</span>
           </div>
-          <p>The most extensive industry collaboration in RACLAB's history. Five joint projects covering adaptive traffic signal control, V2I communication modules, digital twin intersection systems, traffic analytics software, and a Dünya Bankası-supported green transport project.</p>
-          <p style="margin-top:10px;font-size:13px;color:var(--blue);">Projects: K-TASK 1511 · V2I 1507 · Digital Twin 1501 · Traffic Analytics KOSGEB · Green 1832 · Innomotive 1511</p>
+          <p>The most extensive industry collaboration in RACLAB's history. Six joint projects covering coordinated adaptive traffic signal control (K-TASK), V2I communication modules, digital twin intersection systems, IoT multi-intersection control, AI-based traffic analysis, and a World Bank-supported green transport analytics platform.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">K-TASK (TÜBİTAK 1511) · V2I Module (1507) · Digital Twin (1501) · IoT Multi-Intersection (1501) · AI Traffic Analysis (1501, 2026) · Green Transport (1832) · KOSGEB Intersection Data</p>
         </div>
       </div>
 
       <!-- Otobot -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area teal" style="width:64px;height:64px;font-size:20px;">OTO</div>
+        <img src="../public/img/sponsors/otobot.png" alt="Otobot" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area teal\' style=\'width:64px;height:64px;font-size:20px;\'>OTO</div>';">
         <div>
           <h3>Otobot</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
@@ -125,7 +255,7 @@
 
       <!-- MPG -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area purple" style="width:64px;height:64px;font-size:18px;font-weight:700;">MPG</div>
+        <img src="../public/img/sponsors/mpg.png" alt="MPG" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area purple\' style=\'width:64px;height:64px;font-size:18px;font-weight:700;\'>MPG</div>';">
         <div>
           <h3>MPG Machinery Production Group</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
@@ -138,7 +268,7 @@
 
       <!-- Agrovisio -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area orange" style="width:64px;height:64px;font-size:20px;">AGR</div>
+        <img src="../public/img/sponsors/agrovisio.png" alt="Agrovisio" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area orange\' style=\'width:64px;height:64px;font-size:20px;\'>AGR</div>';">
         <div>
           <h3>Agrovisio</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
@@ -151,14 +281,40 @@
 
       <!-- Önallar -->
       <div class="sponsor-card">
-        <div class="sponsor-logo-area red" style="width:64px;height:64px;font-size:20px;">ÖNL</div>
+        <img src="../public/img/sponsors/onallar.png" alt="Önallar" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area red\' style=\'width:64px;height:64px;font-size:20px;\'>ÖNL</div>';">
         <div>
           <h3>Önallar Agriculture</h3>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
             <span class="tag">TÜBİTAK 1501</span>
           </div>
           <p>Design, development, and prototype manufacturing of a smart-mapping autonomous orchard spraying machine. Integrates sensor fusion, autonomous route planning, and variable-rate spraying for precision agriculture.</p>
-          <p style="margin-top:10px;font-size:13px;color:var(--blue);">TÜBİTAK 1501 · Started Oct 2025 · Active</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">TÜBİTAK 1501 · Aug 2025 – Ongoing · Budget: ₺6,500,000</p>
+        </div>
+      </div>
+
+      <!-- Butkon Lift -->
+      <div class="sponsor-card">
+        <img src="../public/img/sponsors/butkon.png" alt="Butkon Lift" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area\' style=\'width:64px;height:64px;font-size:20px;font-weight:700;background:linear-gradient(135deg,#0f4c81,#1a73e8);color:#fff;\'>BUT</div>';">
+        <div>
+          <h3>Butkon Lift</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag">TÜBİTAK 1507</span><span class="tag">TÜBİTAK 1707</span>
+          </div>
+          <p>Two joint R&amp;D projects with Butkon Lift in elevator technology. The first project (BUT-CALL X2E) develops a CANopen-Lift compliant secure communication platform for robots and smart devices in elevators. The second project builds an IoT-supported smart two-way communication and digital twin platform for elevator management systems.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">BUT-CALL X2E — TÜBİTAK 1507 (Feb 2026 – Ongoing, ₺1,000,000) · IoT Digital Twin — TÜBİTAK 1707 (Mar 2026 – Ongoing, ₺3,700,000)</p>
+        </div>
+      </div>
+
+      <!-- Innomotive -->
+      <div class="sponsor-card">
+        <img src="../public/img/sponsors/innomotive.png" alt="Innomotive" style="width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--border);" onerror="this.onerror=null; this.outerHTML='<div class=\'sponsor-logo-area\' style=\'width:64px;height:64px;font-size:20px;font-weight:700;background:linear-gradient(135deg,#2d6a4f,#40916c);color:#fff;\'>INN</div>';">
+        <div>
+          <h3>Innomotive</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+            <span class="tag">TÜBİTAK 1511</span>
+          </div>
+          <p>RACLAB served as advisor on the K-TASK project (Coordinated Fully Adaptive Signalization Control System) with Innomotive — a Priority Areas R&amp;D project under TÜBİTAK 1511. The system achieved coordinated adaptive traffic signal control across multi-intersection urban networks.</p>
+          <p style="margin-top:10px;font-size:13px;color:var(--blue);">K-TASK — TÜBİTAK 1511 Priority Areas R&amp;D · Apr 2018 – Mar 2020 · Budget: ₺2,500,000</p>
         </div>
       </div>
     </div>
@@ -191,6 +347,11 @@
           <div style="font-size:24px;margin-bottom:6px;">✈️</div>
           <div style="font-weight:600;font-size:14px;">TUSAŞ LIFT-UP</div>
           <div style="font-size:11px;color:var(--text-muted);">Aviation Industry Student Support</div>
+        </div>
+        <div style="text-align:center;padding:16px 24px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🏗️</div>
+          <div style="font-weight:600;font-size:14px;">TÜBİTAK 1707</div>
+          <div style="font-size:11px;color:var(--text-muted);">Order-Based R&amp;D Projects</div>
         </div>
       </div>
     </div>

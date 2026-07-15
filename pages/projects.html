@@ -1,464 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects — RACLAB</title>
-  <meta name="description" content="RACLAB projects: RACLAB SİGUN autonomous car, NOVA underwater vehicle, İHA drone teams, industry R&D collaborations."/>
-  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../public/img/user/favicon_raclab.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — RACLAB | Konya Technical University</title>
+  <meta name="description" content="RACLAB research and student projects — competition teams, TÜBİTAK 2209-A/B, KOSGEB, EU, TUSAŞ LIFT-UP projects since 2014." />
+  
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/pages.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .pub-year-section { margin-bottom: 48px; }
-    .pub-year-heading {
-      font-family: var(--font-head);
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--blue);
-      padding: 12px 0;
-      border-bottom: 2px solid var(--border-active);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    /* ── Filter Tabs ── */
+    .filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; align-items:center; }
+    .filter-btn {
+      padding:8px 18px; border-radius:99px; font-size:13px; font-weight:600; cursor:pointer;
+      border:1.5px solid var(--border); background:transparent; color:var(--text-secondary);
+      transition:all 0.18s; font-family:var(--font-head);
     }
-    .pub-year-heading::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 36px;
-      background: var(--blue);
-      border-radius: 3px;
+    .filter-btn:hover { border-color:var(--blue); color:var(--text-primary); }
+    .filter-btn.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+    .filter-btn .count { background:rgba(255,255,255,0.2); border-radius:99px; padding:1px 7px; font-size:11px; margin-left:6px; }
+    .filter-btn.active .count { background:rgba(0,0,0,0.2); }
+
+    /* ── Project Card ── */
+    .project-card {
+      background:var(--bg-primary); border:1px solid var(--border); border-radius:var(--radius-md);
+      padding:20px 24px; margin-bottom:14px; transition:border-color 0.2s, box-shadow 0.2s;
+      position:relative;
     }
-    .pub-type-journal  { border-left: 4px solid #e63329; }
-    .pub-type-conf     { border-left: 4px solid #f59e0b; }
-    .pub-type-book     { border-left: 4px solid #a855f7; }
-    .pub-card { padding: 20px 24px; margin-bottom: 12px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); transition: var(--transition); }
-    .pub-card:hover { background: rgba(230,51,41,0.06); border-color: var(--border-active); }
-    .pub-card-text { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
-    .pub-card-text strong { color: var(--text-primary); font-weight: 600; }
-    .pub-card-text em { color: var(--blue); font-style: italic; }
-    .pub-card-text a { color: var(--blue); text-decoration: underline; font-size: 12px; }
-    .pub-card-text a:hover { color: #ff6b6b; }
-    .pub-badge-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .legend-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 16px 20px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border); }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
-    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
-    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-    .filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--text-secondary); background: transparent; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
-    .filter-btn:hover, .filter-btn.active { background: var(--blue-dim); border-color: var(--border-active); color: var(--blue); }
-    .stat-pills { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-    .stat-pill { padding: 10px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary); }
-    .stat-pill strong { font-family: var(--font-head); font-size: 22px; color: var(--blue); display: block; }
+    .project-card:hover { border-color:var(--border-active); box-shadow:0 4px 20px rgba(230,51,41,0.06); }
+    .project-card.cat-competition { border-left:4px solid #e63329; }
+    .project-card.cat-tubitak-a   { border-left:4px solid #1890ff; }
+    .project-card.cat-tubitak-b   { border-left:4px solid #52c41a; }
+    .project-card.cat-kosgeb      { border-left:4px solid #fa8c16; }
+    .project-card.cat-eu          { border-left:4px solid #9254de; }
+    .project-card.cat-tusas       { border-left:4px solid #eb2f96; }
+    .project-card.cat-industry    { border-left:4px solid #13c2c2; }
+
+    .project-card-title { font-family:var(--font-head); font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:6px; line-height:1.5; }
+    .project-card-meta  { font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .project-tag {
+      display:inline-flex; align-items:center; gap:4px; padding:2px 10px; border-radius:99px;
+      font-size:11px; font-weight:700; letter-spacing:0.3px;
+    }
+    .tag-competition { background:rgba(230,51,41,0.12); color:#e63329; }
+    .tag-tubitak-a   { background:rgba(24,144,255,0.12); color:#1890ff; }
+    .tag-tubitak-b   { background:rgba(82,196,26,0.12); color:#52c41a; }
+    .tag-kosgeb      { background:rgba(250,140,22,0.12); color:#fa8c16; }
+    .tag-eu          { background:rgba(146,84,222,0.12); color:#9254de; }
+    .tag-tusas       { background:rgba(235,47,150,0.12); color:#eb2f96; }
+    .tag-industry    { background:rgba(19,194,194,0.12); color:#13c2c2; }
+
+    /* ── Year section ── */
+    .year-group { margin-bottom:40px; }
+    .year-group-header {
+      display:flex; align-items:center; gap:12px; margin-bottom:16px;
+      padding-bottom:10px; border-bottom:2px solid var(--border);
+    }
+    .year-group-header h3 { font-family:var(--font-head); font-size:20px; font-weight:700; color:var(--text-primary); }
+    .year-count { background:var(--bg-secondary); border:1px solid var(--border); border-radius:99px; padding:2px 10px; font-size:12px; color:var(--text-muted); }
+
+    /* ── Stat cards ── */
+    .proj-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-bottom:48px; }
+    .proj-stat-card { background:var(--bg-primary); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; text-align:center; }
+    .proj-stat-card .num { font-family:var(--font-head); font-size:32px; font-weight:800; color:var(--blue); }
+    .proj-stat-card .lbl { font-size:12px; color:var(--text-muted); margin-top:4px; }
+
+    /* Legend */
+    .legend-bar { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+    .legend-item { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--text-secondary); }
+    .legend-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+
+    #no-results { display:none; text-align:center; padding:48px; color:var(--text-muted); font-size:15px; }
+    @media(max-width:640px){ .project-card { padding:16px; } }
   </style>
 </head>
 <body>
+
 <!-- NAVBAR (Unified) -->
-<nav id="navbar" class="scrolled">
-  <div class="container nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
-      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
-        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="../index.html#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="scrolled" id="navbar">
+<div class="container nav-inner">
+<a aria-label="RACLAB Home" class="nav-logo" href="../index.html">
+<div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+<img alt="RACLAB" src="../public/img/user/raclab.png" style="height:32px;width:auto;"/>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="projects.html" class="active">Projects</a></li>
+<li><a href="achievements.html">Achievements</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="sponsors.html">Sponsors</a></li>
+<li><a href="../index.html#contact">Contact Us</a></li>
+</ul>
+<div class="nav-cta">
+<button aria-label="Search" class="nav-search-btn" id="nav-search-btn" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
 
 <!-- Search overlay -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
-  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
-    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
-    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
-    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
-    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
-  </div>
+<div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+<button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+<h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+<input id="search-input" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" type="text"/>
+<div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+</div>
+</div>
 </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="projects.html">Projects</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="team.html">Team</a>
-  <a href="publications.html">Publications</a>
-  <a href="news.html">News</a>
-  <a href="sponsors.html">Sponsors</a>
-  <a href="../index.html#contact">Contact Us</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="achievements.html">Achievements</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="news.html">News</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="container page-hero-content">
-    <div class="breadcrumb"><a href="../index.html">Home</a> / <span>Projects</span></div>
-    <p class="section-label">R&amp;D Projects</p>
-    <h1>Projects</h1>
-    <p>Competition teams, industry R&amp;D collaborations, and TÜBİTAK/KOSGEB funded research — all under one roof.</p>
-  </div>
+<div class="page-hero-bg"></div>
+<div class="container page-hero-content">
+<div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Projects</span></div>
+<p class="section-label">R&amp;D Portfolio</p>
+<h1 class="section-title">RACLAB <span style="color:var(--blue)">Projects</span></h1>
+<p class="section-subtitle">Competition teams, funded research projects, student initiatives — building autonomous systems since 2014.</p>
+</div>
 </div>
 
-<section style="padding:60px 0;">
+<div class="glow-divider"></div>
+
+<section style="padding:60px 0 80px;">
   <div class="container">
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="competition">Competition Teams</button>
-      <button class="filter-btn" data-filter="industry">Industry R&amp;D</button>
-      <button class="filter-btn" data-filter="tubitak">TÜBİTAK</button>
+
+    <!-- Stats -->
+    <div class="proj-stats">
+      <div class="proj-stat-card"><div class="num">6+</div><div class="lbl">Competition Teams</div></div>
+      <div class="proj-stat-card"><div class="num">50+</div><div class="lbl">TÜBİTAK 2209 Projects</div></div>
+      <div class="proj-stat-card"><div class="num">23+</div><div class="lbl">Funded Research Projects</div></div>
+      <div class="proj-stat-card"><div class="num">12+</div><div class="lbl">Industry Partners</div></div>
+      <div class="proj-stat-card"><div class="num">2014</div><div class="lbl">Founded</div></div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;" id="proj-grid">
-
-      <article class="project-card" data-cat="competition" id="sigun" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-1" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🚗<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag amber">Active</span><span class="tag">Competition</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2021–Present</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB SİGUN — Autonomous Robotaxi</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">AI-powered autonomous driving platform competing in TEKNOFEST Robotaxi championships. The team develops lane detection, traffic sign/light recognition, and full vehicle autonomy using camera, LiDAR, IMU, and deep learning algorithms under ROS.</p>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> Best Original Software × 3 (2021, 2022, 2025) · Runner-Up × 2 (2022 Performance 1st, 2025) · Multiple finalists</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">ROS</span><span class="tag purple">Deep Learning</span><span class="tag">LiDAR</span><span class="tag">Lane Detection</span></div>
-        </div>
-      </article>
-
-      <article class="project-card" data-cat="competition" id="nova" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-2" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🌊<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag emerald">Champion 2025</span><span class="tag">Competition</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB NOVA — Autonomous Underwater Vehicle</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Custom AUV platform with computer vision-based mission execution. Qualified from ~300 teams in TEKNOFEST 2021, continuously improving to claim the 2025 championship. TÜBİTAK 2242 2nd place for the underwater control board (2022).</p>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> TEKNOFEST 2025 Champion · Best Team Spirit · TÜBİTAK 2242 2nd Place</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">IMU</span><span class="tag">DVL</span><span class="tag emerald">Computer Vision</span><span class="tag">Mission Planning</span></div>
-        </div>
-      </article>
-
-      <article class="project-card" data-cat="competition" id="iha" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-3" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🚁<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag">Champion 2019</span><span class="tag">Competition</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2017–Present</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">RACLAB İHA — TÜBİTAK UAV Competition Teams</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Multi-year UAV development for TÜBİTAK International UAV competitions. Autonomous GPS-waypoint navigation, real-time aerial image processing, object detection/classification/localization. Also competed at AUVSI SUAS (USA) 2018 and 2019.</p>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;"><strong style="color:var(--blue);">Awards:</strong> National Champion 2019 · Runner-Up 2017, 2018 · Performance Awards 2023, 2025 · AUVSI 11th/67 (2019)</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Autonomous Flight</span><span class="tag purple">Image Processing</span><span class="tag">GPS Nav</span></div>
-        </div>
-      </article>
-
-      <article class="project-card" data-cat="industry tubitak" id="shuttle" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-4" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🏭<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag purple">Industry</span><span class="tag amber">Completed</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2021–2025</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">Autonomous Outdoor Shuttle — MPG</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Full autonomous shuttle system for outdoor patrol/service missions. Sensor-fusion-based localization (IMU, LiDAR, camera), adaptive route planning, real-time obstacle detection/avoidance. Field-validated in real-world scenarios over 4 years.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Sensor Fusion</span><span class="tag">Path Planning</span><span class="tag emerald">Obstacle Avoidance</span></div>
-        </div>
-      </article>
-
-      <article class="project-card" data-cat="industry tubitak" id="ktask" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-5" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🚦<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag purple">TÜBİTAK 1511</span><span class="tag amber">Completed</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2018–2020</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">K-TASK: Coordinated Adaptive Traffic Signal System</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Coordinated, fully adaptive traffic signal control system for urban intersections. Developed with Innomotive under TÜBİTAK 1511 Priority Areas R&amp;D Programme. Applies multi-junction coordination and adaptive control algorithms.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Adaptive Control</span><span class="tag">Multi-Junction</span><span class="tag purple">IoT</span></div>
-        </div>
-      </article>
-
-      <article class="project-card" data-cat="industry tubitak" id="agri" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
-        <div class="project-card-img grad-6" style="height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;">
-          🌿<div class="overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(6,11,24,0.95) 0%,transparent 50%);"></div>
-        </div>
-        <div class="project-card-body" style="padding:24px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;"><span class="tag emerald">Active · EU Funded</span><span class="tag">ERA-NET</span><span style="font-size:11px;color:var(--text-muted);align-self:center;">2022–Present</span></div>
-          <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;margin-bottom:10px;">Satellite-Controlled Sugarbeet Production Monitoring</h3>
-          <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">ERA-NET Cofund ICT-AGRI-FOOD international project coordinated by Prof. Dr. Akif DURDU with Agrovisio. Uses satellite data, remote sensing (GIS), and decision support systems for sustainable sugarbeet cultivation incentives.</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">Remote Sensing</span><span class="tag emerald">GIS</span><span class="tag">Satellite Data</span></div>
-        </div>
-      </article>
-
+    <!-- Legend -->
+    <div class="legend-bar">
+      <div class="legend-item"><div class="legend-dot" style="background:#e63329;"></div>Competition Team</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1890ff;"></div>TÜBİTAK 2209-A</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#52c41a;"></div>TÜBİTAK 2209-B (Industry)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fa8c16;"></div>KOSGEB</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9254de;"></div>EU Project</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#eb2f96;"></div>TUSAŞ LIFT-UP</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#13c2c2;"></div>Industry R&amp;D</div>
     </div>
 
-        <!-- TÜBİTAK Student Projects -->
-    <div style="margin-top:64px;padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;">
-      <p class="section-label" style="margin-bottom:16px;">Student Research</p>
-      <h2 style="font-family:var(--font-head);font-size:28px;font-weight:700;margin-bottom:12px;">49 TÜBİTAK Undergraduate Research Projects (2209-A/B)</h2>
-      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">Since 2014, RACLAB students have completed 49 TÜBİTAK 2209-A/B funded undergraduate research projects covering robot arms, drones, autonomous vehicles, control systems, underwater vehicles, and embedded systems.</p>
-      <ul style="list-style-type: none; padding-left: 0; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Vision-Based, 3-Axis Moving Robotic Arm"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Hasan KÖMÜR</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2014</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Payload-Carrying Quadcopter"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Ahmet Sezer KARADENİZ</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of an Unmanned Tracked Mobile Robot with Electronic Balance Platform and Reconnaissance Capability"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Batuhan Fevzi ÖZŞEN</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Multi-Purpose Mapping Robot"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Doğan UĞURLU</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Soccer-Capable Mobile Robots"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Muhammed Fatih ASLAN</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2015</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Robotic Arm that Mimics Human Motion"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet ORAKÇI</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Forklift Robot"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet Eren UZBAY</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Mobile Robot Capable of Mapping and Localization in 2D Environments"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Yunus Emre TUSUN</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2016</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Traffic Signal Control with Wireless Sensor Networks"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Ender KURNAZ</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of a Robotic Arm that Mimics Human Movement Using Image Processing"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Talha TOKLU</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Design of an Autonomous Task Robot"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Nevzat BOL</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Robot Arm Control Based on Image Processing"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Mahmutoğlu</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2017</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Surface Vehicle"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">M. Harun DEMİR</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Image Processing-Based Vehicle Classification and Tracking for Smart Cities"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">A. Furkan BÜYÜKKELEK</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Cargo Transport Robot"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Erol ÖZTÜRK</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Infrared Non-Contact Temperature Measurement"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Hilal UYMAZ</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2018</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Endüstriyel Elektrik Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"STM-Based Flight Control Board"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Gökhan Öztürk</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"STM-Based Control Board for Underwater Vehicles"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Büşra Özdeş & Ercan Ataner</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Drone Controlled by Body Movements"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">İrfan Samur & Yasin Türkmenoğlu</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"UAV Localization Without GPS"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Şevval Çelik</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2020</span><span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">TUSAŞ LIFT-UP Project</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"UAV Localization Without GPS"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Şevval Çelik & Mert Dağadası</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with TUSAŞ Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Cleaning Robot"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Cansel BOYNUKARA, Fırat BOZKAYA & Metehan ASLANBAŞ</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board and Battery Management System for AGV Robots"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Enes Koçak & Ahmet Bilal Karakuş</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Optimal Intersection Targeting"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Kevser Düzyol, Gamze Öztürk & Mahmut KaraASLAN</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Vision-Based Smart Traffic Control System"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Kevser Düzyol, Mahmut KaraASLAN</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"DC Motor Driver Design"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Ağaç</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2021</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Flight Control Board"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Ömer Furkan Gülbaş, Bilal Habeş Akçam & Hüseyin İpekçi</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Helical Antenna Design for Rotary-Wing UAVs"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Sümeyye Çubuk, Musa Şen & Zühal Hançer</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Energy-Efficient Surface Vehicle Design"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Özcan Koşar</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Obstacle Avoidance and Path Planning for UAVs"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">İrfan Samur, Dilara Kurt</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Embedded MATLAB-Based PID-Controlled Underwater Vehicle Control Board"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Burak Dinç</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Airless Tires in Unmanned Ground Vehicles"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Metehan ASLANbaş</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Multi-Purpose Autonomous Ground Vehicle"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">İsmail Eren Ayhan & Ramazan Erdoğmuş</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"MOSFET Driver Board for Industrial Applications"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Furkan Ağaç & Ahmet Bilal Karakuş</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Deep Learning-Based GPS Estimation for UAVs"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Doğukan Güven & Murat Ceren</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Underwater Vehicle Control Board with PC Communication Interface"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Halil Açıkgöz & Muhammet Halis Tekin</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Rocket Avionics System"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mehmet Reha Koçak, Ömer Akdoğan & Emir Tatlısu</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board for Autonomous Ground Vehicles"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Emirhan Ayık & Ahmet Kağan Kaya</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MPG Machinery Production Group Inc. Co.</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Graph-Based Collision Avoidance Algorithm for Swarm Agents"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mesut Tunçer</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"F.I.R.A.T: Functional, Intelligent, Autonomous Cleaning Robot and Management Interface"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mustafa Yasin Akmaz, Okan Kazancı & Fatih Acar</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2022</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Mobile Robot Control Board"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Enes Sırmacı & Taha Yusuf Sarı</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Domestic Flight Control Board"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Abdullah Paşa</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Training Artificial Intelligence for Autonomous Vehicles Using Eclipse SUMO and Unity 3D Integration"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Ahmet Şahin</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with MOSAŞ Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Industrial Personnel Tracking and Door System"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mevlüt Öner</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2023</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Mecanum-Wheeled Supply Vehicle"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Mahmut Sami Güvenç</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Autonomous Waiter Robot with User Interface and AI-Based Order Delivery"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Burak Özsoy & Bahtiyar Erener Kurt</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag amber" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-B, with Elfatek Company</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Investigation of the Aeroacoustic Effects of Owl Wing Structure and Gurney Flap Aerodynamics"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Abdulkadir Altıntaş & Barış Silav</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"FOC-Based Domestic Motor Driver Software and Hardware"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Gökhan Remzi Örken & Abdulkadir Ceylan</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2024</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-  <li style="padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); transition: var(--transition);">
-    <strong style="color:var(--text-primary); display:block; margin-bottom: 8px; font-size:15px; font-weight:600;">"Control Board with Embedded Computing Unit for Underwater Vehicles"</strong>
-    <span style="font-size: 13px; color: var(--text-secondary);">Feyza Baltürk</span><br>
-    <span class="tag" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2025</span><span class="tag emerald" style="margin-top: 8px; display: inline-block; margin-right: 6px; font-size:11px;">2209-A</span>
-  </li>
-</ul>
+    <!-- Filter Tabs -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-cat="all">All <span class="count" id="count-all"></span></button>
+      <button class="filter-btn" data-cat="competition">Competition Teams <span class="count" id="count-competition"></span></button>
+      <button class="filter-btn" data-cat="tubitak">TÜBİTAK 2209 <span class="count" id="count-tubitak"></span></button>
+      <button class="filter-btn" data-cat="kosgeb">KOSGEB <span class="count" id="count-kosgeb"></span></button>
+      <button class="filter-btn" data-cat="eu">EU Projects <span class="count" id="count-eu"></span></button>
+      <button class="filter-btn" data-cat="tusas">TUSAŞ LIFT-UP <span class="count" id="count-tusas"></span></button>
+      <button class="filter-btn" data-cat="industry">Industry R&amp;D <span class="count" id="count-industry"></span></button>
     </div>
+
+    <!-- Text search -->
+    <div style="margin-bottom:24px;">
+      <input type="search" id="proj-search" placeholder="🔍  Search projects by title or researcher..." style="width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--bg-secondary);color:var(--text-primary);outline:none;box-sizing:border-box;" />
+    </div>
+
+    <!-- Projects List -->
+    <div id="projects-list">
+
+      <!-- ══════════════════════════════════════════════════════
+           COMPETITION TEAMS
+      ══════════════════════════════════════════════════════ -->
+      <div class="year-group">
+        <div class="year-group-header"><h3>🏆 Competition Teams</h3></div>
+
+        
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB S-Air S-Quad UAV 2017 2018">
+          <div class="project-card-title">RACLAB S-Air / S-Quad — UAV Team</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TÜBİTAK UAV &amp; TEKNOFEST · 2017–2018</span>
+            <span>🥈 2017 Runner-Up · 🥈 2018 Runner-Up</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB Aybars TULPARS MERKÜT İHA UAV drone TEKNOFEST 2019 2025">
+          <div class="project-card-title">RACLAB TULPARS / Aybars / MERKÜT / İHA — UAV Team</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST International UAV Competition · 2018–Present</span>
+            <span>🏆 2019 National Champion · 🥉 2025 Third Place Free Category</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB Tugberk autonomous UAV image processing 2020">
+          <div class="project-card-title">RACLAB Tugberk — Autonomous UAV Image Processing</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>ODTÜ Robot Days · 2020</span>
+            <span>🏆 2020 Champion</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB Intelligent Transportation Team T4 TEKNOFEST 2020 2021 2022">
+          <div class="project-card-title">RACLAB Intelligent Transportation Team (T4)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Smart Transportation · 2020–2022</span>
+            <span>🥈 2021 Runner-Up</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB SIGUN robotaxi autonomous vehicle TEKNOFEST 2021 2025">
+          <div class="project-card-title">RACLAB SİGUN — Autonomous Robotaxi</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Robotaxi Passenger Autonomous Vehicle · 2021–Present</span>
+            <span>🥇 2022 Champion · 🥈 2025 Second Place · Most Original Software</span>
+          </div>
+        </div>
+        
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB Aspar innovation 2022">
+          <div class="project-card-title">RACLAB Aspar</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>ODTÜ Robot Days Innovation Category · 2022</span>
+            <span>🥉 Honorable Mention</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB Orion swarm UAV 2022">
+          <div class="project-card-title">RACLAB Orion — Swarm UAV Team</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Swarm UAV · 2022</span>
+            <span>🤝 Best Team Spirit Award</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB NOVA AUV Unmanned Underwater TEKNOFEST 2022 2025 champion">
+          <div class="project-card-title">RACLAB NOVA — Autonomous Underwater Vehicle (AUV)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Unmanned Underwater Systems · 2021–Present</span>
+            <span>🏆 2025 Champion + Best Team Spirit</span>
+          </div>
+        </div>
+        
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB ARES agricultural UAV TEKNOFEST 2023">
+          <div class="project-card-title">RACLAB ARES — Agricultural UAV</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Agricultural UAV · 2022–2023</span>
+            <span>🏆 Most Original Design Award 2023</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB FAAL digital technologies industry TEKNOFEST 2025">
+          <div class="project-card-title">RACLAB FAAL — Digital Technologies in Industry</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Digital Technologies in Industry · 2023–Present</span>
+            <span>🥉 2025 Third Place Advanced Category</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB EZEL Unmanned Surface Vehicle TEKNOFEST 2025">
+          <div class="project-card-title">RACLAB EZEL — Unmanned Surface Vehicle</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>TEKNOFEST Unmanned Surface Vehicle · 2025</span>
+            <span>7th Place Performance</span>
+          </div>
+        </div>
+        
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB ROVER planetary rover capsul">
+          <div class="project-card-title">RACLAB ROVER — Autonomous Planetary Rover (Kapsül)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>Kapsül Rover Competition · 2024–Present</span>
+            <a href="https://www.instagram.com/raclab.rover/" target="_blank" rel="noopener" style="color:var(--blue);font-size:12px;">📷 @raclab.rover</a>
+          </div>
+        </div>
+
+        <div class="project-card cat-competition" data-cats="competition" data-text="RACLAB IVME İVME capsul">
+          <div class="project-card-title">RACLAB İVME — Autonomous Systems (Kapsül)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-competition">Competition</span>
+            <span>Kapsül İVME Competition · 2024–Present</span>
+            <a href="https://www.instagram.com/raclabivme/" target="_blank" rel="noopener" style="color:var(--blue);font-size:12px;">📷 @raclabivme</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════
+           FUNDED RESEARCH PROJECTS
+      ══════════════════════════════════════════════════════ -->
+      <div class="year-group">
+        <div class="year-group-header"><h3>🔬 Funded Research Projects</h3></div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="K-TASK adaptive traffic signal TÜBİTAK 1511 MOSAŞ">
+          <div class="project-card-title">K-TASK: Coordinated Adaptive Traffic Signal Control System</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1511</span>
+            <span>Partner: MOSAŞ Group · Ongoing</span>
+            <span>Adaptive traffic signal networks, V2I communication, digital twin intersections</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="autonomous shuttle outdoor MPG Machinery sensor fusion">
+          <div class="project-card-title">Autonomous Outdoor Shuttle Development</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">Industry R&amp;D</span>
+            <span>Partner: MPG Machinery Production · 2021–Present</span>
+            <span>Sensor fusion, route planning, obstacle avoidance for field deployments</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-eu" data-cats="eu" data-text="ERA-NET sugarbeet agriculture satellite EU Agrovisio international">
+          <div class="project-card-title">ERA-NET Cofund ICT-AGRI-FOOD: Smart Sugarbeet Production</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-eu">EU ERA-NET</span>
+            <span>Partner: Agrovisio · EU Consortium · Since 2022</span>
+            <span>Satellite-controlled sustainable sugarbeet production in EU consortium</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="AGV autonomous mobile robot IoT AI Elfatek fleet management">
+          <div class="project-card-title">IoT &amp; AI-Based Autonomous Mobile Robot Systems</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">Industry R&amp;D</span>
+            <span>Partner: Elfatek · TÜBİTAK 1507 · Multiple projects</span>
+            <span>AGV robots, fleet management systems, smart agricultural UAV spraying</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-kosgeb" data-cats="kosgeb" data-text="KOSGEB Otobot IoT autonomous mobile robot">
+          <div class="project-card-title">Smart Agricultural UAV &amp; AMR Systems</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-kosgeb">KOSGEB · TÜBİTAK 1507</span>
+            <span>Partner: Otobot · 3 joint projects</span>
+            <span>IoT &amp; AI autonomous mobile robots, fleet management, agricultural UAVs</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="Elfatek industrial automation control embedded systems">
+          <div class="project-card-title">Industrial Automation &amp; Embedded Systems R&amp;D</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501/1507</span>
+            <span>Partner: Elfatek · 6+ joint projects · 2018–Present</span>
+            <span>Motor drivers, AGV control, industrial IoT, automated systems</span>
+          </div>
+        </div>
+      </div>
+
+
+        <!-- New Industry R&D Projects from 2024-2026 -->
+        <div class="project-card cat-industry" data-cats="industry" data-text="ERA-NET ICT-AGRI-FOOD sugarbeet satellite Agrovisio EU 2022 2025 coordinator">
+          <div class="project-card-title">Proposing a Satellite Controlled Incentive System for Sustainable Sugar Beet Production</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-eu">ERA-NET Cofund ICT-AGRI-FOOD</span>
+            <span>Project Coordinator · Partner: Agrovisio · Apr 2022 – Oct 2025 · Budget: €180,000</span>
+            <span>Satellite-controlled incentive system for sustainable sugarbeet production in EU consortium.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1501 traffic signal AI image processing MOSAŞ 2026">
+          <div class="project-card-title">AI and Image Processing-Based Traffic Analysis Application at Signalized Intersections</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501</span>
+            <span>Advisor · Partner: MOSAŞ Group · Jan 2026 – Ongoing · Budget: ₺1,700,000</span>
+            <span>AI-driven real-time traffic analysis using computer vision at signalized intersections.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1507 CANopen elevator Butkon Lift robot communication 2026">
+          <div class="project-card-title">CANopen-Lift Compliant, Secure Robot Elevator Communication and Access Platform (BUT-CALL X2E)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1507</span>
+            <span>Advisor · Partner: Butkon Lift · Feb 2026 – Ongoing · Budget: ₺1,000,000</span>
+            <span>Secure robot/device elevator communication platform compliant with CANopen-Lift standards.</span>
+          </div>
+        </div>
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1707 IoT elevator digital twin smart communication Butkon Lift 2026">
+          <div class="project-card-title">IoT-Supported Smart Two-Way Communication and Digital Twin Platform for Elevators</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1707</span>
+            <span>Advisor · Partner: Butkon Lift · Mar 2026 – Ongoing · Budget: ₺3,700,000</span>
+            <span>Order-Based R&amp;D Project: IoT-based smart communication and digital twin platform for elevator systems.</span>
+          </div>
+        </div>
+
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1501 autonomous orchard spraying UAV agriculture Önallar 2025">
+          <div class="project-card-title">Design, Development, and Prototype Manufacturing of an Autonomous Orchard Spraying Machine with Smart Mapping Features</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501</span>
+            <span>Advisor · Partner: Önallar Agriculture · Aug 2025 – Ongoing · Budget: ₺6,500,000</span>
+            <span>Autonomous UAV spraying machine with AI-based smart field mapping for orchard applications.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1507 UAV flight control UKE native ecosystem Otobot 2025">
+          <div class="project-card-title">Development of a Native Flight Control Ecosystem (UKE) for UAVs</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1507</span>
+            <span>Advisor · Partner: Otobot Robotics · Aug 2025 – Ongoing · Budget: ₺1,500,000</span>
+            <span>Development of a native UAV flight control ecosystem for domestic autonomous systems.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1832 green transformation cloud traffic MOSAŞ World Bank 2025">
+          <div class="project-card-title">Green Transformation-Oriented Cloud-Based Macroscopic Traffic Analysis Software</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1832</span>
+            <span>Advisor · Partner: MOSAŞ Group · Jul 2025 – Ongoing · Budget: ₺1,200,000 (World Bank–Funded)</span>
+            <span>Cloud-based traffic analysis software supporting green transformation in industry.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-kosgeb" data-cats="kosgeb" data-text="KOSGEB traffic data intersection transportation MOSAŞ 2024 2025">
+          <div class="project-card-title">Data Processing and Traffic Analysis for Intelligent Intersection Transportation Technologies</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-kosgeb">KOSGEB R&amp;D</span>
+            <span>Advisor · Partner: MOSAŞ Group · Nov 2024 – Jul 2025 · Budget: ₺406,562</span>
+            <span>Data processing and traffic analysis software for intelligent intersection management.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-kosgeb" data-cats="kosgeb" data-text="KOSGEB autonomous mobile robot IoT fleet management Otobot 2024 2025">
+          <div class="project-card-title">Optimization of AI-Supported Autonomous Mobile Robots and Fleet Management Based on IoT</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-kosgeb">KOSGEB R&amp;D</span>
+            <span>Advisor · Partner: Otobot Robotics · Apr 2024 – Jul 2025 · Budget: ₺2,018,000</span>
+            <span>IoT-based fleet management optimization for autonomous mobile robots in industrial environments.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-kosgeb" data-cats="kosgeb" data-text="KOSGEB autonomous task robot electronic control unit Otobot 2024 2025">
+          <div class="project-card-title">Development of an Autonomous Task Robot and Electronic Control Unit</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-kosgeb">KOSGEB Innovation R&amp;D</span>
+            <span>Advisor · Partner: Otobot Robotics · Apr 2024 – Jul 2025 · Budget: ₺1,448,000</span>
+            <span>Design and development of an autonomous task robot with custom electronic control unit.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1507 autonomous spraying agricultural UAV field mapping Otobot 2024">
+          <div class="project-card-title">Development of Smart Autonomous Spraying Technologies and Agricultural Field Mapping</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1507</span>
+            <span>Advisor · Partner: Otobot Robotics · Apr 2024 – Ongoing · Budget: ₺2,400,000</span>
+            <span>Smart autonomous UAV spraying technologies with AI-based agricultural field mapping.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1501 digital twin smart intersection MOSAŞ 2024">
+          <div class="project-card-title">Digital Twin Technology and Solutions in Smart Intersection Systems</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501</span>
+            <span>Advisor · Partner: MOSAŞ Group · Apr 2024 – Ongoing · Budget: ₺1,907,375</span>
+            <span>Digital twin modeling and simulation for intelligent intersection management systems.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1501 adaptive IoT traffic signal multi-intersection MOSAŞ K-TASK 2022">
+          <div class="project-card-title">Adaptive Intelligent Control for IoT-Based Multi-Intersection Network</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501</span>
+            <span>Advisor · Partner: MOSAŞ Group · Jan 2022 – May 2023 · Budget: ₺451,057 ($23,000)</span>
+            <span>IoT-connected adaptive traffic signal control across multiple intersections.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1507 V2I vehicle to infrastructure intelligent transportation MOSAŞ 2023">
+          <div class="project-card-title">Design and Development of Vehicle-to-Infrastructure (V2I) Module for Intelligent Transportation</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1507</span>
+            <span>Advisor · Partner: MOSAŞ Group · Mar 2023 – Sep 2024 · Budget: ₺1,777,626 ($52,000)</span>
+            <span>V2I communication module supporting intelligent transportation infrastructure systems.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1501 autonomous task robot electronic control Elfatek 2020 2022">
+          <div class="project-card-title">Development of an Autonomous Task Robot and Electronic Control Unit</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1501</span>
+            <span>Advisor · Partner: Elfatek Electronics · Jan 2020 – May 2022 · Budget: ₺1,065,885 ($400,000)</span>
+            <span>Full autonomous task robot development with embedded electronic control unit for industrial use.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1511 K-TASK adaptive signalization coordinated Innomotive 2018 2020">
+          <div class="project-card-title">Coordinated Fully Adaptive Signalization Control System (K-TASK)</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1511</span>
+            <span>Advisor · Partner: Innomotive · Apr 2018 – Mar 2020 · Budget: ₺2,500,000</span>
+            <span>Priority Areas R&amp;D: Coordinated fully adaptive traffic signal control for urban networks.</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-industry" data-cats="industry" data-text="TÜBİTAK 1001 deep well pump water irrigation agriculture 2014 2017 research">
+          <div class="project-card-title">Investigation of Water Behavior Inside the Well Under Various Pump Operating Conditions in Deep Wells</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-industry">TÜBİTAK 1001</span>
+            <span>Researcher · Apr 2014 – Apr 2017 · Budget: ₺327,950 ($89,000)</span>
+            <span>Scientific research on deep well pump behavior for agricultural irrigation water management.</span>
+          </div>
+        </div>
+
+
+      <!-- ══════════════════════════════════════════════════════
+           TUSAŞ LIFT-UP STUDENT PROJECTS
+      ══════════════════════════════════════════════════════ -->
+      <div class="year-group" id="tusas-section">
+        <div class="year-group-header"><h3>🚀 TUSAŞ LIFT-UP Student Projects</h3><span class="year-count">2 projects</span></div>
+
+        <div class="project-card cat-tusas" data-cats="tusas" data-year="2026" data-text="Yer Şekilleri ve Görsel Verilerle GPS’siz Konum Belirleme: Otonom Sistemler için Alternatif Navigasyon Yaklaşımı Furkan YEŞİLDAĞ  (TUSAŞ LIFT-UP Projesi)  2026">
+          <div class="project-card-title">"Yer Şekilleri ve Görsel Verilerle GPS’siz Konum Belirleme: Otonom Sistemler için Alternatif Navigasyon Yaklaşımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tusas">TUSAŞ LIFT-UP</span>
+            <span>Furkan YEŞİLDAĞ  (TUSAŞ LIFT-UP Projesi) · 2026</span>
+          </div>
+        </div>
+
+        <div class="project-card cat-tusas" data-cats="tusas" data-year="2020" data-text="GPS Olmadan Hava Aracı Konumlandırma Şevval Çelik  2020">
+          <div class="project-card-title">"GPS Olmadan Hava Aracı Konumlandırma"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tusas">TUSAŞ LIFT-UP</span>
+            <span>Şevval Çelik · 2020</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════
+           TÜBİTAK 2209-A STUDENT PROJECTS
+      ══════════════════════════════════════════════════════ -->
+      <div class="year-group" id="tubitak-section">
+        <div class="year-group-header"><h3>🎓 TÜBİTAK 2209-A &amp; 2209-B Student Projects</h3><span class="year-count">50 projects</span></div>
+
+                <!-- 2026 -->
+        
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2026" data-text="Kapalı Ortamlarda Yapay Zeka Destekli Anomali Tespiti Furkan Korkmazdağ  2026">
+          <div class="project-card-title">"Kapalı Ortamlarda Yapay Zeka Destekli Anomali Tespiti"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Furkan Korkmazdağ · 2026</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2026" data-text="STM32 Tabanlı Taşınabilir MAVLink Yer İstasyonu Harun Günay  2026">
+          <div class="project-card-title">"STM32 Tabanlı Taşınabilir MAVLink Yer İstasyonu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Harun Günay · 2026</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2026" data-text="STM32 Kontrol Kartı ve micro-ROS Entegrasyonu ile Geliştirilen Robot Kolda Öğret-Tekrarla Fonksiyonunun Gerçek Zamanlı Olarak Uygulanması Ahmet Berk Çetiner  2026">
+          <div class="project-card-title">"STM32 Kontrol Kartı ve micro-ROS Entegrasyonu ile Geliştirilen Robot Kolda Öğret-Tekrarla Fonksiyonunun Gerçek Zamanlı Olarak Uygulanması"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Ahmet Berk Çetiner · 2026</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2026" data-text="ROS Tabanlı IMU-BLE Füzyonu ile Kapalı Alan Konumlandırma Sistemi Sudenaz Erdoğan  2026">
+          <div class="project-card-title">"ROS Tabanlı IMU-BLE Füzyonu ile Kapalı Alan Konumlandırma Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Sudenaz Erdoğan · 2026</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2026" data-text="Yapay Zeka Destekli Güdümlü Otonom Yük Taşıma Robotu Şahan Mirza Özdemir, Muhammet Yusuf Özkan  2026">
+          <div class="project-card-title">"Yapay Zeka Destekli Güdümlü Otonom Yük Taşıma Robotu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Şahan Mirza Özdemir, Muhammet Yusuf Özkan · 2026</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2026" data-text="Görüntü İşleme ve GPS Tabanlı Senkron Otonom Anten Takip Sistemi Hüseyin Yiğit Bağcı, Muhammed Ali Kaya ELFATEK Electronic A.Ş. 2026">
+          <div class="project-card-title">"Görüntü İşleme ve GPS Tabanlı Senkron Otonom Anten Takip Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Hüseyin Yiğit Bağcı, Muhammed Ali Kaya · 2026 · Partner: ELFATEK Electronic A.Ş.</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2026" data-text="Yer Şekilleri ve Görsel Verilerle GPS’siz Konum Belirleme Furkan Yeşildağ, Uğur Özbiberci TUSAŞ 2026">
+          <div class="project-card-title">"Yer Şekilleri ve Görsel Verilerle GPS’siz Konum Belirleme"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Furkan Yeşildağ, Uğur Özbiberci · 2026 · Partner: TUSAŞ</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2026" data-text="IMU ve Kamera Sensör Füzyonu ile Yapay Zeka Destekli Otonom Havuz Temizleme Robotu Beyza Nur Yağcı, Abdurrahman İnce, Feyza İnal, Hatice Kübra İLHAN HAVELSAN A.Ş. 2026">
+          <div class="project-card-title">"IMU ve Kamera Sensör Füzyonu ile Yapay Zeka Destekli Otonom Havuz Temizleme Robotu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Beyza Nur Yağcı, Abdurrahman İnce, Feyza İnal, Hatice Kübra İLHAN · 2026 · Partner: HAVELSAN A.Ş.</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2026" data-text="Yapay Zekâ Destekli Nesne Tespiti ve Anomali Algılama Sistemi Osman Melih Kocaoğlu ELFATEK Electronic A.Ş. 2026">
+          <div class="project-card-title">"Yapay Zekâ Destekli Nesne Tespiti ve Anomali Algılama Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Osman Melih Kocaoğlu · 2026 · Partner: ELFATEK Electronic A.Ş.</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2026" data-text="Sivil Amaçlı Endüstriyel Drone Önleme Sistemi Anıl Niyazi Karadeli AVCI Savunma A.Ş. 2026">
+          <div class="project-card-title">"Sivil Amaçlı Endüstriyel Drone Önleme Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Anıl Niyazi Karadeli · 2026 · Partner: AVCI Savunma A.Ş.</span>
+          </div>
+        </div>
+        <!-- 2025 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2025" data-text="Hesaplama Elemanı Bulunduran İnsansız Su Altı Aracı Kontrol Kartı Feyza Baltürk  2025">
+          <div class="project-card-title">"Hesaplama Elemanı Bulunduran İnsansız Su Altı Aracı Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Feyza Baltürk · 2025</span>
+          </div>
+        </div>
+        <!-- 2024 -->
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2024" data-text="Mekanum Tekerlekli İkmal Aracı ”, Mahmut Sami Güvenç Elfatek Firması 2024">
+          <div class="project-card-title">"Mekanum Tekerlekli İkmal Aracı""</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>”, Mahmut Sami Güvenç · 2024 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2024" data-text="Müşterilere Sipariş Taşıyan Kullanıcı Arayüzlü Ve Yapay Zeka Tabanlı Otonom Garson Robotu Burak Özsoy, Bahtiyar Erener Kurt Elfatek Firması 2024">
+          <div class="project-card-title">"Müşterilere Sipariş Taşıyan Kullanıcı Arayüzlü Ve Yapay Zeka Tabanlı Otonom Garson Robotu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Burak Özsoy, Bahtiyar Erener Kurt · 2024 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2024" data-text="Baykuş Kanat Yapısı ve Gurney Flap Aerodinamiğinin Aeroakustik Karakteristiğe Etkinin İncelenmesi “, Abdulkadir Altıntaş, Barış Silav  2024">
+          <div class="project-card-title">"Baykuş Kanat Yapısı ve Gurney Flap Aerodinamiğinin Aeroakustik Karakteristiğe Etkinin İncelenmesi</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>“, Abdulkadir Altıntaş, Barış Silav · 2024</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2024" data-text="Alan Yönelimli Kontrol (FOC) Tabanlı Yerli Motor Sürücü Yazılımı ve Donanımı Gökhan Remzi Örken, Abdulkadir Ceylan  2024">
+          <div class="project-card-title">"Alan Yönelimli Kontrol (FOC) Tabanlı Yerli Motor Sürücü Yazılımı ve Donanımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Gökhan Remzi Örken, Abdulkadir Ceylan · 2024</span>
+          </div>
+        </div>
+        <!-- 2023 -->
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2023" data-text="Yerli Mobil Robot Kontrol Kartı Enes Sırmacı, Taha Yusuf Sarı Elfatek Firması 2023">
+          <div class="project-card-title">"Yerli Mobil Robot Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Enes Sırmacı, Taha Yusuf Sarı · 2023 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2023" data-text="Yerli Uçuş Kontrol Kartı Abdullah Paşa  2023">
+          <div class="project-card-title">"Yerli Uçuş Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Abdullah Paşa · 2023</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2023" data-text="Eclipse Sumo Ve Unity 3D Entegrasyonu İle Otonom Araç Yapay Zekâsı Eğitimi Ahmet Şahin MOSAŞ Firması 2023">
+          <div class="project-card-title">"Eclipse Sumo Ve Unity 3D Entegrasyonu İle Otonom Araç Yapay Zekâsı Eğitimi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Ahmet Şahin · 2023 · Partner: MOSAŞ Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2023" data-text="Endüstriyel Personel Takip ve Kapı Sistemi Mevlüt Öner Elfatek Firması 2023">
+          <div class="project-card-title">"Endüstriyel Personel Takip ve Kapı Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Mevlüt Öner · 2023 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <!-- 2022 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Yerli Uçuş Kontrol Kartı Ömer Furkan Gülbaş, Bilal Habeş Akçam, Hüseyin İpekçi  2022">
+          <div class="project-card-title">"Yerli Uçuş Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Ömer Furkan Gülbaş, Bilal Habeş Akçam, Hüseyin İpekçi · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Döner Kanatlı İHA Uyumlu Sarmal Anten Tasarımı Sümeyye Çubuk, Musa Şen, Zühal Hançer  2022">
+          <div class="project-card-title">"Döner Kanatlı İHA Uyumlu Sarmal Anten Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Sümeyye Çubuk, Musa Şen, Zühal Hançer · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Enerjiyi Verimli Kullanmaya Yönelik Yüzey Aracı Geliştirilmesi Özcan Koşar  2022">
+          <div class="project-card-title">"Enerjiyi Verimli Kullanmaya Yönelik Yüzey Aracı Geliştirilmesi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Özcan Koşar · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="İHA'larda Otonom Engelden Kaçış ve Yol Planlama İrfan Samur, Dilara Kurt  2022">
+          <div class="project-card-title">"İHA'larda Otonom Engelden Kaçış ve Yol Planlama"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>İrfan Samur, Dilara Kurt · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Embedded MATLAB ile PID Kontrollü Otonom Sualtı Aracı Kartı Mustafa Burak Dinç  2022">
+          <div class="project-card-title">"Embedded MATLAB ile PID Kontrollü Otonom Sualtı Aracı Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mustafa Burak Dinç · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="İnsansız Kara Araçlarında Havasız Teker Kullanımı Metehan Aslanbaş  2022">
+          <div class="project-card-title">"İnsansız Kara Araçlarında Havasız Teker Kullanımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Metehan Aslanbaş · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Çok Amaçlı Otonom Kara Aracı İsmail Eren Ayhan, Ramazan Erdoğmuş  2022">
+          <div class="project-card-title">"Çok Amaçlı Otonom Kara Aracı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>İsmail Eren Ayhan, Ramazan Erdoğmuş · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Endüstriyel Sanayide MOSFET Sürücü Kartı Furkan Agaç Ahmet Bilal Karakuş  2022">
+          <div class="project-card-title">"Endüstriyel Sanayide MOSFET Sürücü Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Furkan Agaç Ahmet Bilal Karakuş · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="İHA’larda GPS Verisinin Derin Öğrenme ile Tahmini Doğukan Güven, Murat Ceren  2022">
+          <div class="project-card-title">"İHA’larda GPS Verisinin Derin Öğrenme ile Tahmini"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Doğukan Güven, Murat Ceren · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Bilgisayarlarla Haberleşebilen Su Altı Aracı Kontrol Kartı Halil Açıkgöz, Muhammet Halis Tekin  2022">
+          <div class="project-card-title">"Bilgisayarlarla Haberleşebilen Su Altı Aracı Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Halil Açıkgöz, Muhammet Halis Tekin · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Yerli Roket Aviyonik Sistemi Mehmet Reha Koçak, Ömer Akdoğan, Emir Tatlısu  2022">
+          <div class="project-card-title">"Yerli Roket Aviyonik Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mehmet Reha Koçak, Ömer Akdoğan, Emir Tatlısu · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2022" data-text="Otonom Kara Araçlarında Kontrol Kartı Emirhan Ayık, Ahmet Kağan Kaya MPG Machinery Production Group Inc. Co. 2022">
+          <div class="project-card-title">"Otonom Kara Araçlarında Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Emirhan Ayık, Ahmet Kağan Kaya · 2022 · Partner: MPG Machinery Production Group Inc. Co.</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2022" data-text="Sürü Ajanları Arası Graf Tabanlı Çarpışmadan Kaçınma Algoritması Mesut Tunçer  2022">
+          <div class="project-card-title">"Sürü Ajanları Arası Graf Tabanlı Çarpışmadan Kaçınma Algoritması"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mesut Tunçer · 2022</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2022" data-text="F.I.R.A.T: Fonksiyonel Akıllı, Otonom Temizlik Robotu ve Robot Yönetim Ara yüzü Geliştirilmesi, Mustafa Yasin Akmaz, Okan Kazancı, Fatih Acar Elfatek Firması 2022">
+          <div class="project-card-title">"F.I.R.A.T: Fonksiyonel"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Akıllı, Otonom Temizlik Robotu ve Robot Yönetim Ara yüzü Geliştirilmesi, Mustafa Yasin Akmaz, Okan Kazancı, Fatih Acar · 2022 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <!-- 2021 -->
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2021" data-text="GPS Olmadan Hava Aracı Konumlandırma Şevval Çelik ve Mert Dağadası  2021">
+          <div class="project-card-title">"GPS Olmadan Hava Aracı Konumlandırma"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Şevval Çelik ve Mert Dağadası · 2021</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2021" data-text="Otonom Temizlik Robotu Cansel BOYNUKARA, Fırat BOZKAYA ve Metehan ASLANBAŞ Elfatek Firması 2021">
+          <div class="project-card-title">"Otonom Temizlik Robotu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Cansel BOYNUKARA, Fırat BOZKAYA ve Metehan ASLANBAŞ · 2021 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2021" data-text="AGV Robotlarda Kontrol Kartı ve Batarya Yönetim Sistemi Furkan Enes Koçak ve Ahmet Bilal Karakuş Elfatek Firması 2021">
+          <div class="project-card-title">"AGV Robotlarda Kontrol Kartı ve Batarya Yönetim Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Furkan Enes Koçak ve Ahmet Bilal Karakuş · 2021 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2021" data-text="Hedef Optimum Kavşak Kevser Düzyol, Gamze Öztürk, Mahmut Karaaslan MOSAŞ Firması 2021">
+          <div class="project-card-title">"Hedef Optimum Kavşak"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Kevser Düzyol, Gamze Öztürk, Mahmut Karaaslan · 2021 · Partner: MOSAŞ Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2021" data-text="Bilgisayarlı Görü Tabanlı Akıllı Trafik Kontrol Sistemi Kevser Düzyol, Mahmut Karaaslan  2021">
+          <div class="project-card-title">"Bilgisayarlı Görü Tabanlı Akıllı Trafik Kontrol Sistemi"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Kevser Düzyol, Mahmut Karaaslan · 2021</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2021" data-text="DC Motor Sürücü Tasarımı Furkan Ağaç  2021">
+          <div class="project-card-title">"DC Motor Sürücü Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Furkan Ağaç · 2021</span>
+          </div>
+        </div>
+        <!-- 2020 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2020" data-text="STM Tabanlı Uçuş Kontrol Kartı Gökhan Öztürk  2020">
+          <div class="project-card-title">"STM Tabanlı Uçuş Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Gökhan Öztürk · 2020</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2020" data-text="Su Altı Araçları İçin STM Tabanlı Kontrol Kartı Büşra Özdeş ve Ercan Ataner  2020">
+          <div class="project-card-title">"Su Altı Araçları İçin STM Tabanlı Kontrol Kartı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Büşra Özdeş ve Ercan Ataner · 2020</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2020" data-text="Otonom Vücut Hareketleri ile Kontrol Edilebilen İHA İrfan Samur ve Yasin Türkmenoğlu  2020">
+          <div class="project-card-title">"Otonom Vücut Hareketleri ile Kontrol Edilebilen İHA"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>İrfan Samur ve Yasin Türkmenoğlu · 2020</span>
+          </div>
+        </div>
+        
+        <!-- 2018 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2018" data-text="Yüzey Aracı M.Harun DEMİR  2018">
+          <div class="project-card-title">"Yüzey Aracı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>M.Harun DEMİR · 2018</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2018" data-text="Akıllı Şehirler İçin Görüntü İşleme Tabanlı Araç Sınıflandırma ve Takip A. Furkan BÜYÜKKELEK MOSAŞ Firması 2018">
+          <div class="project-card-title">"Akıllı Şehirler İçin Görüntü İşleme Tabanlı Araç Sınıflandırma ve Takip"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>A. Furkan BÜYÜKKELEK · 2018 · Partner: MOSAŞ Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2018" data-text="Otonom Yük Taşıma Robotu Erol ÖZTÜRK Elfatek Firması 2018">
+          <div class="project-card-title">"Otonom Yük Taşıma Robotu"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Erol ÖZTÜRK · 2018 · Partner: Elfatek Firması</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-b" data-cats="tubitak" data-year="2018" data-text="Infrared Temassız Sıcaklık Ölçümü Hilal UYMAZ Endüstriyel Elektrik Firması 2018">
+          <div class="project-card-title">"Infrared Temassız Sıcaklık Ölçümü"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-b">2209-B</span>
+            <span>Hilal UYMAZ · 2018 · Partner: Endüstriyel Elektrik Firması</span>
+          </div>
+        </div>
+        <!-- 2017 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2017" data-text="Kablosuz Sensör Ağları ile Trafik Sinyalizasyon Kontrolü Ender KURNAZ  2017">
+          <div class="project-card-title">"Kablosuz Sensör Ağları ile Trafik Sinyalizasyon Kontrolü"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Ender KURNAZ · 2017</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2017" data-text="Görüntü İşleme ile İnsan Hareketlerini Taklit Edebilen Robot Kol Tasarımı Talha TOKLU  2017">
+          <div class="project-card-title">"Görüntü İşleme ile İnsan Hareketlerini Taklit Edebilen Robot Kol Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Talha TOKLU · 2017</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2017" data-text="Otonom Görev Robotu Tasarımı Nevzat BOL  2017">
+          <div class="project-card-title">"Otonom Görev Robotu Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Nevzat BOL · 2017</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2017" data-text="Görüntü İşleme Tabanlı Robot Kol Kontrolü Mustafa Mahmutoğlu  2017">
+          <div class="project-card-title">"Görüntü İşleme Tabanlı Robot Kol Kontrolü"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mustafa Mahmutoğlu · 2017</span>
+          </div>
+        </div>
+        <!-- 2016 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2016" data-text="İnsan Hareketini Taklit Edebilen Robot Kol Tasarımı Mehmet ORAKÇI  2016">
+          <div class="project-card-title">"İnsan Hareketini Taklit Edebilen Robot Kol Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mehmet ORAKÇI · 2016</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2016" data-text="Forklift Robot Tasarımı Mehmet Eren UZBAY  2016">
+          <div class="project-card-title">"Forklift Robot Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Mehmet Eren UZBAY · 2016</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2016" data-text="Ortamın İki Boyutlu Haritasını Oluşturan ve Konumlama Yapabilen Gezgin Robot Yunus Emre TUSUN  2016">
+          <div class="project-card-title">"Ortamın İki Boyutlu Haritasını Oluşturan ve Konumlama Yapabilen Gezgin Robot"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Yunus Emre TUSUN · 2016</span>
+          </div>
+        </div>
+        <!-- 2015 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2015" data-text="Yük Taşıyabilen Dörtdöner (Quadcopter) Tasarımı Ahmet Sezer KARADENİZ  2015">
+          <div class="project-card-title">"Yük Taşıyabilen Dörtdöner (Quadcopter) Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Ahmet Sezer KARADENİZ · 2015</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2015" data-text="İnsansız, Keşif Yapabilen, Elektronik Denge Platformlu, Paletli Mobil Robot Tasarımı Batuhan Fevzi ÖZŞEN  2015">
+          <div class="project-card-title">"İnsansız, Keşif Yapabilen, Elektronik Denge Platformlu, Paletli Mobil Robot Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Batuhan Fevzi ÖZŞEN · 2015</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2015" data-text="Haritalama Yaparak Çok Amaçlı Kullanımlara Hizmet Eden Robot Tasarımı Doğan UĞURLU  2015">
+          <div class="project-card-title">"Haritalama Yaparak Çok Amaçlı Kullanımlara Hizmet Eden Robot Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Doğan UĞURLU · 2015</span>
+          </div>
+        </div>
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2015" data-text="Maç Yapabilen Mobil Robotlar Muhammed Fatih ASLAN  2015">
+          <div class="project-card-title">"Maç Yapabilen Mobil Robotlar"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Muhammed Fatih ASLAN · 2015</span>
+          </div>
+        </div>
+        <!-- 2014 -->
+        <div class="project-card cat-tubitak-a" data-cats="tubitak" data-year="2014" data-text="Görüntü İşleme Destekli 3 Eksende Hareket Edebilen Robot Kol Tasarımı Hasan KÖMÜR  2014">
+          <div class="project-card-title">"Görüntü İşleme Destekli 3 Eksende Hareket Edebilen Robot Kol Tasarımı"</div>
+          <div class="project-card-meta">
+            <span class="project-tag tag-tubitak-a">2209-A</span>
+            <span>Hasan KÖMÜR · 2014</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end #projects-list -->
+    <div id="no-results">No projects found matching your search.</div>
   </div>
 </section>
+
+<div class="glow-divider"></div>
 
 <!-- FOOTER -->
 <footer>
@@ -466,88 +993,138 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="../index.html" style="text-decoration:none;display:block;margin-bottom:12px;">
-          <img src="../public/img/user/raclab.png" alt="RACLAB" class="footer-logo-img" />
+          <div style="background:#1a0a0a;border-radius:8px;padding:4px 8px;display:inline-flex;">
+            <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:36px;width:auto;" />
+          </div>
         </a>
-        <p>Robotics, Automation &amp; Control Research Laboratory at Konya Technical University. Advancing autonomous systems since 2014.</p>
+        <p>Robotics, Automation &amp; Control Laboratory<br>Konya Technical University · Since 2014</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4>Navigate</h4>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="../index.html#research">Research</a></li>
-          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="team.html">Team</a></li>
           <li><a href="publications.html">Publications</a></li>
           <li><a href="news.html">News</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Research</h4>
+        <h4>Categories</h4>
         <ul>
-          <li><a href="../index.html#research">UAV Systems</a></li>
-          <li><a href="../index.html#research">Autonomous Vehicles</a></li>
-          <li><a href="../index.html#research">Underwater Robots</a></li>
-          <li><a href="../index.html#research">Smart Transport</a></li>
-          <li><a href="../index.html#research">Sensor Fusion</a></li>
+          <li><a href="#" onclick="filterBy('competition');return false;">Competition Teams</a></li>
+          <li><a href="#" onclick="filterBy('tubitak');return false;">TÜBİTAK 2209 Projects</a></li>
+          <li><a href="#" onclick="filterBy('eu');return false;">EU Projects</a></li>
+          <li><a href="#" onclick="filterBy('tusas');return false;">TUSAŞ LIFT-UP</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
         <ul>
-          <li><a href="https://www.instagram.com/rac_lab/" target="_blank">Instagram @rac_lab</a></li>
-          <li><a href="https://www.rac-lab.com" target="_blank">rac-lab.com</a></li>
-          <li><a href="https://akifdurdu.github.io" target="_blank">PI Website</a></li>
-          <li><a href="mailto:adurdu@ktun.edu.tr">adurdu@ktun.edu.tr</a></li>
+          <li><a href="https://www.instagram.com/rac_lab/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.rac-lab.com" target="_blank" rel="noopener">rac-lab.com</a></li>
+          <li><a href="https://akifdurdu.github.io" target="_blank" rel="noopener">PI Website</a></li>
+          <li><a href="mailto:adurdu@ktun.edu.tr">Email</a></li>
         </ul>
       </div>
     </div>
     <div class="glow-divider"></div>
     <div class="footer-bottom">
-      <p>© 2025 RACLAB — Konya Technical University. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="about.html">About</a>
-        <a href="publications.html">Publications</a>
-        <a href="../index.html#contact">Contact</a>
-      </div>
+      <p>© 2026 RACLAB — Konya Technical University. All rights reserved.</p>
     </div>
   </div>
 </footer>
-<button id="back-to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
-<script src="../js/script.js" defer></script>
-<script>
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('#proj-grid article').forEach(card => {
-        card.style.display = (filter === 'all' || card.dataset.cat.includes(filter)) ? '' : 'none';
-      });
-    });
-  });
-</script>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
 <style>
-.nav-logo-icon {
-  background: #1a0a0a !important;
-  border-radius: 8px;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
+.nav-logo-icon { background:#1a0a0a !important; border-radius:8px; padding:4px 8px; display:flex; align-items:center; flex-shrink:0; }
 </style>
 <script>
 (function(){
-  var btn = document.getElementById('nav-search-btn');
-  var ov  = document.getElementById('search-overlay');
-  var inp = document.getElementById('search-input');
-  var res = document.getElementById('search-results');
-  if(btn && ov){
-    btn.addEventListener('click', function(){ ov.style.display='flex'; if(inp) setTimeout(()=>inp.focus(),80); });
-    ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; if(inp) inp.value=''; if(res) res.innerHTML=''; }});
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ov.style.display='none'; }});
+  // ── Search overlay ──
+  var sbtn = document.getElementById('nav-search-btn');
+  var sov  = document.getElementById('search-overlay');
+  var sinp = document.getElementById('search-input');
+  if(sbtn && sov){
+    sbtn.addEventListener('click', function(){ sov.style.display='flex'; if(sinp) setTimeout(function(){sinp.focus();},80); });
+    sov.addEventListener('click', function(e){ if(e.target===sov){ sov.style.display='none'; }});
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') sov.style.display='none'; });
   }
+
+  // ── Mobile menu ──
+  var toggle = document.getElementById('nav-toggle');
+  var mm = document.getElementById('mobile-menu');
+  if(toggle && mm) toggle.addEventListener('click', function(){ mm.classList.toggle('open'); });
+
+  // ── Back to top ──
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){ btt.classList.toggle('visible', window.scrollY > 400); });
+    btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  }
+
+  // ── Reveal on scroll ──
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  },{threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(function(r){ obs.observe(r); });
+
+  // ── Filter system ──
+  var cards = Array.from(document.querySelectorAll('.project-card'));
+  var currentCat = 'all';
+
+  // Count cards per category
+  var counts = { all:cards.length, competition:0, tubitak:0, kosgeb:0, eu:0, tusas:0, industry:0 };
+  cards.forEach(function(c){
+    var cats = (c.getAttribute('data-cats')||'').split(' ');
+    cats.forEach(function(cat){
+      if(cat==='tubitak') counts.tubitak++;
+      if(cat==='competition') counts.competition++;
+      if(cat==='kosgeb') counts.kosgeb++;
+      if(cat==='eu') counts.eu++;
+      if(cat==='tusas') counts.tusas++;
+      if(cat==='industry') counts.industry++;
+    });
+  });
+  Object.keys(counts).forEach(function(k){
+    var el = document.getElementById('count-'+k);
+    if(el) el.textContent = counts[k];
+  });
+
+  function applyFilters(){
+    var q = (document.getElementById('proj-search').value||'').toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(c){
+      var cats = (c.getAttribute('data-cats')||'').split(' ');
+      var catMatch = currentCat==='all' || cats.indexOf(currentCat)>=0;
+      var textMatch = !q || (c.getAttribute('data-text')||'').toLowerCase().includes(q) || c.textContent.toLowerCase().includes(q);
+      var show = catMatch && textMatch;
+      c.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    document.getElementById('no-results').style.display = visible===0 ? 'block' : 'none';
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentCat = btn.getAttribute('data-cat');
+      applyFilters();
+    });
+  });
+
+  document.getElementById('proj-search').addEventListener('input', applyFilters);
+  applyFilters();
 })();
+
+function filterBy(cat){
+  var btn = document.querySelector('[data-cat="'+cat+'"]');
+  if(btn) btn.click();
+  window.scrollTo({top:document.getElementById('filter-bar').offsetTop - 80, behavior:'smooth'});
+}
 </script>
 </body>
 </html>

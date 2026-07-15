@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../public/img/user/favicon_raclab.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Awards & Achievements — RACLAB</title>
   <meta name="description" content="RACLAB's complete list of 32+ competition awards from TEKNOFEST, AUVSI SUAS, OpenZeka, TÜBİTAK, and ODTÜ Robot Days." />
-  <link rel="icon" type="image/png" href="../public/img/user/raclab.png" />
+  
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/pages.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,53 +57,55 @@
 </head>
 <body>
 <!-- NAVBAR (Unified) -->
-<nav id="navbar" class="scrolled">
-  <div class="container nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="RACLAB Home">
-      <div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
-        <img src="../public/img/user/raclab.png" alt="RACLAB" style="height:32px;width:auto;" />
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html" class="active">Achievements</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="sponsors.html">Sponsors</a></li>
-      <li><a href="../index.html#contact">Contact Us</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button class="nav-search-btn" id="nav-search-btn" aria-label="Search" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<nav class="scrolled" id="navbar">
+<div class="container nav-inner">
+<a aria-label="RACLAB Home" class="nav-logo" href="../index.html">
+<div class="nav-logo-icon" style="background:#1a0a0a;border-radius:8px;padding:4px 8px;">
+<img alt="RACLAB" src="../public/img/user/raclab.png" style="height:32px;width:auto;"/>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="achievements.html" class="active">Achievements</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="sponsors.html">Sponsors</a></li>
+<li><a href="../index.html#contact">Contact Us</a></li>
+</ul>
+<div class="nav-cta">
+<button aria-label="Search" class="nav-search-btn" id="nav-search-btn" style="background:none;border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:7px 11px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:all 0.2s;line-height:1;">🔍</button>
+</div>
+<button aria-label="Toggle menu" class="nav-toggle" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</div>
 </nav>
 
 <!-- Search overlay -->
 <div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
-  <div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
-    <button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
-    <h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
-    <input id="search-input" type="text" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" />
-    <div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
-  </div>
+<div style="background:var(--bg-primary);border-radius:var(--radius-lg);padding:32px;width:min(600px,90vw);position:relative;">
+<button onclick="document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);">✕</button>
+<h3 style="font-family:var(--font-head);font-size:20px;margin-bottom:16px;">Search RACLAB</h3>
+<input id="search-input" placeholder="Search publications, projects, news…" style="width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:var(--font-body);outline:none;background:var(--bg-secondary);color:var(--text-primary);" type="text"/>
+<div id="search-results" style="margin-top:16px;max-height:300px;overflow-y:auto;"></div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="projects.html">Projects</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="team.html">Team</a>
-  <a href="publications.html">Publications</a>
-  <a href="news.html">News</a>
-  <a href="sponsors.html">Sponsors</a>
-  <a href="../index.html#contact">Contact Us</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a href="projects.html">Projects</a>
+<a href="achievements.html" class="active">Achievements</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="news.html">News</a>
+<a href="sponsors.html">Sponsors</a>
+<a href="../index.html#contact">Contact Us</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -112,7 +115,7 @@
     <div class="breadcrumb"><a href="../index.html">Home</a> / <span>Achievements</span></div>
     <p class="section-label">Awards &amp; Honours</p>
     <h1>Competition Achievements</h1>
-    <p>32+ awards from national and international competitions since 2016 — including championships, runner-ups, and special recognition.</p>
+    <p>35+ awards from national and international competitions since 2016 — including championships, runner-ups, and special recognition.</p>
   </div>
 </div>
 
@@ -124,11 +127,19 @@
       <button class="filter-btn" data-filter="tubitak">TÜBİTAK UAV</button>
       <button class="filter-btn" data-filter="international">International</button>
       <button class="filter-btn" data-filter="odtu">ODTÜ Robot Days</button>
+      <button class="filter-btn" data-filter="other">Other</button>
     </div>
 
     <div class="awards-list" style="gap:12px;">
 
-      <!-- 2025 -->
+      <!-- 2026 -->
+      <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2026</h3>
+            <div class="award-item" data-cat="other">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>Reaching and Accessible Turkey 2053 R&D Idea Contest — Honorable Mention</strong><span>with the project "Autonomous AI-Based Watcher Cleaning and Protecting the Blue Homeland Waters" - Halil İbrahim Köse &amp; Harun Günay(RACLAB) · 2026</span></div>
+      </div>
+
+            <!-- 2025 -->
       <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2025</h3>
       <div class="award-item" data-cat="teknofest">
         <div class="award-medal gold">🏆</div>
@@ -136,7 +147,7 @@
       </div>
       <div class="award-item" data-cat="teknofest">
         <div class="award-medal silver">🥈</div>
-        <div class="award-body"><strong>TEKNOFEST'25 — Robotaxi Binek Runner-Up</strong><span>RACLAB SİGUN · 2nd Place + "Best Original Software" Award</span></div>
+        <div class="award-body"><strong>TEKNOFEST'25 — Robotaxi Passenger Vehicle Runner-Up</strong><span>RACLAB SİGUN · 2nd Place + "Best Original Software" Award</span></div>
       </div>
       <div class="award-item" data-cat="teknofest">
         <div class="award-medal silver">🥉</div>
@@ -151,7 +162,20 @@
         <div class="award-body"><strong>TEKNOFEST'25 — Unmanned Surface Vehicle 7th Place</strong><span>RACLAB EZEL</span></div>
       </div>
 
-      <!-- 2024 -->
+
+            <div class="award-item" data-cat="other">
+        <div class="award-medal silver">🎖️</div>
+        <div class="award-body"><strong>Reaching and Accessible Turkey 2053 R&D Idea Contest — Honorable Mention</strong><span>with the project "Air Rail Patrol" - Halil İbrahim Köse &amp; Eren Berk Saç (RACLAB) · 2025</span></div>
+      </div>
+            <div class="award-item" data-cat="other">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>TEKNO-SEL Technology and Robot Competition 2025 — Free Project Category Runner-Up</strong><span>Şahan Mirza Özdemir, Elif Su İbiş, Seher Tiryaki (RACLAB FAAL) · 2025</span></div>
+      </div>
+            <div class="award-item" data-cat="other">
+        <div class="award-medal silver">🥈</div>
+        <div class="award-body"><strong>Ideathon Konya "Smart Vertical Transportation Systems" — 2nd Place</strong><span>Seher Tiryaki, Ece Erkmen &amp; Hasan Hüseyin Tiryaki (RACLAB) · 2025</span></div>
+      </div>
+            <!-- 2024 -->
       <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2024</h3>
       <div class="award-item" data-cat="teknofest">
         <div class="award-medal silver">🥈</div>
@@ -200,7 +224,12 @@
         <div class="award-body"><strong>18. ODTÜ Robot Days — Innovation Category Honorable Mention</strong><span>RACLAB Aspar</span></div>
       </div>
 
-      <!-- 2021 -->
+
+            <div class="award-item" data-cat="teknofest">
+        <div class="award-medal silver">4️⃣</div>
+        <div class="award-body"><strong>TEKNOFEST'22 — Smart Transportation Competition 4th Place</strong><span>RACLAB T4</span></div>
+      </div>
+            <!-- 2021 -->
       <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2021</h3>
       <div class="award-item" data-cat="teknofest">
         <div class="award-medal silver">🥈</div>
@@ -211,7 +240,11 @@
         <div class="award-body"><strong>TEKNOFEST'21 — Robotaxi "Best Original Software" Award</strong><span>RACLAB SİGUN</span></div>
       </div>
 
-      <!-- 2020 -->
+            <div class="award-item" data-cat="tubitak">
+        <div class="award-medal gold">🏅</div>
+        <div class="award-body"><strong>TÜBİTAK 2242 — "Social Innovation" Category Encouragement Award</strong><span>with the project "AI-Supported Smart Cleaning Robot" - RACLAB · 2021</span></div>
+      </div>
+            <!-- 2020 -->
       <h3 style="font-family:var(--font-head);color:var(--blue);font-size:18px;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--border);">2020</h3>
       <div class="award-item" data-cat="odtu">
         <div class="award-medal gold">🏆</div>
