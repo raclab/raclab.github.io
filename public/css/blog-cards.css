@@ -74,7 +74,7 @@
 .blogDate {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: #e0e0e0;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -90,11 +90,12 @@
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--text-muted);
+    color: #ffffff;
     margin: 0;
     flex: 1;
     border-left: 2px solid var(--accent-soft);
     padding-left: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* Read More Button - İyileştirilmiş */

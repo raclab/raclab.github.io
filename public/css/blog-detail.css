@@ -24,16 +24,17 @@
 }
 
 .blog-detail .date {
-    color: #888;
+    color: #e0e0e0;
     margin-bottom: 30px;
     display: block;
 }
 
 .blog-detail p {
-    color: #ccc;
+    color: #ffffff;
     line-height: 1.8;
     margin-bottom: 20px;
-    font-size: 1.1em;
+    font-size: 1.15em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .back-btn {
