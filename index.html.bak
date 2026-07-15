@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description"
+      content="RACLAB Team — Innovating autonomous unmanned aerial vehicles for competitive missions, sensor fusion, and advanced embedded systems.">
+   <link rel="icon" type="image/png" sizes="512x512" href="https://www.rac-lab.com/public/img/background/raclab.png">
+   <!-- Open Graph / Google Search -->
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://www.rac-lab.com/">
+   <meta property="og:title" content="RACLAB Team">
+   <meta property="og:description"
+      content="RACLAB Team — Innovating autonomous unmanned aerial vehicles for competitive missions, sensor fusion, and advanced embedded systems.">
+   <meta property="og:image" content="https://www.rac-lab.com/public/img/background/raclab.png">
+   <meta property="og:image:width" content="512">
+   <meta property="og:image:height" content="512">
+   <meta property="og:site_name" content="RACLAB">
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary">
+   <meta name="twitter:title" content="RACLAB Team">
+   <meta name="twitter:description"
+      content="RACLAB Team — Innovating autonomous unmanned aerial vehicles for competitive missions, sensor fusion, and advanced embedded systems.">
+   <meta name="twitter:image" content="https://www.rac-lab.com/public/img/background/raclab.png">
+   <link rel="stylesheet" href="public/css/index.css">
+   <link rel="stylesheet" href="public/css/search.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <title>RACLAB Team</title>
+<link rel="canonical" href="https://www.rac-lab.com/">
+</head>
+
+<body>
+
+   <!-- TOPBAR -->
+   <div class="topbar">
+      <div class="wrapper target">
+         <div class="left">
+            <span>
+               <a href="index.html">
+                  <img src="public/img/user/raclab.png" alt="RACLAB">
+               </a>
+            </span>
+         </div>
+         <div class="center">
+            <a href="index.html" data-i18n="nav_home">HOME</a>
+            <a href="pages/vehicles.html" data-i18n="nav_vehicles">VEHICLES</a>
+            <a href="pages/team.html" data-i18n="nav_team">TEAM</a>
+            <a href="pages/blog.html" data-i18n="nav_blog">BLOG</a>
+            <a href="pages/sponsors.html" data-i18n="nav_sponsors">SPONSORS</a>
+            <a href="pages/contact.html" data-i18n="nav_contact">CONTACT</a>
+         </div>
+         <div class="right">
+            <div class="searchEngine" id="searchEngine">
+               <input type="text" placeholder="Search...">
+               <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+            </div>
+            <button class="lang-toggle-btn" aria-label="Toggle Language"
+               style="background:transparent; border:1px solid var(--accent); color:var(--text-main); padding:4px 10px; border-radius:6px; cursor:pointer; font-family:Orbitron,sans-serif; font-size:0.8rem; margin-left:15px; transition:0.3s;">TR</button>
+         </div>
+         <!-- Hamburger -->
+         <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+         </button>
+      </div>
+   </div>
+
+   <!-- Mobile Nav -->
+   <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html" data-i18n="nav_home">HOME</a>
+      <a href="pages/vehicles.html" data-i18n="nav_vehicles">VEHICLES</a>
+      <a href="pages/team.html" data-i18n="nav_team">TEAM</a>
+      <a href="pages/blog.html" data-i18n="nav_blog">BLOG</a>
+      <a href="pages/sponsors.html">SPONSORS</a>
+      <a href="pages/contact.html" data-i18n="nav_contact">CONTACT</a>
+   </nav>
+
+   <!-- HOME HEADER -->
+   <header class="header target">
+      <video autoplay muted loop class="background-video">
+         <source src="public/img/background/vehicles.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+      </video>
+      <h1 data-i18n="hero_title">R A C L A B</h1>
+      <h3 data-i18n="hero_subtitle">Innovating Autonomous Systems</h3>
+
+      <!-- ADD BUTTON -->
+      <a href="pages/contact.html" class="header-btn" data-i18n="hero_btn">Contact Us</a>
+   </header>
+
+   <!-- WHAT WE DO SECTION -->
+   <section class="what-we-do target">
+      <div class="wrapper">
+         <div class="wwd-header">
+            <img src="public/img/user/raclab.png" alt="RACLAB" class="wwd-logo">
+            <span class="wwd-label" data-i18n="whatwedo_label">RACLAB TEAM</span>
+            <h2 class="wwd-title" data-i18n="whatwedo_title">WHAT WE DO</h2>
+            <div class="wwd-line"></div>
+         </div>
+         <div class="gallery">
+            <!-- Card 1 -->
+            <div class="card" id="airframe-design">
+               <div class="card-icon"><i class="fa-solid fa-plane-up"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card1_title">Airframe Design</h3>
+                  <p data-i18n="wwd_card1_desc">We manufacture our airframes using advanced 3D printing technologies
+                     with high-quality thermoplastic filaments such as PLA and reinforced polymers. We optimize our
+                     structures for lightweight performance, structural strength, and aerodynamic efficiency to ensure
+                     reliable, mission-ready flight operations.</p>
+               </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" id="intelligent-sensing">
+               <div class="card-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card2_title">Intelligent Sensing</h3>
+                  <p data-i18n="wwd_card2_desc">We integrate onboard sensor fusion and real-time data processing to
+                     enable accurate target detection, environmental mapping, and enhanced situational awareness during
+                     mission operations.</p>
+               </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" id="autonomous-control">
+               <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card3_title">Autonomous Control</h3>
+                  <p data-i18n="wwd_card3_desc">We develop precision flight algorithms that integrate PID-based control
+                     systems for flight stabilization and SLAM-driven localization and mapping for accurate navigation.
+                     By combining real-time sensor feedback with advanced autonomy frameworks, we ensure stable flight
+                     performance, reliable obstacle avoidance, and adaptive decision-making throughout every autonomous
+                     mission.</p>
+               </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" id="payload-integration">
+               <div class="card-icon"><i class="fa-solid fa-box-open"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card4_title">Payload Integration</h3>
+                  <p data-i18n="wwd_card4_desc">We design, develop, and test custom payload systems tailored to meet
+                     mission-specific requirements. We ensure reliable, repeatable performance and seamless integration
+                     with our airframe and onboard systems to support efficient and mission-ready operations.</p>
+               </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card" id="ground-control">
+               <div class="card-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card5_title">Ground Control System</h3>
+                  <p data-i18n="wwd_card5_desc">We develop a C++-based ground control application designed for reliable
+                     mission planning, real-time telemetry monitoring, and secure command transmission. Our system
+                     provides a robust and responsive interface for flight control, data visualization, and operational
+                     management, ensuring stable communication and efficient mission execution.</p>
+               </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card" id="research-development">
+               <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+               <div class="card-divider"></div>
+               <div class="content">
+                  <h3 data-i18n="wwd_card6_title">Research & Development</h3>
+                  <p data-i18n="wwd_card6_desc">Pushing the boundaries of UAV technology through continuous research,
+                     iterative prototyping, and real-world testing.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="our-mission-section target" id="mission">
+      <div class="mission-container">
+         <div class="mission-header">
+            <h2 data-i18n="mission_title">OUR MISSION</h2>
+            <p data-i18n="mission_subtitle">RACLAB empowers undergraduate engineers to transform technical knowledge
+               into real-world autonomous systems through national and international competitions.</p>
+         </div>
+
+         <div class="mission-grid">
+            <!-- UAV Card -->
+            <div class="mission-card uav-card">
+               <div class="mission-bg-particles"></div>
+               <div class="mission-content">
+                  <div class="mission-icon">
+                     <i class="fa-solid fa-plane-up"></i>
+                  </div>
+                  <h3 data-i18n="mission_uav_title">RACLAB UAV</h3>
+                  <p class="mission-desc" data-i18n="mission_uav_desc">Focused on aerial autonomy, intelligent
+                     navigation, mission planning, and advanced drone systems.</p>
+
+                  <div class="mission-comp">
+                     <span class="comp-label" data-i18n="mission_comp_label">COMPETITION</span>
+                     <span class="comp-name">SUAS 2026</span>
+                     <a href="https://suas-competition.org/" target="_blank" rel="noopener noreferrer"
+                        class="comp-logo-link">
+                        <img src="public/img/user/suas_logo.jpg" alt="SUAS Logo">
+                     </a>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Underwater Card -->
+            <div class="mission-card underwater-card">
+               <div class="mission-water-effect"></div>
+               <div class="mission-content">
+                  <div class="mission-icon">
+                     <i class="fa-solid fa-water"></i>
+                  </div>
+                  <h3 data-i18n="mission_underwater_title">RACLAB Underwater</h3>
+                  <p class="mission-desc" data-i18n="mission_underwater_desc">Focused on underwater robotics, perception
+                     systems, autonomous control, and marine technologies.</p>
+
+                  <div class="mission-comp">
+                     <span class="comp-label" data-i18n="mission_comp_label">COMPETITION</span>
+                     <span class="comp-name">RoboSub 2026</span>
+                     <a href="https://robosub.org/" target="_blank" rel="noopener noreferrer" class="comp-logo-link">
+                        <img src="public/img/user/robosub.png" alt="RoboSub Logo">
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="mission-footer">
+            <span data-i18n="mission_footer">Two Domains. One Vision.</span>
+         </div>
+      </div>
+   </section>
+
+
+
+   </div>
+
+   <!-- FOOTER -->
+   <footer>
+      <div class="footer-inner">
+         <div class="footer-brand">
+            <img src="public/img/user/raclab.png" alt="RACLAB">
+            <p data-i18n="footer_desc">Building the next generation of autonomous systems through engineering
+               excellence and innovation.</p>
+            <div class="footer-social">
+               <a href="https://www.instagram.com/rac_lab/" target="_blank" rel="noopener noreferrer"
+                  aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+               <a href="https://www.linkedin.com/company/raclab" target="_blank" rel="noopener noreferrer"
+                  aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+               <a href="https://www.youtube.com/@RacLab" target="_blank" rel="noopener noreferrer"
+                  aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+
+            </div>
+         </div>
+
+         <div class="footer-col">
+            <h4 data-i18n="footer_nav">Navigate</h4>
+            <ul>
+               <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+               <li><a href="pages/vehicles.html" data-i18n="nav_vehicles">Vehicles</a></li>
+               <li><a href="pages/team.html" data-i18n="nav_team">Team</a></li>
+               <li>
+                  <a href="pages/sponsors.html">SPONSORS</a>
+               </li>
+               <li><a href="pages/sponsors.html">Sponsors</a></li>
+               <li><a href="pages/contact.html" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+         </div>
+
+         <div class="footer-col">
+            <h4 data-i18n="footer_comp">Competitions</h4>
+            <ul>
+               <li><a href="pages/blog-detail.html?id=Teknofest2025">TEKNOFEST 2025</a></li>
+               <li><a href="pages/blog-detail.html?id=Teknofest2024">TEKNOFEST 2024</a></li>
+            </ul>
+         </div>
+      </div>
+
+      <div class="footer-bottom">
+         <span data-i18n="footer_copy">© 2026 RACLAB Team. All rights reserved.</span>
+         <span data-i18n="footer_passion">Built with passion for autonomous flight.</span>
+      </div>
+   </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+   <script src="public/js/blog-data.js"></script>
+   <script src="public/js/search.js"></script>
+   <script src="public/js/scroll.js"></script>
+   <script src="public/js/hamburger.js"></script>
+   <script src="public/js/i18n.js"></script>
+</body>
+
+</html>
