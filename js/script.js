@@ -177,3 +177,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
   });
 });
+
+/* ── Hero Video Background ───────────────────────────────────── */
+(function initHeroVideo() {
+  const vid = document.getElementById('hero-video');
+  if (!vid) return;
+
+  /* Ensure muted autoplay works across browsers */
+  vid.muted = true;
+  vid.playsInline = true;
+
+  /* Try to play; on failure (autoplay policy / CORS) keep poster */
+  const playPromise = vid.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      /* Video blocked — poster image already showing via HTML poster attr */
+      vid.style.display = 'none';
+    });
+  }
+
+  /* On load error, hide video so poster background shows */
+  vid.addEventListener('error', () => {
+    vid.style.display = 'none';
+  });
+})();
