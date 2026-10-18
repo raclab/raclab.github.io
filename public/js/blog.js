@@ -1,26 +1,68 @@
 // Version: 2026-05-03_1410
 const blogs = [
-    {
-        img: "../public/img/blog/Teknofest2025.jpeg",
-        title: { en: "2025 TEKNOFEST International UAV Finalist", tr: "2025 TEKNOFEST Uluslararası İHA Finalisti" },
-        date: { en: "Oct 17, 2025", tr: "17 Eki, 2025" },
-        text: {
-            en: "Our team successfully completed an autonomous infinity-pattern flight and precision payload drops onto triangular and hexagonal targets during the international TEKNOFEST competition.",
-            tr: "Takımımız uluslararası TEKNOFEST yarışmasında otonom sonsuzluk rotası uçuşunu ve üçgen/altıgen hedeflere yük bırakmasını başarıyla tamamladı."
-        },
-        link: "blog-detail.html?id=Teknofest2025",
-        category: { en: "UAV & Autonomous Systems", tr: "İHA ve Otonom Sistemler" }
+{
+        img: "../public/img/blog/insta_DduQfsciNoG.png",
+        title: { en: "🏆 TEKNOFEST UGV Rover — 1st Place Autonomous Track, 4th Overall!", tr: "🏆 TEKNOFEST UGV Rover — Otonom Parkur 1.si, Genel 4.sü!" },
+        date: { en: "Sep 25, 2026", tr: "25 Eyl, 2026" },
+        text: { en: "Kapsül RACLAB ROVER team achieved the highest score in history on the Autonomous Track at the TEKNOFEST Unmanned Ground Vehicle Competition, securing 1st Place and the Best Design Award.", tr: "Kapsül RACLAB ROVER takımı, TEKNOFEST İnsansız Kara Aracı Yarışması'nda Otonom Parkur'da yarışma tarihinin en yüksek puanını elde ederek 1. oldu ve En İyi Tasarım Ödülü'nü kazandı." },
+        link: "#news",
+        category: { en: "Competition", tr: "Yarışma" }
     },
     {
-        img: "../public/img/blog/Teknofest2024.jpeg",
-        title: { en: "2024 TEKNOFEST International UAV Finalist", tr: "2024 TEKNOFEST Uluslararası İHA Finalisti" },
-        date: { en: "Oct 15, 2024", tr: "15 Eki, 2024" },
-        text: {
-            en: "Our finalist journey at TEKNOFEST 2024 featuring a coordinated fixed-wing and rotary-wing UAV mission with autonomous anomaly detection and neutralization.",
-            tr: "TEKNOFEST 2024'te sabit ve döner kanatlı İHA asenkron görevi ile otonom anomali tespiti ve hedef imha operasyonu finalist deneyimimiz."
-        },
-        link: "blog-detail.html?id=Teknofest2024",
-        category: { en: "UAV & Autonomous Systems", tr: "İHA ve Otonom Sistemler" }
+        img: "../public/img/blog/insta_DdsD4CQinGw.png",
+        title: { en: "🌍 9th Place in the World at SUAS 2026! (RACLAB UAV)", tr: "🌍 SUAS 2026'da DÜNYA 9.'SUYUZ! (RACLAB İHA)" },
+        date: { en: "Sep 24, 2026", tr: "24 Eyl, 2026" },
+        text: { en: "Kapsül RACLAB UAV Team successfully completed all challenging missions with our autonomous UAV 'ŞAHİ' at the prestigious SUAS 2026 competition held in the USA, ranking 9th worldwide.", tr: "Kapsül RACLAB İHA Takımı, Amerika'da düzenlenen prestijli SUAS 2026 yarışmasında otonom İHA'mız 'ŞAHİ' ile tüm zorlu görevleri başarıyla tamamlayarak Dünya 9.'su oldu." },
+        link: "#news",
+        category: { en: "Competition", tr: "Yarışma" }
+    },
+    {
+        img: "../public/img/blog/insta_DdWt-mADDKT.png",
+        title: { en: "🌊 TEKNOFEST Blue Homeland — Most Original Design (NOVA)", tr: "🌊 TEKNOFEST Mavi Vatan — En Özgün Tasarım Ödülü (NOVA)" },
+        date: { en: "Sep 16, 2026", tr: "16 Eyl, 2026" },
+        text: { en: "Kapsül RACLAB NOVA was awarded the Most Original Design Award at the TEKNOFEST Unmanned Underwater Systems (Blue Homeland) Competition organized by ASELSAN.", tr: "Kapsül RACLAB NOVA, ASELSAN yürütücülüğünde düzenlenen TEKNOFEST İnsansız Su Altı Sistemleri (Mavi Vatan) Yarışması'nda En Özgün Tasarım Ödülü'ne layık görüldü." },
+        link: "#news",
+        category: { en: "Competition", tr: "Yarışma" }
+    },
+        {
+        img: "../public/img/blog/robosub_2026.jpg",
+        title: { en: "🌊 RoboSub 2026 — RACLAB NOVA in California!", tr: "🌊 RoboSub 2026 — RACLAB NOVA Kaliforniya'da!" },
+        date: { en: "Jul 11, 2026", tr: "11 Tem, 2026" },
+        text: { en: "RACLAB NOVA competed in the 29th International RoboSub AUV Competition in Irvine, California — reaching the semifinals among 58 finalist teams from 9 countries!", tr: "RACLAB NOVA, 29. Uluslararası RoboSub Su Altı Araç Yarışması'nda Irvine, Kaliforniya'da 9 ülkeden 58 finalist takım arasından yarı finale yükseldi!" },
+        link: "robosub_2026.html",
+        category: { en: "AUV Competition", tr: "Su Altı Araç Yarışması" }
+    },
+    {
+        img: "../public/img/blog/ideathon_2026.jpg",
+        title: { en: "🥈 Ideathon Konya 2026 — 2nd Place!", tr: "🥈 Ideathon Konya 2026 — İkincilik!" },
+        date: { en: "Apr 26, 2026", tr: "26 Nis, 2026" },
+        text: { en: "RACLAB members Seher Tiryaki, Ece Erkmen and Hasan Hüseyin Tiryaki won 2nd place at Ideathon Konya, organized by Emlak Konut GYO on 'Smart Vertical Transportation & Integrated Construction Robotics'.", tr: "RACLAB ekibinden Seher Tiryaki, Ece Erkmen ve Hasan Hüseyin Tiryaki, Emlak Konut GYO tarafından düzenlenen Ideathon Konya'da 'Akıllı Dikey Ulaşım Sistemleri' temasıyla ikincilik ödülünü kazandı!" },
+        link: "ideathon_konya_2026.html",
+        category: { en: "Award & Competition", tr: "Ödül ve Yarışma" }
+    },
+    {
+        img: "../public/img/blog/FOTO3.jpeg",
+        title: { en: "Pool Cleaning Robot Field Tests", tr: "Havuz Temizleme Robotu Saha Testleri" },
+        date: { en: "Mar 05, 2026", tr: "05 Mar, 2026" },
+        text: { en: "The first field tests of our pool cleaning robot were successfully carried out! 🤩🌊", tr: "Havuz temizleme robotumuzun ilk saha testleri başarıyla gerçekleştirildi! 🤩🌊" },
+        link: "havuz_robotu.html",
+        category: { en: "Underwater Robotics", tr: "Su Altı Robotiği" }
+    },
+    {
+        img: "../public/img/blog/FOTO2.jpeg",
+        title: { en: "Raclab 8th Winter Camp", tr: "Raclab 8. Kış Kampı" },
+        date: { en: "Feb 15, 2026", tr: "15 Şub, 2026" },
+        text: { en: "We successfully completed the 8th Raclab Winter Camp, which was very productive and beneficial.", tr: "Bizim için oldukça dolu ve faydalı geçen Raclab 8.Kış Kampı'nı başarıyla tamamladık." },
+        link: "kis_kampi.html",
+        category: { en: "Camp", tr: "Kamp" }
+    },
+    {
+        img: "../public/img/blog/FOTO1.jpeg",
+        title: { en: "Kapsül Award Ceremony", tr: "Kapsül Ödül Töreni" },
+        date: { en: "Jan 10, 2026", tr: "10 Oca, 2026" },
+        text: { en: "Our TEKNOFEST 2025 achievements were honored at the Kapsül Technology Platform event.", tr: "Kapsül Teknoloji Platformu'nun düzenlediği etkinlikte, TEKNOFEST 2025 başarılarımız onurlandırıldı." },
+        link: "kapsul_odul.html",
+        category: { en: "Ceremony", tr: "Tören" }
     },
     {
         img: "../public/img/blog/tulpars2025.png",
@@ -30,39 +72,26 @@ const blogs = [
             en: "How autonomous navigation and sensor fusion principles from industrial robotics shape modern UAV operations.",
             tr: "Endüstriyel robotikteki otonom navigasyon ve sensör füzyonu ilkelerinin modern İHA operasyonlarını nasıl şekillendirdiği."
         },
-        link: "blog-detail.html?id=tulpars",
+        link: "tulpars.html",
         category: { en: "UAV & Automation Systems", tr: "İHA ve Otomasyon Sistemleri" }
     },
     {
-        img: "../public/img/blog/FOTO1.jpeg",
-        title: { en: "Kapsül Award Ceremony", tr: "Kapsül Ödül Töreni" },
-        date: { en: "Jan 10, 2026", tr: "10 Oca, 2026" },
-        text: { en: "Our TEKNOFEST 2025 achievements were honored at the Kapsül Technology Platform event.", tr: "Kapsül Teknoloji Platformu'nun düzenlediği etkinlikte, TEKNOFEST 2025 başarılarımız onurlandırıldı." },
-        link: "blog-detail.html?id=kapsul_odul",
-        category: { en: "Ceremony", tr: "Tören" }
+        img: "../public/img/blog/Teknofest2025.jpeg",
+        title: { en: "2025 TEKNOFEST International UAV Finalist", tr: "2025 TEKNOFEST Uluslararası İHA Finalisti" },
+        date: { en: "Oct 17, 2025", tr: "17 Eki, 2025" },
+        text: {
+            en: "Our team successfully completed an autonomous infinity-pattern flight and precision payload drops onto triangular and hexagonal targets during the international TEKNOFEST competition.",
+            tr: "Takımımız uluslararası TEKNOFEST yarışmasında otonom sonsuzluk rotası uçuşunu ve üçgen/altıgen hedeflere yük bırakmasını başarıyla tamamladı."
+        },
+        link: "Teknofest2025.html",
+        category: { en: "UAV & Autonomous Systems", tr: "İHA ve Otonom Sistemler" }
     },
     {
-        img: "../public/img/blog/FOTO2.jpeg",
-        title: { en: "Raclab 8th Winter Camp", tr: "Raclab 8. Kış Kampı" },
-        date: { en: "Feb 15, 2026", tr: "15 Şub, 2026" },
-        text: { en: "We successfully completed the 8th Raclab Winter Camp, which was very productive and beneficial.", tr: "Bizim için oldukça dolu ve faydalı geçen Raclab 8.Kış Kampı'nı başarıyla tamamladık." },
-        link: "blog-detail.html?id=kis_kampi",
-        category: { en: "Camp", tr: "Kamp" }
-    },
-    {
-        img: "../public/img/blog/FOTO3.jpeg",
-        title: { en: "Pool Cleaning Robot Field Tests", tr: "Havuz Temizleme Robotu Saha Testleri" },
-        date: { en: "Mar 05, 2026", tr: "05 Mar, 2026" },
-        text: { en: "The first field tests of our pool cleaning robot were successfully carried out! 🤩🌊", tr: "Havuz temizleme robotumuzun ilk saha testleri başarıyla gerçekleştirildi! 🤩🌊" },
-        link: "blog-detail.html?id=havuz_robotu",
-        category: { en: "Underwater Robotics", tr: "Su Altı Robotiği" }
-    },
-    {
-        img: "../public/img/blog/FOTO4.jpeg",
+        img: "../public/img/blog/ideathon_2026.jpg",
         title: { en: "RACLAB NOVA: Turkey Champions!", tr: "RACLAB NOVA: Türkiye Şampiyonu!" },
         date: { en: "July 22, 2025", tr: "22 Temmuz, 2025" },
         text: { en: "RACLAB NOVA is at the top of the TEKNOFEST 2025 Unmanned Underwater Systems Competition!", tr: "RACLAB NOVA, TEKNOFEST 2025 İnsansız Su Altı Sistemleri Yarışması'nda zirvede!" },
-        link: "blog-detail.html?id=nova_sampiyon",
+        link: "nova_sampiyon.html",
         category: { en: "Underwater Robotics", tr: "Su Altı Robotiği" }
     },
     {
@@ -70,17 +99,20 @@ const blogs = [
         title: { en: "Best Team Spirit Award", tr: "En İyi Takım Ruhu Ödülü" },
         date: { en: "July 22, 2025", tr: "22 Temmuz, 2025" },
         text: { en: "Our RACLAB NOVA team won the 'Best Team Spirit' award at TEKNOFEST 2025 Mavi Vatan Istanbul!", tr: "RACLAB NOVA takımımız, Teknofest Mavi Vatan İstanbul'da 'En İyi Takım Ruhu' ödülünü kazandı!" },
-        link: "blog-detail.html?id=nova_takim_ruhu",
+        link: "nova_takim_ruhu.html",
         category: { en: "Underwater Robotics", tr: "Su Altı Robotiği" }
     },
     {
-        img: "../public/img/blog/FOTO6.jpg",
-        title: { en: "Nova Team Test Day", tr: "Nova Takımı Test Günü" },
-        date: { en: "May 01, 2026", tr: "01 May, 2026" },
-        text: { en: "Another exciting test day with the Nova team in a real marine environment!", tr: "Nova takımı ile heyecan dolu bir test günü daha, gerçek deniz ortamında test ettik!" },
-        link: "blog-detail.html?id=nova_test_gunu",
-        category: { en: "Underwater Robotics", tr: "Su Altı Robotiği" }
-    },
+        img: "../public/img/blog/Teknofest2024.jpeg",
+        title: { en: "2024 TEKNOFEST International UAV Finalist", tr: "2024 TEKNOFEST Uluslararası İHA Finalisti" },
+        date: { en: "Oct 15, 2024", tr: "15 Eki, 2024" },
+        text: {
+            en: "Our finalist journey at TEKNOFEST 2024 featuring a coordinated fixed-wing and rotary-wing UAV mission with autonomous anomaly detection and neutralization.",
+            tr: "TEKNOFEST 2024'te sabit ve döner kanatlı İHA asenkron görevi ile otonom anomali tespiti ve hedef imha operasyonu finalist deneyimimiz."
+        },
+        link: "Teknofest2024.html",
+        category: { en: "UAV & Autonomous Systems", tr: "İHA ve Otonom Sistemler" }
+    }
 ];
 
 const display = document.getElementById("blogCardDisplay");
@@ -241,6 +273,16 @@ function renderBlogCards() {
                 <a class="readMore" href="${blog.link}">${readMoreText} <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         `;
+
+        const readMoreBtn = div.querySelector('.readMore');
+        if (readMoreBtn) {
+            readMoreBtn.addEventListener('click', (e) => {
+                if (typeof openNewsModal === 'function') {
+                    e.preventDefault();
+                    openNewsModal(blog.title[lang], blog.date[lang], blog.text[lang], blog.img);
+                }
+            });
+        }
 
         div.addEventListener('click', (e) => {
             if (e.target.closest('.readMore')) return;

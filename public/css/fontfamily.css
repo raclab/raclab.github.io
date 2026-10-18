@@ -1,0 +1,73 @@
+/* ==========================
+   DARK TECH FONT SYSTEM
+========================== */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+/* ==========================
+   GLOBAL FONT RULES
+========================== */
+
+/* BODY TEXT */
+body {
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-main);
+}
+
+/* LOGO / BRAND */
+.logo,
+.raclab-logo,
+.site-logo {
+  font-family: 'Saira Stencil One', cursive;
+  letter-spacing: 4px;
+}
+
+/* NAVIGATION */
+.topbar a,
+nav a {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+
+/* BUTTONS */
+button,
+.header-btn,
+.btn {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* CARD TITLES */
+.post h1,
+.post h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+}
+
+/* SMALL TEXT */
+p,
+span,
+li {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* FOOTER */
+footer {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}

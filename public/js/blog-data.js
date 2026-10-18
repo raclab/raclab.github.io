@@ -216,6 +216,54 @@ const blogData = {
                 "Bizi bu yolculukta destekleyen herkese teşekkürler! @rac_lab @kapsulteknoloji"
             ]
         }
+    },
+    "ideathon_konya_2026": {
+        title: { en: "🥈 Ideathon Konya 2026 — 2nd Place!", tr: "🥈 Ideathon Konya 2026 — İkincilik!" },
+        date: { en: "Apr 26, 2026", tr: "26 Nis, 2026" },
+        image: "../public/img/blog/nova_sampiyon_wide.jpg",
+        summary: {
+            en: "RACLAB members Seher Tiryaki, Ece Erkmen and Hasan Hüseyin Tiryaki won 2nd place at Ideathon Konya organized by Emlak Konut GYO on 'Smart Vertical Transportation & Integrated Construction Robotics'.",
+            tr: "RACLAB ekibinden Seher Tiryaki, Ece Erkmen ve Hasan Hüseyin Tiryaki, Emlak Konut GYO tarafından düzenlenen Ideathon Konya'da ikincilik ödülünü kazandı."
+        },
+        content: {
+            en: [
+                "🥈 At the Ideathon Konya organized by Emlak Konut GYO on the theme of 'Smart Vertical Transportation Systems & Integrated Construction and Site Robotics', RACLAB members Seher Tiryaki, Ece Erkmen and Hasan Hüseyin Tiryaki won 2nd place with their project!",
+                "📍 The organization was held at Kapsül Technology Platform. We thank everyone who contributed.",
+                "Let's keep designing the future! 💡 #IdeathonKonya #RACLAB #Innovation"
+            ],
+            tr: [
+                "🥈 Emlak Konut GYO tarafından 'Akıllı Dikey Ulaşım Sistemleri & Entegre Yapı ve Şantiye Robotikleri' temasıyla düzenlenen Ideathon Konya'da, RACLAB ekibinden Seher Tiryaki, Ece Erkmen ve Hasan Hüseyin Tiryaki geliştirdikleri projeyle ikincilik ödülünü kazandı!",
+                "📍 Kapsül Teknoloji Platformu'nda gerçekleşen organizasyonda emeği geçen herkese teşekkürler.",
+                "Geleceği tasarlamaya devam! 💡 #IdeathonKonya #RACLAB #İnovasyon"
+            ]
+        }
+    },
+    "robosub_2026": {
+        title: { en: "RoboSub 2026 — RACLAB NOVA Competes Internationally!", tr: "RoboSub 2026 — RACLAB NOVA Uluslararası Arenada!" },
+        date: { en: "Aug 15, 2026", tr: "15 Ağu, 2026" },
+        image: "../public/img/blog/nova1.png",
+        summary: {
+            en: "RACLAB NOVA participated in the 29th RoboSub International Autonomous Underwater Systems Competition in Irvine, California — reaching the semifinals among 58 finalist teams from 9 countries!",
+            tr: "RACLAB NOVA, 29. RoboSub Su Altı Sistemleri Yarışması'na Irvine, Kaliforniya'da katıldı — 9 ülkeden 58 finalist takım arasından yarı finale yükseldi!"
+        },
+        content: {
+            en: [
+                "Between July 11–16, 2026, at the Woollett Aquatics Center in Irvine, California, we participated as RACLAB NOVA in the 29th RoboSub Autonomous Underwater Systems Competition with teams from 9 countries (Bangladesh, Brazil, Canada, India, Mexico, Poland, Singapore, Turkey and USA)!",
+                "Among the 58 finalist teams in the competition, our team was one of the 40 teams that could demonstrate performance in the semifinals — competing with limited resources against top-100 universities worldwide.",
+                "We sincerely congratulate our team captain Beyza Nur YAĞCI and valued members Hatice Kübra İLHAN, Abdurrahman İnce, Mevlüt Burak Dağlı, Ahmet Selim İlhan, Aybüke Deveci, Abdulsamet Han, Halise Emine Anat and Mustafa Bedir Sarıtosun.",
+                "We are deeply grateful to our advisor Prof. Dr. Akif DURDU who was always with us with his knowledge, experience and vision throughout this challenging process.",
+                "We also extend our endless thanks to Konya Technical University Rector Prof. Dr. Osman Nuri ÇELİK, TÜBİTAK, Türkiye Teknoloji Takımı Vakfı, InnoPark Konya, Kapsül Technology Platform, Atlaspool, and all our valuable sponsors.",
+                "We will continue to work non-stop to produce stronger projects and reach new achievements with the invaluable experiences we have gained! 🇹🇷 #RoboSub2026 #RACLABNOVA"
+            ],
+            tr: [
+                "11-16 Temmuz 2026 tarihleri arasında Kaliforniya, Irvine'daki Woollett Aquatics Center'da 9 ülkeden (Bangladeş, Brezilya, Kanada, Hindistan, Meksika, Polonya, Singapur, Türkiye ve ABD) katılımcılarla düzenlenen 29. RoboSub Su Altı Sistemleri Yarışması'na RACLAB NOVA ekibi olarak katıldık!",
+                "Yarışmada finalist olan 58 takım arasında yer alan ve yarı finalde performans sergileyebilen 40 takım arasına giren takımımız; kısıtlı imkanlar ile dünyanın ilk 100'e giren sayılı üniversiteleri ile yarışma cesareti gösterdi.",
+                "Kaptan Beyza Nur YAĞCI ve değerli üyelerimiz Hatice Kübra İLHAN, Abdurrahman İnce, Mevlüt Burak Dağlı, Ahmet Selim İlhan, Aybüke Deveci, Abdulsamet Han, Halise Emine Anat ile Mustafa Bedir Sarıtosun'u gönülden tebrik ediyoruz.",
+                "Bu zorlu süreçte bilgi, tecrübe ve vizyonuyla daima yanımızda olan değerli danışman hocamız Prof. Dr. Akif DURDU'ya yürekten teşekkürlerimizi sunarız.",
+                "Ayrıca başta Konya Teknik Üniversitesi Rektörü Prof.Dr. Osman Nuri ÇELİK olmak üzere TÜBİTAK, Türkiye Teknoloji Takımı Vakfı, InnoPark Konya, Kapsül Teknoloji Platformu, Atlaspool ve tüm kıymetli sponsorlarımıza sonsuz teşekkür ederiz.",
+                "Edindiğimiz bu eşsiz tecrübelerle daha güçlü projeler üretmeye ve yeni başarılara ulaşmak için durmadan çalışmaya devam edeceğiz! 🇹🇷 #RoboSub2026 #RACLABNOVA"
+            ]
+        }
     }
 };
 

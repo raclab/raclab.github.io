@@ -31,7 +31,7 @@ function renderBlogDetail() {
         });
 
         contentHTML += `
-                <a href="blog.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> ${btnText}</a>
+                <a href="news.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> ${btnText}</a>
             </div>
         `;
 
@@ -46,7 +46,7 @@ function renderBlogDetail() {
             <div class="error-message">
                 <h1>404</h1>
                 <p>${errorTitle}</p>
-                <a href="blog.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> ${errorBtn}</a>
+                <a href="news.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> ${errorBtn}</a>
             </div>
         `;
     }
